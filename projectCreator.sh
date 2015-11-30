@@ -28,6 +28,19 @@ check_params () {
 	fi
 }
 
+clean_all () {
+	rm -rf $projectFolder
+}
+
+clean () {
+	if [ -z $1 ]
+	then
+		echo >&2 "Need a platform to clean"
+	else
+		rm -rf $projectFolder/$1
+	fi
+}
+
 create_project () {
 	platform=$1
 	# First create folder for all builds
@@ -42,10 +55,10 @@ check_params $@
 retval=$?
 if [ $retval == 1 ]
 then
-	echo "cleanAll"
+	clean_all
 elif [ $retval == 2 ]
 then
-	echo "clean"
+	clean $2
 elif [ $retval == 3 ]
 then
 	create_project $@
