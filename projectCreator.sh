@@ -37,16 +37,16 @@ clean () {
 	then
 		echo >&2 "Need a platform to clean"
 	else
-		rm -rf $projectFolder/$1
+		rm -rf "$projectFolder/$1"
 	fi
 }
 
 create_project () {
 	platform=$@
 	# First create folder for all builds
-	mkdir -p $projectFolder/$platform
+	mkdir -p "$projectFolder/$platform"
 	# change directory
-	cd $projectFolder/$platform
+	cd "$projectFolder/$platform"
 	# execute cmake command
 	cmake ../../. -G"$platform"
 }
