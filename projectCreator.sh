@@ -42,7 +42,7 @@ clean () {
 }
 
 create_project () {
-	platform=$1
+	platform=$@
 	# First create folder for all builds
 	mkdir -p $projectFolder/$platform
 	# change directory
