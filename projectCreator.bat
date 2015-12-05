@@ -2,12 +2,14 @@
 
 SET cleanParameter=clean
 SET cleanAllParamter=cleanAll
+SET mypath=%~dp0
+set platformsFolder=projects
 
 SET firstParameter=%1
 if %firstParameter% EQU %cleanAllParamter% (
-	echo "cleanAll not implemented"
+	goto:cleanAll
 ) else if %firstParameter% EQU %cleanParameter% (
-	echo "clean not implemented"
+	goto:clean
 ) else (
 	goto:createProject
 )
@@ -20,8 +22,7 @@ goto:eof
 ::--------------------------------------------------------
 
 :createProject
-SET mypath=%~dp0
-set platformsFolder=platforms
+
 set platformName=%*
 
 set folder=%mypath%\%platformsFolder%\%platformName%
@@ -34,4 +35,16 @@ rem call cmake
 cmake.exe %mypath% -G%platformName%
 
 cd %mypath%
+goto:eof
+
+:cleanAll
+RMDIR /S /Q "%mypath%\%platformsFolder%"
+goto:eof
+
+:clean
+set platformName=%2
+set folder=%mypath%\%platformsFolder%\%platformName%
+if not exist %folder% (goto:eof)
+
+RMDIR /S /Q %folder%
 goto:eof
