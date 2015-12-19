@@ -1,5 +1,6 @@
 #include "FilePath.h"
 
+using namespace filesystem;
 
 FilePath::FilePath(FolderPath folderPath) : _folderPath(folderPath)
 {

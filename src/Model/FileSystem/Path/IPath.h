@@ -6,10 +6,12 @@
 // Executable : File + isExecutable
 
 // create interface Path -> FolderPath, FilePath
-class IPath
-{
-public:
+namespace filesystem {
 
-	virtual std::string value() = 0;
-};
+	class IPath
+	{
+	public:
 
+		virtual std::string value() = 0;
+	};
+}
