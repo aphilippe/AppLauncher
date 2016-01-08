@@ -23,7 +23,13 @@ file(GLOB_RECURSE MODEL_PATH src/Model/FileSystem/Path/*)
 SET(MODEL_PATH_GROUP ${MODEL_PATH})
 SOURCE_GROUP("Model\\FileSystem\\Path" FILES ${MODEL_PATH_GROUP})
 
-#BUSINESS
-file(GLOB_RECURSE BUSINESS src/Business/*)
-SET(BUSINESS_GROUP ${BUSINESS})
-SOURCE_GROUP("Business" FILES ${BUSINESS_GROUP})
+#BUSINESS_EXECUTABLE_LAUNCHER
+SOURCE_GROUP("Business\\ExecutableLaunchers" FILES 	src/Business/ExecutableLaunchers/ExecutableLauncher.h
+													src/Business/ExecutableLaunchers/ExecutableLauncher.cpp)
+
+#BUSINESS_EXECUTABLE_LAUNCHER_SPEC
+SOURCE_GROUP("Business\\ExecutableLaunchers\\Spec" FILES src/Business/ExecutableLaunchers/IExecutableLauncherSpec.h)
+
+#BUSINESS_EXECUTABLE_LAUNCHER_FACTORY
+SOURCE_GROUP("Business\\ExecutableLaunchers\\Factory" FILES src/Business/ExecutableLaunchers/ExecutableLauncherFactory.h
+															src/Business/ExecutableLaunchers/ExecutableLauncherFactory.cpp)
