@@ -14,9 +14,11 @@ file(GLOB_RECURSE source_files_common src/Common/*.cpp src/Common/*.h)
 
 file(GLOB_RECURSE source_files_win src/Win/*.cpp src/Win/*h)
 add_executable(Applauncher_Win ${source_files_common} ${source_file_win})
+target_compile_definitions(Applauncher_Win PRIVATE WINDOWS)
 
 file(GLOB_RECURSE source_files_unix src/Unix/*.cpp src/Unix/*h)
-add_executable(Applauncher_Unix ${source_files_common} ${source_files_unix}) 
+add_executable(Applauncher_Unix ${source_files_common} ${source_files_unix})
+target_compile_definitions(Applauncher_Unix PRIVATE UNIX)
 
 # Group creation
 
