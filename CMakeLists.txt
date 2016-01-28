@@ -8,7 +8,6 @@ set(EXECUTABLE_OUTPUT_PATH bin/)
 include_directories(src/Common)
 include_directories(src/Win)
 include_directories(src/Unix)
-include_directories(src/Common/Model)
 
 file(GLOB_RECURSE source_files_common src/Common/*.cpp src/Common/*.h)
 
@@ -20,27 +19,15 @@ file(GLOB_RECURSE source_files_unix src/Unix/*.cpp src/Unix/*h)
 add_executable(Applauncher_Unix ${source_files_common} ${source_files_unix})
 target_compile_definitions(Applauncher_Unix PRIVATE UNIX)
 
+
 # Group creation
 
-# MODEL_FILE
-file(GLOB_RECURSE MODEL_FILE src/Common/Model/FileSystem/File/*)
-SET(MODEL_FILE_GROUP ${MODEL_FILE})
-SOURCE_GROUP("Model\\FileSystem\\File" FILES ${MODEL_FILE_GROUP})
+####################
+#      DOMAIN      #
+####################
 
-# MODEL_PATH
-file(GLOB_RECURSE MODEL_PATH src/Common/Model/FileSystem/Path/*)
-SET(MODEL_PATH_GROUP ${MODEL_PATH})
-SOURCE_GROUP("Model\\FileSystem\\Path" FILES ${MODEL_PATH_GROUP})
-
-#BUSINESS_EXECUTABLE_LAUNCHER
-SOURCE_GROUP("Business\\ExecutableLaunchers" FILES 	src/Common/Business/ExecutableLaunchers/ExecutableLauncher.h
-													src/Common/Business/ExecutableLaunchers/ExecutableLauncher.cpp)
-
-#BUSINESS_EXECUTABLE_LAUNCHER_SPEC
-SOURCE_GROUP("Business\\ExecutableLaunchers\\Spec" FILES src/Common/Business/ExecutableLaunchers/IExecutableLauncherSpec.h
-														 src/Unix/Business/ExecutableLaunchers/ExecutableLauncherUnix.h
-														 src/Unix/Business/ExecutableLaunchers/ExecutableLauncherUnix.cpp)
-
-#BUSINESS_EXECUTABLE_LAUNCHER_FACTORY
-SOURCE_GROUP("Business\\ExecutableLaunchers\\Factory" FILES src/Common/Business/ExecutableLaunchers/ExecutableLauncherFactory.h
-															src/Common/Business/ExecutableLaunchers/ExecutableLauncherFactory.cpp)
+SOURCE_GROUP("Domain\\FileSystem" FILES 
+                src/Common/Domain/FileSystem/Executable.cpp
+                src/Common/Domain/FileSystem/Executable.h
+                src/Common/Domain/FileSystem/Path.cpp
+                src/Common/Domain/FileSystem/Path.h)

@@ -1,18 +1,15 @@
 #include <cstdlib>
 
-#include "FileSystem/File/Executable.h"
-#include "Business/ExecutableLaunchers/ExecutableLauncherFactory.h"
+#include "Domain/FileSystem/Executable.h"
 
 using namespace filesystem;
 
 int main() {
-	FilePath path(FolderPath(""));
-	std::shared_ptr<filesystem::Executable> executable = std::make_shared<filesystem::Executable>(path);
-
-	ExecutableLauncherFactory launcherFactory;
+	Path path("");
+	Executable executable(path);
 	
-	auto launcher = launcherFactory.getLauncher(executable);
-	launcher->start();
+	
+	executable.execute();
 	
 	return EXIT_SUCCESS;
 }
