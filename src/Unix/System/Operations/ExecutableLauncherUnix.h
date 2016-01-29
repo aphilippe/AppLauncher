@@ -11,7 +11,7 @@ class ExecutableLauncherUnix : public IExecutableLauncher {
 public:
 	virtual ~ExecutableLauncherUnix() {};
 	
-	void execute() override;
+	void execute(const entities::Path & executable) override;
 };
 
 } } }

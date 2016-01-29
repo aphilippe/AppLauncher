@@ -13,6 +13,8 @@ namespace clt { namespace system { namespace entities {
 		
 		void execute();
 		
+		const Path& getPath() const;
+		
 	private:
 		Path _path;
 		std::unique_ptr<operations::IExecutableLauncher> _launcher;

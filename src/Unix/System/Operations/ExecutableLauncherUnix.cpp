@@ -8,7 +8,7 @@
 
 using namespace clt::system::operations;
 
-void ExecutableLauncherUnix::execute()
+void ExecutableLauncherUnix::execute(const entities::Path & path)
 {
 	pid_t cpid;
 	
@@ -19,7 +19,7 @@ void ExecutableLauncherUnix::execute()
 			break;
 			
 		case 0:
-			execl("", ""); /* this is the child */
+			execl(path.getValue().c_str(), ""); /* this is the child */
 			_exit(EXIT_FAILURE);
 			break;
 			

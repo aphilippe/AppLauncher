@@ -11,8 +11,13 @@ Executable::~Executable()
 {
 }
 
-
 void
 Executable::execute() {
-	_launcher->execute();
+	_launcher->execute(_path);
+}
+
+const Path&
+Executable::getPath() const
+{
+	return _path;
 }

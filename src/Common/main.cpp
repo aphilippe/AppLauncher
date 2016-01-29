@@ -7,10 +7,9 @@ using namespace clt::system::entities;
 using namespace clt::system::operations;
 
 int main() {
-	Path path("");
+	Path path("Paht to executable");
 	std::unique_ptr<IExecutableLauncher> launcher(new ExecutableLauncherUnix());
 	Executable executable(path, std::move(launcher));
-	
 	
 	executable.execute();
 	
