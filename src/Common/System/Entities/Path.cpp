@@ -1,7 +1,7 @@
 #include "Path.h"
 
 using namespace std;
-using namespace filesystem;
+using namespace clt::system::entities;
 
 Path::Path(const string & value) : _value(value) {}
 

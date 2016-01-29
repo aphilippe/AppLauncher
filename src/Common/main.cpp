@@ -1,12 +1,15 @@
 #include <cstdlib>
 
-#include "Domain/FileSystem/Executable.h"
+#include "System/Entities/Executable.h"
+#include "System/Operations/ExecutableLauncherUnix.h"
 
-using namespace filesystem;
+using namespace clt::system::entities;
+using namespace clt::system::operations;
 
 int main() {
 	Path path("");
-	Executable executable(path);
+	std::unique_ptr<IExecutableLauncher> launcher(new ExecutableLauncherUnix());
+	Executable executable(path, std::move(launcher));
 	
 	
 	executable.execute();

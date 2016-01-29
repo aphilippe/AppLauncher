@@ -1,0 +1,18 @@
+#include "Executable.h"
+
+using namespace clt::system::entities;
+
+Executable::Executable(const Path & path, std::unique_ptr<operations::IExecutableLauncher> launcher) : _path(path)
+{
+	_launcher = std::move(launcher);
+}
+
+Executable::~Executable()
+{
+}
+
+
+void
+Executable::execute() {
+	_launcher->execute();
+}

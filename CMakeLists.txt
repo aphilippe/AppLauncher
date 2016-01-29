@@ -23,11 +23,17 @@ target_compile_definitions(Applauncher_Unix PRIVATE UNIX)
 # Group creation
 
 ####################
-#      DOMAIN      #
+#      System      #
 ####################
 
-SOURCE_GROUP("Domain\\FileSystem" FILES 
-                src/Common/Domain/FileSystem/Executable.cpp
-                src/Common/Domain/FileSystem/Executable.h
-                src/Common/Domain/FileSystem/Path.cpp
-                src/Common/Domain/FileSystem/Path.h)
+SOURCE_GROUP("System\\Entities" FILES 
+                src/Common/System/Entities/Executable.cpp
+                src/Common/System/Entities/Executable.h
+                src/Common/System/Entities/Path.cpp
+                src/Common/System/Entities/Path.h)
+
+SOURCE_GROUP("System\\Operations" FILES 
+                src/Common/System/Operations/IExecutableLauncher.cpp
+                src/Common/System/Operations/IExecutableLauncher.h
+                src/Unix/System/Operations/ExecutableLauncherUnix.cpp
+                src/Unix/System/Operations/ExecutableLauncherUnix.h)           

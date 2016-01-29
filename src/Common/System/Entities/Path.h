@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <string>
 
-namespace filesystem {
+namespace clt { namespace system { namespace entities {
 
 class Path {
 public:
@@ -15,5 +15,5 @@ private:
 	std::string _value;
 };
 
-}
+} } }
 #endif /* Path_hpp */

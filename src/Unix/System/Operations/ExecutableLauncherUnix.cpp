@@ -6,8 +6,9 @@
 #include <sys/wait.h>
 #include <cstdlib>
 
+using namespace clt::system::operations;
 
-void ExecutableLauncherUnix::start()
+void ExecutableLauncherUnix::execute()
 {
 	pid_t cpid;
 	
@@ -18,7 +19,7 @@ void ExecutableLauncherUnix::start()
 			break;
 			
 		case 0:
-			execl("path to executable", ""); /* this is the child */
+			execl("", ""); /* this is the child */
 			_exit(EXIT_FAILURE);
 			break;
 			
