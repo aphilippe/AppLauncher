@@ -2,7 +2,7 @@
 
 using namespace clt::system::entities;
 
-Executable::Executable(const Path & path, std::unique_ptr<operations::IExecutableLauncher> launcher) : _path(path)
+Executable::Executable(const Path & path, std::unique_ptr<clt::system::operations::IExecutableLauncher> launcher) : _path(path)
 {
 	_launcher = std::move(launcher);
 }

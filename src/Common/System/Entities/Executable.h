@@ -2,6 +2,7 @@
 
 #include "System/Entities/Path.h"
 #include "System/Operations/IExecutableLauncher.h"
+#include <memory>
 
 namespace clt { namespace system { namespace entities {
 

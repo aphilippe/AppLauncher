@@ -6,14 +6,14 @@ project(AppLauncher)
 set(EXECUTABLE_OUTPUT_PATH bin/)
 
 include_directories(src/Common)
-include_directories(src/Win)
+include_directories(src/Windows)
 include_directories(src/Unix)
 
 file(GLOB_RECURSE source_files_common src/Common/*.cpp src/Common/*.h)
 
 IF (WIN32)
-    file(GLOB_RECURSE source_files_win src/Win/*.cpp src/Win/*h)
-    add_executable(Applauncher_Win ${source_files_common} ${source_file_win})
+    file(GLOB_RECURSE source_files_win src/Windows/*.cpp src/Windows/*h)
+    add_executable(Applauncher_Win ${source_files_common} ${source_files_win})
     target_compile_definitions(Applauncher_Win PRIVATE WINDOWS)
 ELSE()
     file(GLOB_RECURSE source_files_unix src/Unix/*.cpp src/Unix/*h)
