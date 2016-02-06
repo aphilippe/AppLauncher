@@ -6,16 +6,16 @@ project(AppLauncher)
 set(EXECUTABLE_OUTPUT_PATH bin/)
 
 include_directories(src/Common)
-include_directories(src/Windows)
-include_directories(src/Unix)
 
 file(GLOB_RECURSE source_files_common src/Common/*.cpp src/Common/*.h)
 
 IF (WIN32)
+	include_directories(src/Windows)
     file(GLOB_RECURSE source_files_win src/Windows/*.cpp src/Windows/*h)
     add_executable(Applauncher_Win ${source_files_common} ${source_files_win})
     target_compile_definitions(Applauncher_Win PRIVATE WINDOWS)
 ELSE()
+	include_directories(src/Unix)
     file(GLOB_RECURSE source_files_unix src/Unix/*.cpp src/Unix/*h)
     add_executable(Applauncher_Unix ${source_files_common} ${source_files_unix})
     target_compile_definitions(Applauncher_Unix PRIVATE UNIX)
@@ -28,7 +28,12 @@ ENDIF()
 ####################
 
 SOURCE_GROUP("FileSystem" FILES
-				src/Common/FileSystem/IFileSystem.h)
+				src/Common/FileSystem/FileSystem.cpp
+				src/Common/FileSystem/FileSystem.h)
+
+SOURCE_GROUP("FileSystem\\Factories" FILES
+				src/Common/FileSystem/Factories/FileSystem.h
+				src/Windows/FileSystem/Factories/FileSystemWindows.cpp)
 
 SOURCE_GROUP("FileSystem\\Entities" FILES 
                 src/Common/FileSystem/Entities/Executable.cpp
