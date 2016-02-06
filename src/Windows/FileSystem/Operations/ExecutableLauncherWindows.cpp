@@ -2,8 +2,8 @@
 #include <windows.h>
 #include <atlstr.h>
 
-using namespace clt::system;
-using namespace clt::system::operations;
+using namespace clt::filesystem;
+using namespace clt::filesystem::operations;
 
 ExecutableLauncherWindows::ExecutableLauncherWindows()
 {

@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <string>
 
-namespace clt { namespace system { namespace entities {
+namespace clt { namespace filesystem { namespace entities {
 
 class Path {
 public:

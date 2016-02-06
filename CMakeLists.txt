@@ -24,20 +24,25 @@ ENDIF()
 # Group creation
 
 ####################
-#      System      #
+#    FileSystem    #
 ####################
 
-SOURCE_GROUP("System\\Entities" FILES 
-                src/Common/System/Entities/Executable.cpp
-                src/Common/System/Entities/Executable.h
-                src/Common/System/Entities/Path.cpp
-                src/Common/System/Entities/Path.h)
+SOURCE_GROUP("FileSystem" FILES
+				src/Common/FileSystem/IFileSystem.h)
 
-SOURCE_GROUP("System\\Operations" FILES 
-                src/Common/System/Operations/IExecutableLauncher.cpp
-                src/Common/System/Operations/IExecutableLauncher.h
-                src/Unix/System/Operations/ExecutableLauncherUnix.cpp
-                src/Unix/System/Operations/ExecutableLauncherUnix.h)
+SOURCE_GROUP("FileSystem\\Entities" FILES 
+                src/Common/FileSystem/Entities/Executable.cpp
+                src/Common/FileSystem/Entities/Executable.h
+                src/Common/FileSystem/Entities/Path.cpp
+                src/Common/FileSystem/Entities/Path.h)
+
+SOURCE_GROUP("FileSystem\\Operations" FILES 
+                src/Common/FileSystem/Operations/IExecutableLauncher.cpp
+                src/Common/FileSystem/Operations/IExecutableLauncher.h
+                src/Unix/FileSystem/Operations/ExecutableLauncherUnix.cpp
+                src/Unix/FileSystem/Operations/ExecutableLauncherUnix.h
+				src/Windows/FileSystem/Operations/ExecutableLauncherWindows.cpp
+                src/Windows/FileSystem/Operations/ExecutableLauncherWindows.h)
 				
 ####################
 #      Utils      #

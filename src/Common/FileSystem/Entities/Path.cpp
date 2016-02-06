@@ -2,7 +2,7 @@
 #include "Utils/StringUtils.h"
 
 using namespace std;
-using namespace clt::system::entities;
+using namespace clt::filesystem::entities;
 
 static const string UNIVERSAL_SEPARATOR = "/";
 static const string NOT_ACCEPTABLE_SEPARATOR = "\\";
@@ -19,7 +19,7 @@ Path::getValue() const
 	return _value;
 }
 
-Path clt::system::entities::Path::getParent() const
+Path clt::filesystem::entities::Path::getParent() const
 {
 	size_t lastSeparatorPosition = _value.find_last_of(UNIVERSAL_SEPARATOR);
 	string parentValue = _value.substr(0, lastSeparatorPosition);
