@@ -32,8 +32,8 @@ SOURCE_GROUP("FileSystem" FILES
 				src/Common/FileSystem/FileSystem.h)
 
 SOURCE_GROUP("FileSystem\\Factories" FILES
-				src/Common/FileSystem/Factories/FileSystem.h
-				src/Windows/FileSystem/Factories/FileSystemWindows.cpp)
+				src/Common/FileSystem/Factories/FileSystemFactory.h
+				src/Windows/FileSystem/Factories/FileSystemFactoryWindows.cpp)
 
 SOURCE_GROUP("FileSystem\\Entities" FILES 
                 src/Common/FileSystem/Entities/Executable.cpp

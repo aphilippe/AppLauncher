@@ -5,7 +5,7 @@ namespace clt { namespace filesystem { namespace factories {
 
 	class FileSystemFactory {
 	public:
-		clt::filesystem::FileSystem* createFileSystem();
+		clt::filesystem::FileSystem* newFileSystem();
 	};
 
 } } }
