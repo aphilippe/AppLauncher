@@ -10,6 +10,8 @@ class Path {
 public:
 	Path(const std::string & value);
 	std::string getValue() const;
+
+	Path getParent() const;
 	
 private:
 	std::string _value;

@@ -17,7 +17,6 @@ ExecutableLauncherWindows::~ExecutableLauncherWindows()
 void 
 ExecutableLauncherWindows::execute(const entities::Path & executable)
 {
-
 	STARTUPINFO si;
 	PROCESS_INFORMATION pi;
 	
@@ -35,7 +34,7 @@ ExecutableLauncherWindows::execute(const entities::Path & executable)
 		false,
 		0,
 		NULL,
-		NULL, // TODO: need to put the folder path of the exeto work with some game
+		executable.getParent().getValue().c_str(), // TODO: need to put the folder path of the exeto work with some game
 		&si,
 		&pi);
 

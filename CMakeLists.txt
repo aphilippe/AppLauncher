@@ -37,4 +37,11 @@ SOURCE_GROUP("System\\Operations" FILES
                 src/Common/System/Operations/IExecutableLauncher.cpp
                 src/Common/System/Operations/IExecutableLauncher.h
                 src/Unix/System/Operations/ExecutableLauncherUnix.cpp
-                src/Unix/System/Operations/ExecutableLauncherUnix.h)           
+                src/Unix/System/Operations/ExecutableLauncherUnix.h)
+				
+####################
+#      Utils      #
+####################
+SOURCE_GROUP("Utils" FILES
+				src/Common/Utils/StringUtils.cpp
+				src/Common/Utils/StringUtils.h)
