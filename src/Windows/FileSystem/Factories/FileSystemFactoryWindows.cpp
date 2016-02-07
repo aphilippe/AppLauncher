@@ -2,12 +2,13 @@
 
 #include "FileSystem/Operations/ExecutableLauncherWindows.h"
 
+using namespace std;
 using namespace clt::filesystem::operations;
 using namespace clt::filesystem::factories;
 
-clt::filesystem::FileSystem * clt::filesystem::factories::FileSystemFactory::newFileSystem()
+std::unique_ptr<clt::filesystem::FileSystem> clt::filesystem::factories::FileSystemFactory::createFileSystem()
 {
-	std::unique_ptr<ExecutableLauncherWindows> executableLauncher(new ExecutableLauncherWindows());
-
-	return new FileSystem(std::move(executableLauncher));
+	unique_ptr<ExecutableLauncherWindows> executableLauncher(new ExecutableLauncherWindows());
+	unique_ptr<FileSystem> fileSystem(new FileSystem(move(executableLauncher)));
+	return move(fileSystem);
 }

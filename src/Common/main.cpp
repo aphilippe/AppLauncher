@@ -16,11 +16,10 @@ int main(int argc, char* argv[]) {
 		return EXIT_FAILURE;
 	}
 
-	// TODO: use argument to set the path
 	Path path(argv[1]);
 
 	FileSystemFactory factory;
-	std::unique_ptr<FileSystem> system(factory.newFileSystem());
+	std::unique_ptr<FileSystem> system = std::move(factory.createFileSystem());
 
 	Executable executable(path, std::move(system));
 	executable.execute();
