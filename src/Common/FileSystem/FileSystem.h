@@ -11,6 +11,7 @@ namespace clt { namespace filesystem {
 	{
 	public:
 		FileSystem(std::unique_ptr<operations::IExecutableLauncher> executableLauncher);
+		FileSystem(FileSystem* otherSystem) {};
 		virtual ~FileSystem();
 
 		virtual void execute(const clt::filesystem::entities::Path& path);
