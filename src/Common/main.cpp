@@ -3,6 +3,7 @@
 #include "FileSystem/Entities/Executable.h"
 #include "FileSystem/FileSystem.h"
 #include "FileSystem/Factories/FileSystemFactory.h"
+#include "FileSystem/Entities/UnixExecutablePathValidator.h"
 #include <memory>
 
 using namespace clt::filesystem;
@@ -21,7 +22,10 @@ int main(int argc, char* argv[]) {
 	FileSystemFactory factory;
 	std::unique_ptr<FileSystem> system = std::move(factory.createFileSystem());
 
-	Executable executable(path, std::move(system));
+	//TODO: create an executable factory that choose the validator (only pass the path)
+	validator::UnixExecutablePathValidator validator;
+	
+	Executable executable(path, std::move(system), validator);
 	executable.execute();
 	
 	return EXIT_SUCCESS;
