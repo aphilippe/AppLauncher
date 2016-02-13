@@ -2,7 +2,7 @@
 
 #include "FileSystem/Entities/Path.h"
 #include "FileSystem/FileSystem.h"
-#include "FileSystem/Entities/IPathValidator.h"
+#include "FileSystem/Entities/Validators/IPathValidator.h"
 #include <memory>
 
 namespace clt { namespace filesystem { namespace entities {
@@ -10,7 +10,7 @@ namespace clt { namespace filesystem { namespace entities {
 	class Executable
 	{
 	public:
-		Executable(const Path & path, std::unique_ptr<clt::filesystem::FileSystem> fileSystem, const clt::filesystem::entities::validator::IPathValidator & validator);
+		Executable(const Path & path, std::unique_ptr<clt::filesystem::FileSystem> fileSystem, const clt::filesystem::entities::validators::IPathValidator & validator);
 		virtual ~Executable();
 		
 		void execute();
