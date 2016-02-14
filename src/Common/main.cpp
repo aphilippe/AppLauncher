@@ -1,7 +1,9 @@
 #include <cstdlib>
 
+
 #include "FileSystem/Entities/Executable.h"
 #include "FileSystem/FileSystem.h"
+#include "FileSystem/Factories/EntityFactory.h"
 #include "FileSystem/Factories/FileSystemFactory.h"
 #include "FileSystem/Entities/Validators/WindowsExecutablePathValidator.h"
 #include <memory>
@@ -16,8 +18,9 @@ int main(int argc, char* argv[]) {
 		printf("not enough argument, need the path of your executable");
 		return EXIT_FAILURE;
 	}
+	EntityFactory entityFactory;
 
-	Path path(argv[1]);
+	Path path = entityFactory.createPath(argv[1]);
 
 	FileSystemFactory factory;
 	std::unique_ptr<FileSystem> system = std::move(factory.createFileSystem());
