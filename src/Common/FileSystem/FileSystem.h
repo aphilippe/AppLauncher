@@ -4,25 +4,14 @@
 
 #include "FileSystem/Entities/Path.h"
 #include "FileSystem/Operations/IExecutableLauncher.h"
-#include "FileSystem/Operations/IFileInformationReader.h"
+#include "FileSystem/Operations/IPathInformationReader.h"
 
 namespace clt { namespace filesystem {
-
-	/*enum AccessPermission {
-		Read = 1 <<	0,
-		Right = 1 << 1,
-		Execute = 1 << 2
-	};
-
-	inline AccessPermission operator|(AccessPermission a, AccessPermission b)
-	{
-		return static_cast<AccessPermission>(static_cast<int>(a) | static_cast<int>(b));
-	}*/
 
 	class FileSystem
 	{
 	public:
-		FileSystem(std::unique_ptr<operations::IExecutableLauncher> executableLauncher, std::unique_ptr<operations::IFileInformationReader> fileInformationReader);
+		FileSystem(std::unique_ptr<operations::IExecutableLauncher> executableLauncher, std::unique_ptr<operations::IPathInformationReader> fileInformationReader);
 		FileSystem(FileSystem* otherSystem) {};
 		virtual ~FileSystem();
 
@@ -33,7 +22,7 @@ namespace clt { namespace filesystem {
 
 	private:
 		std::unique_ptr<clt::filesystem::operations::IExecutableLauncher> _executableLauncher;
-		std::unique_ptr<clt::filesystem::operations::IFileInformationReader> _fileInformationReader;
+		std::unique_ptr<clt::filesystem::operations::IPathInformationReader> _fileInformationReader;
 	};
 
 } }

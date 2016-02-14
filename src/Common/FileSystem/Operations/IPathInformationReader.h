@@ -4,11 +4,11 @@
 
 namespace clt { namespace filesystem { namespace operations {
 
-	class IFileInformationReader
+	class IPathInformationReader
 	{
 	public:
-		IFileInformationReader() {};
-		virtual ~IFileInformationReader() {};
+		IPathInformationReader() {};
+		virtual ~IPathInformationReader() {};
 
 		// Return if the file exists
 		virtual bool exists(const clt::filesystem::entities::Path & path) const = 0;

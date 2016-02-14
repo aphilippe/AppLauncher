@@ -33,7 +33,9 @@ SOURCE_GROUP("FileSystem" FILES
 
 SOURCE_GROUP("FileSystem\\Factories" FILES
 				src/Common/FileSystem/Factories/FileSystemFactory.h
-				src/Windows/FileSystem/Factories/FileSystemFactoryWindows.cpp)
+				src/Windows/FileSystem/Factories/FileSystemFactoryWindows.cpp
+				src/Common/FileSystem/Factories/EntityFactory.h
+				src/Windows/FileSystem/Factories/EntityFactoryWindows.cpp)
 
 SOURCE_GROUP("FileSystem\\Entities" FILES 
                 src/Common/FileSystem/Entities/Executable.cpp
@@ -56,9 +58,9 @@ SOURCE_GROUP("FileSystem\\Operations\\ExecutableLaunchers" FILES
                 src/Windows/FileSystem/Operations/ExecutableLauncherWindows.h)
 
 SOURCE_GROUP("FileSystem\\Operations\\FileInformationReaders" FILES 
-                src/Common/FileSystem/Operations/IFileInformationReader.h
-				src/Windows/FileSystem/Operations/WindowsFileInformationReader.cpp
-                src/Windows/FileSystem/Operations/WindowsFileInformationReader.h)
+                src/Common/FileSystem/Operations/IPathInformationReader.h
+				src/Windows/FileSystem/Operations/WindowsPathInformationReader.cpp
+                src/Windows/FileSystem/Operations/WindowsPathInformationReader.h)
 				
 ####################
 #      Utils      #

@@ -7,13 +7,13 @@
 
 namespace clt { namespace filesystem {
 	namespace operations {
-		class IFileInformationReader;
+		class IPathInformationReader;
 	}
 	namespace entities {
 	
 		class Path {
 		public:
-			Path(const std::string & value, std::shared_ptr<clt::filesystem::operations::IFileInformationReader> fileInformationReader);
+			Path(const std::string & value, std::shared_ptr<clt::filesystem::operations::IPathInformationReader> fileInformationReader);
 			virtual ~Path();
 			std::string getValue() const;
 
@@ -25,7 +25,7 @@ namespace clt { namespace filesystem {
 	
 		private:
 			std::string _value;
-			std::shared_ptr<clt::filesystem::operations::IFileInformationReader> _informationReader;
+			std::shared_ptr<clt::filesystem::operations::IPathInformationReader> _informationReader;
 		};
 
 } } }

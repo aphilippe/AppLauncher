@@ -2,7 +2,7 @@
 
 using namespace clt::filesystem;
 
-clt::filesystem::FileSystem::FileSystem(std::unique_ptr<operations::IExecutableLauncher> executableLauncher, std::unique_ptr<operations::IFileInformationReader> fileInformationReader)
+clt::filesystem::FileSystem::FileSystem(std::unique_ptr<operations::IExecutableLauncher> executableLauncher, std::unique_ptr<operations::IPathInformationReader> fileInformationReader)
 {
 	_executableLauncher = std::move(executableLauncher);
 	_fileInformationReader = std::move(fileInformationReader);

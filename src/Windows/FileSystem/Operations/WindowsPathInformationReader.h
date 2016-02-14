@@ -1,14 +1,14 @@
 #pragma once
 
-#include "FileSystem/Operations/IFileInformationReader.h"
+#include "FileSystem/Operations/IPathInformationReader.h"
 
 namespace clt { namespace filesystem { namespace operations {
 
-	class WindowsFileInformationReader : public IFileInformationReader
+	class WindowsPathInformationReader : public IPathInformationReader
 	{
 	public:
-		WindowsFileInformationReader();
-		virtual ~WindowsFileInformationReader();
+		WindowsPathInformationReader();
+		virtual ~WindowsPathInformationReader();
 
 		// Inherited via IFileInformationReader
 		virtual bool exists(const clt::filesystem::entities::Path & path) const override;

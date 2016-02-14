@@ -1,6 +1,6 @@
 #include "Path.h"
 #include "Utils/StringUtils.h"
-#include "FileSystem/Operations/IFileInformationReader.h"
+#include "FileSystem/Operations/IPathInformationReader.h"
 
 using namespace std;
 using namespace clt::filesystem::entities;
@@ -9,7 +9,7 @@ using namespace clt::filesystem::operations;
 static const string UNIVERSAL_SEPARATOR = "/";
 static const string NOT_ACCEPTABLE_SEPARATOR = "\\";
 
-Path::Path(const std::string & value, std::shared_ptr<clt::filesystem::operations::IFileInformationReader> fileInformationReader) : _value(value), _informationReader(fileInformationReader)
+Path::Path(const std::string & value, std::shared_ptr<clt::filesystem::operations::IPathInformationReader> fileInformationReader) : _value(value), _informationReader(fileInformationReader)
 {
 	// in the app we are only working with "/" separator
 	clt::utils::StringUtils::replaceAll(_value, NOT_ACCEPTABLE_SEPARATOR, UNIVERSAL_SEPARATOR);

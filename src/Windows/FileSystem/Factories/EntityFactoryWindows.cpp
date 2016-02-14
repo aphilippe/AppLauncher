@@ -1,6 +1,6 @@
 #include "FileSystem/Factories/EntityFactory.h"
 
-#include "FileSystem/Operations/WindowsFileInformationReader.h"
+#include "FileSystem/Operations/WindowsPathInformationReader.h"
 #include "FileSystem/Operations/ExecutableLauncherWindows.h"
 
 #include "FileSystem/Entities/Validators/WindowsExecutablePathValidator.h"
@@ -12,7 +12,7 @@ using namespace clt::filesystem::operations;
 Path 
 EntityFactory::createPath(const std::string & path) const
 {
-	std::shared_ptr<WindowsFileInformationReader> fileInformationReader = std::make_shared<WindowsFileInformationReader>();
+	std::shared_ptr<WindowsPathInformationReader> fileInformationReader = std::make_shared<WindowsPathInformationReader>();
 	return Path(path, fileInformationReader);
 }
 
