@@ -41,13 +41,24 @@ SOURCE_GROUP("FileSystem\\Entities" FILES
                 src/Common/FileSystem/Entities/Path.cpp
                 src/Common/FileSystem/Entities/Path.h)
 
-SOURCE_GROUP("FileSystem\\Operations" FILES 
-                src/Common/FileSystem/Operations/IExecutableLauncher.cpp
+SOURCE_GROUP("FileSystem\\Entities\\Validators" FILES
+				src/Common/FileSystem/Entities/Validators/IPathValidator.h
+				src/Unix/FileSystem/Entities/Validators/UnixExecutablePathValidator.cpp
+				src/Unix/FileSystem/Entities/Validators/UnixExecutablePathValidator.h
+				src/Windows/FileSystem/Entities/Validators/WindowsExecutablePathValidator.cpp
+				src/Windows/FileSystem/Entities/Validators/WindowsExecutablePathValidator.h)
+
+SOURCE_GROUP("FileSystem\\Operations\\ExecutableLaunchers" FILES 
                 src/Common/FileSystem/Operations/IExecutableLauncher.h
                 src/Unix/FileSystem/Operations/ExecutableLauncherUnix.cpp
                 src/Unix/FileSystem/Operations/ExecutableLauncherUnix.h
 				src/Windows/FileSystem/Operations/ExecutableLauncherWindows.cpp
                 src/Windows/FileSystem/Operations/ExecutableLauncherWindows.h)
+
+SOURCE_GROUP("FileSystem\\Operations\\FileInformationReaders" FILES 
+                src/Common/FileSystem/Operations/IFileInformationReader.h
+				src/Windows/FileSystem/Operations/WindowsFileInformationReader.cpp
+                src/Windows/FileSystem/Operations/WindowsFileInformationReader.h)
 				
 ####################
 #      Utils      #
