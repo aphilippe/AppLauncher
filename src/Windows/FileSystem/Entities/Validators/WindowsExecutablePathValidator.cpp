@@ -8,5 +8,6 @@ bool clt::filesystem::entities::validators::WindowsExecutablePathValidator::isPa
 {
 	// TODO: path must exist, be a file and with .exe extension
 	return path.exists() 
-		&& !path.isDirectory();
+		&& !path.isDirectory()
+		&& path.getFileExtension() == ".exe";
 }

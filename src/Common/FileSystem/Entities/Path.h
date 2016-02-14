@@ -21,6 +21,7 @@ namespace clt { namespace filesystem {
 
 			bool exists() const;
 			bool isDirectory() const;
+			std::string getFileExtension() const;
 	
 		private:
 			std::string _value;

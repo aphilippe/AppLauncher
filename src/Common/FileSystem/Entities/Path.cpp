@@ -42,3 +42,8 @@ bool clt::filesystem::entities::Path::isDirectory() const
 {
 	return _informationReader->isDirectory(*this);
 }
+
+std::string clt::filesystem::entities::Path::getFileExtension() const
+{
+	return _informationReader->getFileExtension(*this);
+}

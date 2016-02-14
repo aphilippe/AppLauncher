@@ -23,3 +23,8 @@ bool clt::filesystem::operations::WindowsFileInformationReader::isDirectory(cons
 {
 	return PathIsDirectory(path.getValue().c_str());
 }
+
+std::string clt::filesystem::operations::WindowsFileInformationReader::getFileExtension(const clt::filesystem::entities::Path & path) const
+{
+	return PathFindExtension(path.getValue().c_str());
+}

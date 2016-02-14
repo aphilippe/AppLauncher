@@ -15,6 +15,9 @@ namespace clt { namespace filesystem { namespace operations {
 
 		virtual bool isDirectory(const clt::filesystem::entities::Path & path) const override;
 
+		// Inherited via IFileInformationReader
+		virtual std::string getFileExtension(const clt::filesystem::entities::Path & path) const override;
+
 	};
 
 } } }
