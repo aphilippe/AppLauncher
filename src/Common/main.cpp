@@ -2,10 +2,7 @@
 
 
 #include "FileSystem/Entities/Executable.h"
-#include "FileSystem/FileSystem.h"
 #include "FileSystem/Factories/EntityFactory.h"
-#include "FileSystem/Factories/FileSystemFactory.h"
-#include "FileSystem/Entities/Validators/WindowsExecutablePathValidator.h"
 #include <memory>
 
 using namespace clt::filesystem;
@@ -19,16 +16,8 @@ int main(int argc, char* argv[]) {
 		return EXIT_FAILURE;
 	}
 	EntityFactory entityFactory;
-
-	Path path = entityFactory.createPath(argv[1]);
-
-	FileSystemFactory factory;
-	std::unique_ptr<FileSystem> system = std::move(factory.createFileSystem());
-
-	//TODO: create an executable factory that choose the validator (only pass the path)
-	validators::WindowsExecutablePathValidator validator;
 	
-	Executable executable(path, std::move(system), validator);
+	Executable executable = entityFactory.createExecutable(argv[1]);
 	executable.execute();
 	
 	return EXIT_SUCCESS;

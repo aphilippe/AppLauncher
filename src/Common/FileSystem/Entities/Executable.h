@@ -1,16 +1,22 @@
 #pragma once
 
 #include "FileSystem/Entities/Path.h"
-#include "FileSystem/FileSystem.h"
 #include "FileSystem/Entities/Validators/IPathValidator.h"
 #include <memory>
 
-namespace clt { namespace filesystem { namespace entities {
+namespace clt { namespace filesystem {
+	namespace operations {
+		class IExecutableLauncher;
+	}
+	namespace entities {
 
 	class Executable
 	{
 	public:
-		Executable(const Path & path, std::unique_ptr<clt::filesystem::FileSystem> fileSystem, const clt::filesystem::entities::validators::IPathValidator & validator);
+		Executable(const Path & path, 
+			std::shared_ptr<clt::filesystem::operations::IExecutableLauncher> launcher, 
+			const clt::filesystem::entities::validators::IPathValidator & validator);
+
 		virtual ~Executable();
 		
 		void execute();
@@ -19,7 +25,7 @@ namespace clt { namespace filesystem { namespace entities {
 		
 	private:
 		Path _path;
-		std::unique_ptr<clt::filesystem::FileSystem> _fileSystem;
+		std::shared_ptr<clt::filesystem::operations::IExecutableLauncher> _launcher;
 	};
 
 } } }
