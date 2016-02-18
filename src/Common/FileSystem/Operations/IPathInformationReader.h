@@ -16,6 +16,8 @@ namespace clt { namespace filesystem { namespace operations {
 		virtual bool isDirectory(const clt::filesystem::entities::Path & path) const = 0;
 
 		virtual std::string getFileExtension(const clt::filesystem::entities::Path & path) const = 0;
+
+		virtual bool isExecutable(const clt::filesystem::entities::Path & path) const = 0;
 	};
 
 } } }

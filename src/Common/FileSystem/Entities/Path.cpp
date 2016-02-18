@@ -47,3 +47,8 @@ std::string clt::filesystem::entities::Path::getFileExtension() const
 {
 	return _informationReader->getFileExtension(*this);
 }
+
+bool clt::filesystem::entities::Path::isExecutable() const
+{
+	return _informationReader->isExecutable(*this);
+}
