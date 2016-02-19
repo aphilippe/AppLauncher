@@ -1,5 +1,7 @@
 #include "FileSystem/Operations/UnixPathInformationReader.h"
 
+#include <unistd.h>
+
 
 using namespace clt::filesystem::operations;
 
@@ -14,7 +16,7 @@ UnixPathInformationReader::~UnixPathInformationReader()
 
 bool clt::filesystem::operations::UnixPathInformationReader::exists(const clt::filesystem::entities::Path & path) const
 {
-	return false;
+	return access(path.getValue().c_str(), F_OK) == 0;
 }
 
 bool clt::filesystem::operations::UnixPathInformationReader::isDirectory(const clt::filesystem::entities::Path & path) const
