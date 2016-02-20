@@ -17,7 +17,7 @@ void ExecutableLauncherUnix::execute(const entities::Path & path)
 	switch (cpid) {
 		case -1: perror("fork");
 			break;
-			
+	
 		case 0:
 			execl(path.getValue().c_str(), ""); /* this is the child */
 			_exit(EXIT_FAILURE);

@@ -2,9 +2,9 @@
 #define UnixExecutablePathValidator_hpp
 
 #include <stdio.h>
-#include "FileSystem/Entities/IPathValidator.h"
+#include "FileSystem/Entities/Validators/IPathValidator.h"
 
-namespace clt { namespace filesystem { namespace entities { namespace validator {
+namespace clt { namespace filesystem { namespace entities { namespace validators {
 	
 	class UnixExecutablePathValidator : public IPathValidator {
 	public:
