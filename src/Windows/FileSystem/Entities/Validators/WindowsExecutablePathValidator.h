@@ -8,7 +8,7 @@ namespace  clt { namespace filesystem { namespace entities { namespace validator
 	{
 	public:
 		// Inherited via IPathValidator
-		bool isPathValid(const Path & path) const;
+		bool isPathValid(const Path & path, std::vector<ValidatorBrokenRules> & brokenRules) const override;
 	};
 
 } } } }
