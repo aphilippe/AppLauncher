@@ -28,3 +28,15 @@ std::string clt::filesystem::operations::WindowsPathInformationReader::getFileEx
 {
 	return PathFindExtension(path.getValue().c_str());
 }
+
+bool clt::filesystem::operations::WindowsPathInformationReader::isExecutable(const clt::filesystem::entities::Path & path) const
+{
+	SHFILEINFOA sfi = { 0 };
+	DWORD_PTR hr = SHGetFileInfo((LPCTSTR)path.getValue().c_str(),
+		-1,
+		&sfi,
+		sizeof(sfi),
+		SHGFI_EXETYPE);
+	
+	return hr != 0;
+}
