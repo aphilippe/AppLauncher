@@ -35,16 +35,23 @@ SOURCE_GROUP("FileSystem\\Factories" FILES
 				src/Common/FileSystem/Factories/FileSystemFactory.h
 				src/Windows/FileSystem/Factories/FileSystemFactoryWindows.cpp
 				src/Common/FileSystem/Factories/EntityFactory.h
-				src/Windows/FileSystem/Factories/EntityFactoryWindows.cpp)
+				src/Windows/FileSystem/Factories/EntityFactoryWindows.cpp
+                src/Unix/FileSystem/Factories/EntityFactoryUnix.cpp)
 
 SOURCE_GROUP("FileSystem\\Entities" FILES 
                 src/Common/FileSystem/Entities/Executable.cpp
                 src/Common/FileSystem/Entities/Executable.h
                 src/Common/FileSystem/Entities/Path.cpp
                 src/Common/FileSystem/Entities/Path.h)
+                
+SOURCE_GROUP("FileSystem\\Entities\\Exceptions" FILES 
+                src/Common/FileSystem/Entities/Exceptions/InvalidExecutablePathException.cpp
+                src/Common/FileSystem/Entities/Exceptions/InvalidExecutablePathException.h) 
 
 SOURCE_GROUP("FileSystem\\Entities\\Validators" FILES
 				src/Common/FileSystem/Entities/Validators/IPathValidator.h
+                src/Common/FileSystem/Entities/Validators/ValidatorBrokenRules.cpp
+                src/Common/FileSystem/Entities/Validators/ValidatorBrokenRules.h
 				src/Unix/FileSystem/Entities/Validators/UnixExecutablePathValidator.cpp
 				src/Unix/FileSystem/Entities/Validators/UnixExecutablePathValidator.h
 				src/Windows/FileSystem/Entities/Validators/WindowsExecutablePathValidator.cpp
@@ -59,6 +66,8 @@ SOURCE_GROUP("FileSystem\\Operations\\ExecutableLaunchers" FILES
 
 SOURCE_GROUP("FileSystem\\Operations\\FileInformationReaders" FILES 
                 src/Common/FileSystem/Operations/IPathInformationReader.h
+				src/Unix/FileSystem/Operations/UnixPathInformationReader.cpp
+                src/Unix/FileSystem/Operations/UnixPathInformationReader.h
 				src/Windows/FileSystem/Operations/WindowsPathInformationReader.cpp
                 src/Windows/FileSystem/Operations/WindowsPathInformationReader.h)
 				
