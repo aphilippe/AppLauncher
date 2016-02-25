@@ -8,7 +8,7 @@ namespace clt { namespace filesystem { namespace entities { namespace validators
 	
 	class UnixExecutablePathValidator : public IPathValidator {
 	public:
-		bool isPathValid(const Path& path) const override;
+		bool isPathValid(const Path& path, std::vector<ValidatorBrokenRules> & brokenRules) const override;
 	};
 	
 } } } }
