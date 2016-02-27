@@ -6,10 +6,6 @@ using namespace clt::filesystem::entities::validators;
 
 bool clt::filesystem::entities::validators::WindowsExecutablePathValidator::isPathValid(const Path & path, std::vector<ValidatorBrokenRules> & brokenRules) const
 {
-	return path.exists() 
-		&& !path.isDirectory()
-		&& path.isExecutable();
-
 	if (!path.exists()) {
 		brokenRules.push_back(ValidatorBrokenRules("Path does not exist"));
 		return false;

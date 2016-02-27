@@ -15,6 +15,7 @@ using namespace clt::filesystem::entities::exceptions;
 int main(int argc, char* argv[]) {
 	if (argc < 2)
 	{
+		// TODO: real arguments management
 		printf("not enough argument, need the path of your executable");
 		return EXIT_FAILURE;
 	}
@@ -22,12 +23,11 @@ int main(int argc, char* argv[]) {
 	
 	try
 	{
-
 		Executable executable = entityFactory.createExecutable(argv[1]);
 		executable.execute();
 	}
 	catch (InvalidExecutablePathException exception) {
-		std::cout << exception.getDescription() << std::endl;
+		std::cout << "Invalid executable path : " << std::endl << "\t - " << exception.getDescription() << std::endl;
 	}
 	
 	return EXIT_SUCCESS;
