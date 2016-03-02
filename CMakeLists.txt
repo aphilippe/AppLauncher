@@ -23,6 +23,14 @@ ENDIF()
 
 # Group creation
 
+###################
+#   Application   #
+###################
+
+SOURCE_GROUP("Application\\Parameters" FILES
+				src/Common/Application/Parameters/ApplicationParameters.cpp
+				src/Common/Application/Parameters/ApplicationParameters.h)
+
 ####################
 #    FileSystem    #
 ####################
