@@ -1,6 +1,7 @@
 #include <cstdlib>
 
 #include "Application/Parameters/ApplicationParameters.h"
+#include "Application/Parameters/ApplicationParametersBuilder.h"
 #include "FileSystem/Entities/Executable.h"
 #include "FileSystem/Factories/EntityFactory.h"
 #include "FileSystem/Entities/Exceptions/InvalidExecutablePathException.h"
@@ -22,7 +23,10 @@ int main(int argc, char* argv[]) {
 		return EXIT_FAILURE;
 	}
 
-	ApplicationParameters parameters(argv[1]);
+	ApplicationParametersBuilder builder;
+	builder.setExecutablePath(argv[1]);
+	ApplicationParameters parameters = builder.build();
+
 	EntityFactory entityFactory;
 	
 	try
