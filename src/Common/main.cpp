@@ -2,6 +2,7 @@
 
 #include "Application/Parameters/ApplicationParameters.h"
 #include "Application/Parameters/ApplicationParametersBuilder.h"
+#include "Application/Parameters/ApplicationParametersManager.h"
 #include "FileSystem/Entities/Executable.h"
 #include "FileSystem/Factories/EntityFactory.h"
 #include "FileSystem/Entities/Exceptions/InvalidExecutablePathException.h"
@@ -23,9 +24,9 @@ int main(int argc, char* argv[]) {
 		return EXIT_FAILURE;
 	}
 
-	ApplicationParametersBuilder builder;
-	builder.setExecutablePath(argv[1]);
-	ApplicationParameters parameters = builder.build();
+	ApplicationParametersManager parametersManager(std::make_unique<ApplicationParametersBuilder>());
+	parametersManager.start(argv);
+	ApplicationParameters parameters = parametersManager.getParameters();
 
 	EntityFactory entityFactory;
 	

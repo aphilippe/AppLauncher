@@ -35,6 +35,10 @@ SOURCE_GROUP("Application\\Parameters\\Builders" FILES
 				src/Common/Application/Parameters/ApplicationParametersBuilder.cpp
 				src/Common/Application/Parameters/ApplicationParametersBuilder.h)
 
+SOURCE_GROUP("Application\\Parameters\\Manager" FILES
+				src/Common/Application/Parameters/ApplicationParametersManager.cpp
+				src/Common/Application/Parameters/ApplicationParametersManager.h)
+
 ####################
 #    FileSystem    #
 ####################
