@@ -15,12 +15,10 @@ IF (WIN32)
 	include_directories(src/Windows)
     file(GLOB_RECURSE source_files_win src/Windows/*.cpp src/Windows/*h)
     add_executable(Applauncher_Win ${source_files_common} ${source_files_win})
-    target_compile_definitions(Applauncher_Win PRIVATE WINDOWS)
 ELSE()
 	include_directories(src/Unix)
     file(GLOB_RECURSE source_files_unix src/Unix/*.cpp src/Unix/*h)
     add_executable(Applauncher_Unix ${source_files_common} ${source_files_unix})
-    target_compile_definitions(Applauncher_Unix PRIVATE UNIX)
 ENDIF()
 
 # Group creation

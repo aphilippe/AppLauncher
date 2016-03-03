@@ -8,7 +8,7 @@ namespace application { namespace parameters {
 
 	class ApplicationParametersReader {
 	public:
-		void start(char* argv[]) const;
+		void start(int argc, char* argv[]) const;
 		
 		void setOnExecutablePath(std::function<void (const std::string&)> func);
 		

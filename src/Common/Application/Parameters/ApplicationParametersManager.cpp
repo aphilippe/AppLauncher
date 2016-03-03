@@ -15,9 +15,9 @@ ApplicationParametersManager::~ApplicationParametersManager()
 {
 }
 
-void application::parameters::ApplicationParametersManager::start(char * argv[])
+void application::parameters::ApplicationParametersManager::start(int argc, char * argv[])
 {
-	_reader->start(argv);
+	_reader->start(argc, argv);
 
 	_parameters = std::make_unique<ApplicationParameters>(_builder->build());
 }

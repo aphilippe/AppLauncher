@@ -26,7 +26,7 @@ int main(int argc, char* argv[]) {
 	}
 
 	ApplicationParametersManager parametersManager(std::make_unique<ApplicationParametersBuilder>(), std::make_unique<ApplicationParametersReader>());
-	parametersManager.start(argv);
+	parametersManager.start(argc, argv);
 	ApplicationParameters parameters = parametersManager.getParameters();
 
 	EntityFactory entityFactory;

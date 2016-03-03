@@ -15,7 +15,7 @@ public:
 	ApplicationParametersManager(std::unique_ptr<ApplicationParametersBuilder> builder,	std::unique_ptr<ApplicationParametersReader> reader);
 	virtual ~ApplicationParametersManager();
 
-	void start(char* argv[]);
+	void start(int argc, char* argv[]);
 	ApplicationParameters& getParameters() const;
 
 
