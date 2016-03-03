@@ -9,6 +9,8 @@ include_directories(src/Common)
 
 file(GLOB_RECURSE source_files_common src/Common/*.cpp src/Common/*.h)
 
+add_definitions("-std=c++14")
+
 IF (WIN32)
 	include_directories(src/Windows)
     file(GLOB_RECURSE source_files_win src/Windows/*.cpp src/Windows/*h)
@@ -38,6 +40,10 @@ SOURCE_GROUP("Application\\Parameters\\Builders" FILES
 SOURCE_GROUP("Application\\Parameters\\Manager" FILES
 				src/Common/Application/Parameters/ApplicationParametersManager.cpp
 				src/Common/Application/Parameters/ApplicationParametersManager.h)
+
+SOURCE_GROUP("Application\\Parameters\\Reader" FILES
+				src/Common/Application/Parameters/ApplicationParametersReader.cpp
+				src/Common/Application/Parameters/ApplicationParametersReader.h)
 
 ####################
 #    FileSystem    #

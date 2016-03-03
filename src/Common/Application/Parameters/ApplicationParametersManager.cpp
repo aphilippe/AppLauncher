@@ -2,9 +2,12 @@
 
 using namespace application::parameters;
 
-ApplicationParametersManager::ApplicationParametersManager(std::unique_ptr<ApplicationParametersBuilder> builder)
+ApplicationParametersManager::ApplicationParametersManager(std::unique_ptr<ApplicationParametersBuilder> builder, std::unique_ptr<ApplicationParametersReader> reader)
 {
 	_builder = std::move(builder);
+	_reader = std::move(reader);
+	
+	_reader->setOnExecutablePath([this] (const std::string& executablePath) {_builder->setExecutablePath(executablePath);});
 }
 
 
@@ -14,7 +17,7 @@ ApplicationParametersManager::~ApplicationParametersManager()
 
 void application::parameters::ApplicationParametersManager::start(char * argv[])
 {
-	_builder->setExecutablePath(argv[1]);
+	_reader->start(argv);
 
 	_parameters = std::make_unique<ApplicationParameters>(_builder->build());
 }

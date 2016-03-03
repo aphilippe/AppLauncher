@@ -3,6 +3,7 @@
 #include "Application/Parameters/ApplicationParameters.h"
 #include "Application/Parameters/ApplicationParametersBuilder.h"
 #include "Application/Parameters/ApplicationParametersManager.h"
+#include "Application/Parameters/ApplicationParametersReader.h"
 #include "FileSystem/Entities/Executable.h"
 #include "FileSystem/Factories/EntityFactory.h"
 #include "FileSystem/Entities/Exceptions/InvalidExecutablePathException.h"
@@ -24,7 +25,7 @@ int main(int argc, char* argv[]) {
 		return EXIT_FAILURE;
 	}
 
-	ApplicationParametersManager parametersManager(std::make_unique<ApplicationParametersBuilder>());
+	ApplicationParametersManager parametersManager(std::make_unique<ApplicationParametersBuilder>(), std::make_unique<ApplicationParametersReader>());
 	parametersManager.start(argv);
 	ApplicationParameters parameters = parametersManager.getParameters();
 
