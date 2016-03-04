@@ -9,7 +9,7 @@ include_directories(src/Common)
 
 file(GLOB_RECURSE source_files_common src/Common/*.cpp src/Common/*.h)
 
-add_definitions("-std=c++11")
+add_definitions("-std=c++1y")
 
 IF (WIN32)
 	include_directories(src/Windows)
