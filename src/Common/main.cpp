@@ -17,13 +17,6 @@ using namespace clt::filesystem::entities::exceptions;
 using namespace application::parameters;
 
 int main(int argc, char* argv[]) {
-	
-	if (argc < 2)
-	{
-		// TODO: real arguments management
-		printf("not enough argument, need the path of your executable");
-		return EXIT_FAILURE;
-	}
 
 	ApplicationParametersManager parametersManager(std::make_unique<ApplicationParametersBuilder>(), std::make_unique<ApplicationParametersReader>());
 	parametersManager.start(argc, argv);
