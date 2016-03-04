@@ -9,6 +9,7 @@ addons:
       - gcc-5
 
 language: generic
+os: osx
 matrix:
   include:
     - os: linux
