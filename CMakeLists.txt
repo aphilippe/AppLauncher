@@ -9,13 +9,12 @@ include_directories(src/Common)
 
 file(GLOB_RECURSE source_files_common src/Common/*.cpp src/Common/*.h)
 
-add_definitions("-std=c++14")
-
 IF (WIN32)
 	include_directories(src/Windows)
     file(GLOB_RECURSE source_files_win src/Windows/*.cpp src/Windows/*h)
     add_executable(Applauncher_Win ${source_files_common} ${source_files_win})
 ELSE()
+	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
 	include_directories(src/Unix)
     file(GLOB_RECURSE source_files_unix src/Unix/*.cpp src/Unix/*h)
     add_executable(Applauncher_Unix ${source_files_common} ${source_files_unix})
