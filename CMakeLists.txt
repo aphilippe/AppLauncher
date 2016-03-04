@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 2.8)
 
 # Project creation
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
+
 project(AppLauncher)
 set(EXECUTABLE_OUTPUT_PATH bin/)
 
@@ -17,6 +17,7 @@ ELSE()
 	include_directories(src/Unix)
     file(GLOB_RECURSE source_files_unix src/Unix/*.cpp src/Unix/*h)
     add_executable(Applauncher_Unix ${source_files_common} ${source_files_unix})
+	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
 ENDIF()
 
 # Group creation
