@@ -5,17 +5,10 @@ language: generic
 
 matrix:
   include:
-    - compiler: gcc
-      os: linux
-      addons:
-        apt:
-          sources:
-            - ubuntu-toolchain-r-test
-          packages:
-            - g++-5.3
-      env: COMPILER=g++-5.3
     - compiler: clang
-      os: osx
+      os: 
+        - osx
+        - linux
       addons:
         apt:
           sources:
