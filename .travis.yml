@@ -18,6 +18,7 @@ addons:
     - clang
 
 before_script:
+  - $CXX --version
   - mkdir build
   - cd build
   - cmake ..
