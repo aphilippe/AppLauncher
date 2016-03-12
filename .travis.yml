@@ -2,6 +2,7 @@ sudo: false
 language: cpp
 os:
 - osx
+- linux
 compiler:
 - gcc
 install:
