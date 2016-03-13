@@ -22,7 +22,8 @@ before_script:
 script: make
 
 before_deploy:
-  - export FILE_TO_UPLOAD=$(ls bin/Applauncher_*)
+  - zip applauncher_$TRAVIS_OS_NAME bin/applauncher*
+  - export FILE_TO_UPLOAD=$(ls applauncher_*.zip)
 
 deploy:
   provider: releases
