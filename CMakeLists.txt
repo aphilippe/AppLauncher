@@ -1,5 +1,7 @@
 cmake_minimum_required(VERSION 2.8)
 
+set(executableName applauncher)
+
 # Project creation
 
 project(AppLauncher)
@@ -12,13 +14,8 @@ file(GLOB_RECURSE source_files_common src/Common/*.cpp src/Common/*.h)
 IF (WIN32)
 	include_directories(src/Windows)
     file(GLOB_RECURSE source_files_win src/Windows/*.cpp src/Windows/*h)
-    add_executable(Applauncher_Win ${source_files_common} ${source_files_win})
+    add_executable(${executableName} ${source_files_common} ${source_files_win})
 ELSE()
-    IF (APPLE)
-        set(executableName Applauncher_Osx)
-    ELSE()
-        set(executableName Applauncher_Unix)
-    ENDIF()
 	include_directories(src/Unix)
     file(GLOB_RECURSE source_files_unix src/Unix/*.cpp src/Unix/*h)
     add_executable(${executableName} ${source_files_common} ${source_files_unix})
