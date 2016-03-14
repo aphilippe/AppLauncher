@@ -19,7 +19,7 @@ void ExecutableLauncherUnix::execute(const entities::Path & path)
 			break;
 	
 		case 0:
-			execl(path.getValue().c_str(), ""); /* this is the child */
+			execl(path.getValue().c_str(), path.getValue().c_str(), NULL, NULL); /* this is the child */
 			_exit(EXIT_FAILURE);
 			break;
 			
