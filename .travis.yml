@@ -20,16 +20,13 @@ before_script:
 - cd build
 - cmake ..
 script: make
-
 before_deploy:
-  - zip applauncher_$TRAVIS_OS_NAME bin/applauncher*
-  - export FILE_TO_UPLOAD=$(ls applauncher_*.zip)
-
+- zip applauncher_$TRAVIS_OS_NAME bin/applauncher*
+- export FILE_TO_UPLOAD=$(ls applauncher_*.zip)
 deploy:
   provider: releases
   api_key:
-    secure: HqC0YvGOL0sOr8SWZgHVZZ5XYDF4+xUCcCmEToYat5AO6uDPUvhUx5cfa8R21/Z5e9GAcgc9T4ldq5STYTNTLh1ntnNYN/0a50c9CABlLMS6T+uCbpmPmwvb4A28Gly8rQtXNSLkAmkZLOzYZSNKy4L7aavemk7Nr0AZEMcbnwnFgLCkb4nQ8pWx8C0qM64InvMyvIx5dHasNkRsigvHgcYms+zWkU3OYBoJOo3fiu72GD5grAMgq5GLiWS/F4pvBykmXAsxIqV8nkz2YO+XHUHQ4SdcRgmolYHI8O1Ezh0AeomAltWKfZLHTUEkmDezUviWI5TzwwQmjXaZuf3Z2OYjlTlYTcuUxHHxxNKx1BF2mp5D4TbdvxgjhkGxDQk/K+HM+EoNafEj7hZcParG81UaRGnXTj3uCkyWmm1WvkYMMXmmpdfDuYYMVEcW6g/vlo712w74D1vc1Ej5R57TYZrNK0dSfxqgm9UV+0KsBQIJHiLLt+rnSutoeUOJKyYlNCi01wwwWgF9wmq6rFUF3RkdqeLbrFP9uxp4iFAjs3uzqoClonAv/ukZ1VnPJlufThOhCvBJFx5kQrqiHfipfWNfzRmWzU84QYvyhKiuWcsc047+VAO9SEv7LR/SpA2Rz8l9MNyYRhxKxhedrmxWEJnuHn9aJ3UtSBzgMDFK+Jw=
-  file: "${FILE_TO_UPLOAD}"
-  skip_cleanup: true
+    secure: QaczSDLBDpr0gO5ekwpWs3nfsl722u70FxMc3HkSkl3DNd8Z4K9KfXzOJ19h+0bGkw+9EwYwk2c7CdGhTO2t8TLFuE55daECF/SLUreL8qQpTdTEDYQo+RnJkeHcedI+LrQ7muWU/Gq6hshwsXQuZytevI3qgiMC4i6KYheQskoXY1BL4bTfdCeHDZ5oSdJSQ8m/CyFWX1k6V+pUeblCjYnkWc0BYmtMz79lqOtSufxOtyhNYJBF+vsphyg/0VPa4B4uP/v/YredWaUdTyfGsaxf8fcLn07LHlwcW4dPk8BUokEf5+BTCZoBsyLX9PVe4k/znqTBGY+O/Md6FRQyMWHvAUsDrsMWCmnopdwD2Y/wOY2o1Mi1oQ6ti0yGmjJVYETZgbzjk1AK5jUgzSzp8+klFiNAXI9e1xhEXJR19PdPnAizJmiXr5FgWuLJ9M0p2H/3S2f6RSooTfiWCdjlZKUpsjOJphs5+AjNzGeindH5snv9R5hgZcSgy4hm2WM6Yh2ByrAhYVPTJ7O2IwWIdN3UzsWqG7SLowc7uvTDgCfx2hi3hYxFwo698H2jnZ+Tg63dn2DbHVoo9iQGFFgSWxxB0C1J/jJCg/DFE2O7wZ6YEt/UR2Z/QP4SO2HmbDwXXfrin/uWhXtTLQ/jOn/EM/7Kmmu0MTKv3pbOMUqSiAI=
+  file: ''
   on:
-    tags: true
+    repo: aphilippe/AppLauncher
