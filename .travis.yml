@@ -18,10 +18,10 @@ before_script:
 - $CXX --version
 - mkdir build
 - cd build
-- cmake ..
+- cmake -DCMAKE_BUILD_TYPE=Release ..
 script: make
 before_deploy:
-- zip applauncher_$TRAVIS_OS_NAME bin/applauncher*
+- zip -j applauncher_$TRAVIS_OS_NAME bin/applauncher*
 - export FILE_TO_UPLOAD=$(ls applauncher_*.zip)
 deploy:
   provider: releases
