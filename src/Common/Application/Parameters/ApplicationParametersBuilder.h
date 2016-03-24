@@ -12,9 +12,11 @@ namespace application {
 
 			ApplicationParameters build() const;
 			void setExecutablePath(const std::string & executablePath);
+			void setBackupParametersFilePath(const std::string & path);
 
 		private:
 			std::string _executablePath;
+			std::string _backupParamtersFilePath;
 		};
 
 	}

@@ -11,9 +11,11 @@ namespace application { namespace parameters {
 		void start(int argc, char* argv[]) const;
 		
 		void setOnExecutablePath(std::function<void (const std::string&)> func);
+		void setOnBackupParametersFilePath(std::function<void (const std::string&)> func);
 		
 	private:
 		std::function<void (const std::string&)> _onExecutablePath;
+		std::function<void (const std::string&)> _onBackupParametersFilePath;
 	};
 	
 } }
