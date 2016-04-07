@@ -1,30 +1,31 @@
 #include "ApplicationParametersReader.h"
 
 #include <string>
-
-#if WIN32
-#include "Libraries/WinGetOpt/wingetopt.h"
-#else
-#include <unistd.h>
-#endif
+#include "tclap/CmdLine.h"
 
 using namespace application::parameters;
 
 void ApplicationParametersReader::start(int argc, char* argv[]) const {
-	char c;
-	while ((c = getopt(argc, argv, "f:e:")) != -1) {
-		switch (c)
-		{
-			case 'e':
-				_onExecutablePath(optarg);
-				break;
-			case 'f':
-				_onBackupParametersFilePath(optarg);
-				break;
-			default:
-				break;
-		}
+	TCLAP::CmdLine cmd("Command description", ' ', "0.2");
+	
+	TCLAP::ValueArg<std::string> executableArg("e", "executable", "The path of the executable to launch", true, "", "string");
+	TCLAP::ValueArg<std::string> filePathArg("f", "file", "The path of clapp file", true, "", "string");
+	
+	cmd.add(executableArg);
+	cmd.add(filePathArg);
+	
+	cmd.parse(argc, argv);
+	
+	std::string executablePath = executableArg.getValue();
+	if (!executablePath.empty()) {
+		_onExecutablePath(executablePath);
 	}
+	
+	std::string filePath = filePathArg.getValue();
+	if (!filePath.empty()) {
+		_onBackupParametersFilePath(filePath);
+	}
+	
 }
 
 
