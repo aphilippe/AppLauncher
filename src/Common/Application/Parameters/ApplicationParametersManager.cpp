@@ -8,6 +8,7 @@ ApplicationParametersManager::ApplicationParametersManager(std::unique_ptr<Appli
 	_reader = std::move(reader);
 	
 	_reader->setOnExecutablePath([this] (const std::string& executablePath) {_builder->setExecutablePath(executablePath);});
+	_reader->setOnBackupParametersFilePath([this] (const std::string& path) {_builder->setBackupParametersFilePath(path);});
 }
 
 
