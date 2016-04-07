@@ -8,6 +8,7 @@ project(AppLauncher)
 set(EXECUTABLE_OUTPUT_PATH bin/)
 
 include_directories(src/Common)
+include_directories(src/Common/Libraries)
 
 file(GLOB_RECURSE source_files_common src/Common/*.cpp src/Common/*.h)
 
