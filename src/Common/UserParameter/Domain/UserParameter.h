@@ -1,20 +1,19 @@
 #pragma once
 
-#include <list>
-#include "FileSystem/Entities/Path.h"
-
+#include <vector>
+#include <string>
 
 namespace userparameter { namespace domain {
 
 class UserParameter
 {
 public:
-	UserParameter(const clt::filesystem::entities::Path& _backupFolderPath, const std::list<clt::filesystem::entities::Path>& _backupFilePaths);
+	UserParameter(const std::string& backupFolderPath, const std::vector<std::string>& backupFilePaths);
 	virtual ~UserParameter();
 
 private:
-	clt::filesystem::entities::Path _backupFolderPath;
-	std::list<clt::filesystem::entities::Path> _backupFiles;
+	std::string _backupFolderPath;
+	std::vector<std::string> _backupFiles;
 };
 
 }}

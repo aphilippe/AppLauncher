@@ -38,7 +38,9 @@ SOURCE_GROUP("UserParameter\\Repositories" FILES
 				src/Common/UserParameter/Repositories/UserParameterRepository.h)
 
 SOURCE_GROUP("UserParameter\\DataAccess" FILES
-				src/Common/UserParameter/DataAccess/IUserParameterDAO.h)
+				src/Common/UserParameter/DataAccess/IUserParameterDAO.h
+				src/Common/UserParameter/DataAccess/UserParameterDTO.h
+				src/Common/UserParameter/DataAccess/UserParameterDTO.cpp)
 
 ###################
 #   Application   #

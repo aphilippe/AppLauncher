@@ -5,6 +5,9 @@
 namespace userparameter { namespace dataaccess { 
 	class IUserParameterDAO;
 } }
+namespace userparameter { namespace domain {
+		class UserParameter;
+} }
 
 namespace userparameter { namespace repositories { 
 class UserParameterRepository
@@ -12,6 +15,8 @@ class UserParameterRepository
 public:
 	UserParameterRepository(std::unique_ptr<userparameter::dataaccess::IUserParameterDAO> userParameterDao);
 	virtual ~UserParameterRepository();
+
+	std::unique_ptr<userparameter::domain::UserParameter> getUserParameter();
 
 	//TODO: getUserParameter
 	//TODO: manage cache

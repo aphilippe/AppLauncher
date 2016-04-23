@@ -2,10 +2,9 @@
 
 using userparameter::domain::UserParameter;
 
-UserParameter::UserParameter(const clt::filesystem::entities::Path& backupFolderPath, const std::list<clt::filesystem::entities::Path>& backupFilePaths) :
-	_backupFolderPath(backupFolderPath)
+UserParameter::UserParameter(const std::string& backupFolderPath, const std::vector<std::string>& backupFilePaths) :
+	_backupFolderPath(backupFolderPath), _backupFiles(backupFilePaths)
 {
-	//TODO fill backupFilePaths
 }
 
 
