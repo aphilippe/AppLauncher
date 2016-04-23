@@ -33,6 +33,13 @@ SOURCE_GROUP("UserParameter\\Domain" FILES
 				src/Common/UserParameter/Domain/UserParameter.cpp
 				src/Common/UserParameter/Domain/UserParameter.h)
 
+SOURCE_GROUP("UserParameter\\Repositories" FILES
+				src/Common/UserParameter/Repositories/UserParameterRepository.cpp
+				src/Common/UserParameter/Repositories/UserParameterRepository.h)
+
+SOURCE_GROUP("UserParameter\\DataAccess" FILES
+				src/Common/UserParameter/DataAccess/IUserParameterDAO.h)
+
 ###################
 #   Application   #
 ###################

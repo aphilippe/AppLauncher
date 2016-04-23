@@ -9,7 +9,7 @@ namespace userparameter { namespace domain {
 class UserParameter
 {
 public:
-	UserParameter(const clt::filesystem::entities::Path& _backupFolderPath, std::list<clt::filesystem::entities::Path> _backupFilePaths);
+	UserParameter(const clt::filesystem::entities::Path& _backupFolderPath, const std::list<clt::filesystem::entities::Path>& _backupFilePaths);
 	virtual ~UserParameter();
 
 private:
