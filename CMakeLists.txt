@@ -26,6 +26,14 @@ ENDIF()
 # Group creation
 
 ###################
+#   UserParameter   #
+###################
+
+SOURCE_GROUP("UserParameter\\Domain" FILES
+				src/Common/UserParameter/Domain/UserParameter.cpp
+				src/Common/UserParameter/Domain/UserParameter.h)
+
+###################
 #   Application   #
 ###################
 
