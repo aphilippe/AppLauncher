@@ -9,8 +9,9 @@ set(EXECUTABLE_OUTPUT_PATH bin/)
 
 include_directories(src/Common)
 include_directories(src/Common/Libraries)
+include_directories(src)
 
-file(GLOB_RECURSE source_files_common src/Common/*.cpp src/Common/*.h)
+file(GLOB_RECURSE source_files_common src/Common/*.cpp src/Common/*.h src/Core/*.cpp src/Core/*.h)
 
 IF (WIN32)
 	include_directories(src/Windows)
@@ -24,6 +25,15 @@ ELSE()
 ENDIF()
 
 # Group creation
+
+###################
+#     Core        #
+###################
+
+SOURCE_GROUP("Core" FILES
+				src/Core/DataObject.cpp
+				src/Core/DataObject.h)
+
 
 ###################
 #   UserParameter   #
