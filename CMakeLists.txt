@@ -8,7 +8,7 @@ project(AppLauncher)
 set(EXECUTABLE_OUTPUT_PATH bin/)
 
 include_directories(src/Common)
-include_directories(src/Common/Libraries)
+include_directories(src/Libraries)
 include_directories(src)
 
 file(GLOB_RECURSE source_files_common src/Common/*.cpp src/Common/*.h src/Core/*.cpp src/Core/*.h)
@@ -48,7 +48,9 @@ SOURCE_GROUP("UserParameter\\Repositories" FILES
 				src/Common/UserParameter/Repositories/UserParameterRepository.h)
 
 SOURCE_GROUP("UserParameter\\DataAccess" FILES
-				src/Common/UserParameter/DataAccess/IUserParameterDAO.h)
+				src/Common/UserParameter/DataAccess/IUserParameterDAO.h
+				src/Common/UserParameter/DataAccess/JSONUserParameterDAO.h
+				src/Common/UserParameter/DataAccess/JSONUserParameterDAO.cpp)
 
 SOURCE_GROUP("UserParameter\\Factories" FILES
 				src/Common/UserParameter/Factories/UserParameterFactory.h
@@ -128,3 +130,4 @@ SOURCE_GROUP("FileSystem\\Operations\\FileInformationReaders" FILES
 SOURCE_GROUP("Utils" FILES
 				src/Common/Utils/StringUtils.cpp
 				src/Common/Utils/StringUtils.h)
+
