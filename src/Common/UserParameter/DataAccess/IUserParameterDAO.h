@@ -8,7 +8,7 @@ namespace userparameter {
 		public:
 			virtual ~IUserParameterDAO(){};
 
-			virtual std::unique_ptr<core::DataObject> get()=0;
+			virtual core::DataObject get()=0;
 		};
 	}
 }

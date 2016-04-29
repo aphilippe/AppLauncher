@@ -16,7 +16,7 @@ JSONUserParameterDAO::~JSONUserParameterDAO()
 {
 }
 
-std::unique_ptr<core::DataObject> userparameter::dataaccess::JSONUserParameterDAO::get()
+core::DataObject userparameter::dataaccess::JSONUserParameterDAO::get()
 {
 	map<string, core::DataObject> json;
 	json["backupFolder"] = core::DataObject(string("plop backupFolder"));
@@ -28,5 +28,5 @@ std::unique_ptr<core::DataObject> userparameter::dataaccess::JSONUserParameterDA
 
 	json["backupFiles"] = core::DataObject(fileList);
 
-	return make_unique<core::DataObject>(new core::DataObject(json));
+	return core::DataObject(json);
 }

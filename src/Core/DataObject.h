@@ -7,34 +7,42 @@ namespace core {
 	class DataObject
 	{
 	public:
-		DataObject() : _placeHolder(nullptr) {}
+		DataObject() : _content(nullptr) {}
 
 		template<typename ValueType> DataObject(const ValueType& value) :
-			_placeHolder(new Holder<ValueType>(value)){}
+			_content(new Holder<ValueType>(value)){}
+
+		DataObject(const DataObject& other) :
+			_content(other._content ? other._content->clone() : nullptr)
+		{}
 
 		virtual ~DataObject() {
-			delete _placeHolder;
+			delete _content;
 		}
 
 		template<typename ValueType> ValueType get() const {
-			return static_cast< Holder<ValueType>* >(_placeHolder)->_value;
+			return static_cast< Holder<ValueType>* >(_content)->get();
 		}
 
 		DataObject& operator=(DataObject& other) {
-			std::swap(_placeHolder, other._placeHolder);
+			swap(other);
 			return *this;
+		}
+
+		void swap(DataObject & other) {
+			std::swap(_content, other._content);
+		}
+
+		friend void swap(DataObject& a, DataObject& b) {
+			a.swap(b);
 		}
 
 	private:
 		class PlaceHolder {
 		public:
 			virtual ~PlaceHolder(){}
+			virtual PlaceHolder* clone() const = 0;
 		};
-
-		PlaceHolder* _placeHolder;
-
-
-
 
 		template<typename ValueType>
 		class Holder : public PlaceHolder {
@@ -42,12 +50,22 @@ namespace core {
 		public:
 			Holder(const ValueType& value) : _value(value){}
 			virtual ~Holder(){}
-			ValueType get() {
+			ValueType get() const {
 				return _value;
+			}
+
+
+			virtual PlaceHolder * clone() const
+			{
+				return new Holder(_value);
 			}
 		private:
 			ValueType _value;
 		};
+
+		PlaceHolder* _content;
+		template<typename T> friend T      & any_cast(DataObject      &);
+		template<typename T> friend T const& any_cast(const DataObject &);
 	};
 
 }

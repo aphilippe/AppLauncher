@@ -25,7 +25,7 @@ UserParameterRepository::getUserParameter()
 {
 	UserParameterFactory factory;
 
-	std::unique_ptr<core::DataObject> dto(_dao->get());
-	std::unique_ptr<UserParameter> parameter = factory.createUserParameter(*dto);
+	core::DataObject dto = _dao->get();
+	std::unique_ptr<UserParameter> parameter = factory.createUserParameter(dto);
 	return std::move(parameter);
 }
