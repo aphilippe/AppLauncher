@@ -16,7 +16,7 @@ namespace core {
 			delete _placeHolder;
 		}
 
-		template<typename ValueType> ValueType get() {
+		template<typename ValueType> ValueType get() const {
 			return static_cast< Holder<ValueType>* >(_placeHolder)->_value;
 		}
 

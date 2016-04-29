@@ -1,8 +1,8 @@
 #include "UserParameterRepository.h"
 
+#include "Core/DataObject.h"
 #include "UserParameter/DataAccess/IUserParameterDAO.h"
 #include "UserParameter/Domain/UserParameter.h"
-#include "Core/DataObject.h"
 #include "UserParameter/Factories/UserParameterFactory.h"
 
 using userparameter::repositories::UserParameterRepository;
