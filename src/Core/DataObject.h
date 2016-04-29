@@ -25,7 +25,12 @@ namespace core {
 		}
 
 		DataObject& operator=(DataObject& other) {
-			swap(other);
+			DataObject(other).swap(*this);
+			return *this;
+		}
+
+		DataObject& operator=(const DataObject& other) {
+			DataObject(other).swap(*this);
 			return *this;
 		}
 
