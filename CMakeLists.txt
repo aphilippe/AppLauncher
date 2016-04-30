@@ -34,6 +34,10 @@ SOURCE_GROUP("Core" FILES
 				src/Core/DataObject.cpp
 				src/Core/DataObject.h)
 
+SOURCE_GROUP("Core\\Parsers" FILES
+				src/Core/Parsers/JSONParser.cpp
+				src/Core/Parsers/JSONParser.h)
+
 
 ###################
 #   UserParameter   #

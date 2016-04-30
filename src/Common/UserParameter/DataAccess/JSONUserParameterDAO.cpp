@@ -1,4 +1,5 @@
 #include "JSONUserParameterDAO.h"
+#include "Core/Parsers/JSONParser.h"
 
 #include <map>
 #include <string>
@@ -18,15 +19,8 @@ JSONUserParameterDAO::~JSONUserParameterDAO()
 
 core::DataObject userparameter::dataaccess::JSONUserParameterDAO::get()
 {
-	map<string, core::DataObject> json;
-	json["backupFolder"] = core::DataObject(string("plop backupFolder"));
+	core::parsers::JSONParser parser;
 
-	vector<core::DataObject> fileList;
-	for (int i = 0; i < 4; ++i) {
-		fileList.push_back(core::DataObject(string("plip")));
-	}
 
-	json["backupFiles"] = core::DataObject(fileList);
-
-	return core::DataObject(json);
+	return parser.parse();
 }
