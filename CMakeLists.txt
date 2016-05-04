@@ -33,6 +33,8 @@ ENDIF()
 SOURCE_GROUP("Core" FILES
 				src/Core/DataObject.cpp
 				src/Core/DataObject.h)
+SOURCE_GROUP("Core\\JSON" FILES
+				src/Core/JSON/IDataObjectJSONBuilder.h)
 
 
 ###################
