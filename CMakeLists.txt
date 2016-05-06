@@ -33,12 +33,23 @@ ENDIF()
 SOURCE_GROUP("Core" FILES
 				src/Core/DataObject.cpp
 				src/Core/DataObject.h)
-SOURCE_GROUP("Core\\JSON" FILES
-				src/Core/JSON/IDataObjectJSONBuilder.h)
 
-SOURCE_GROUP("Core\\Parsers" FILES
-				src/Core/Parsers/JSONParser.cpp
-				src/Core/Parsers/JSONParser.h)
+SOURCE_GROUP("Core\\JSON\\DataObjectBuilder" FILES
+				src/Core/JSON/DataObjectBuilder/IDataObjectJSONBuilder.h
+				src/Core/JSON/DataObjectBuilder/RootDataObjectJSONBuilder.h
+				src/Core/JSON/DataObjectBuilder/RootDataObjectJSONBuilder.cpp
+				src/Core/JSON/DataObjectBuilder/MapDataObjectBuilder.cpp
+				src/Core/JSON/DataObjectBuilder/MapDataObjectBuilder.h
+				src/Core/JSON/DataObjectBuilder/StringDataObjectBuilder.cpp
+				src/Core/JSON/DataObjectBuilder/StringDataObjectBuilder.h)
+
+SOURCE_GROUP("Core\\JSON\\Parsers" FILES
+				src/Core/JSON/Parser/JSONParser.cpp
+				src/Core/JSON/Parser/JSONParser.h)
+
+SOURCE_GROUP("Core\\JSON\\Parsers\\Handler" FILES
+				src/Core/JSON/Parser/Handler/JSONHandler.h
+				src/Core/JSON/Parser/Handler/JSONHandler.cpp)
 
 
 ###################

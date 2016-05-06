@@ -1,5 +1,5 @@
 #include "JSONUserParameterDAO.h"
-#include "Core/Parsers/JSONParser.h"
+#include "Core/JSON/Parser/JSONParser.h"
 
 #include <map>
 #include <string>
