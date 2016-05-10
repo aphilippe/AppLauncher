@@ -1,6 +1,6 @@
 #include "ArrayDataObjectJSONBuilder.h"
 
-
+using core::json::builders::ArrayDataObjectJSONBuilder;
 
 ArrayDataObjectJSONBuilder::ArrayDataObjectJSONBuilder()
 {
@@ -19,11 +19,6 @@ void ArrayDataObjectJSONBuilder::addChild(std::unique_ptr<IDataObjectJSONBuilder
 	else {
 		_childBuilder->addChild(std::move(builder));
 	}
-}
-
-core::DataObject ArrayDataObjectJSONBuilder::getObject() const
-{
-	return core::DataObject();
 }
 
 void ArrayDataObjectJSONBuilder::createObject(std::function<void(core::DataObject)> callback)

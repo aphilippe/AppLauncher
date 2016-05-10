@@ -1,5 +1,7 @@
 #include "RootDataObjectJSONBuilder.h"
 
+using core::json::builders::RootDataObjectJSONBuilder;
+
 void RootDataObjectJSONBuilder::addChild(std::unique_ptr<IDataObjectJSONBuilder> builder) {
 	if (_childBuilder == nullptr) {
 		_childBuilder = std::move(builder);
@@ -7,11 +9,6 @@ void RootDataObjectJSONBuilder::addChild(std::unique_ptr<IDataObjectJSONBuilder>
 	else {
 		_childBuilder->addChild(std::move(builder));
 	}
-}
-
-
-core::DataObject RootDataObjectJSONBuilder::getObject() const {
-	return core::DataObject();
 }
 
 void RootDataObjectJSONBuilder::createObject(std::function<void(core::DataObject)> callback)

@@ -9,6 +9,9 @@ using core::json::parser::handler::JSONHandler;
 using std::cout;
 using std::endl;
 using rapidjson::SizeType;
+using core::json::builders::ArrayDataObjectJSONBuilder;
+using core::json::builders::StringDataObjectJSONBuilder;
+using core::json::builders::MapDataObjectJSONBuilder;
 
 
 bool JSONHandler::Null() 

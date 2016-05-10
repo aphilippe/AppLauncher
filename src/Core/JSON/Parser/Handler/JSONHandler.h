@@ -27,7 +27,7 @@ namespace core {
 					core::DataObject getObject();
 
 				private:
-					RootDataObjectJSONBuilder _rootBuilder;
+					core::json::builders::RootDataObjectJSONBuilder _rootBuilder;
 					core::DataObject _object;
 				};
 

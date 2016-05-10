@@ -1,6 +1,6 @@
 #include "MapDataObjectJSONBuilder.h"
 
-
+using core::json::builders::MapDataObjectJSONBuilder;
 
 MapDataObjectJSONBuilder::MapDataObjectJSONBuilder()
 {
@@ -19,11 +19,6 @@ void MapDataObjectJSONBuilder::addChild(std::unique_ptr<IDataObjectJSONBuilder> 
 	else {
 		_childBuilder->addChild(std::move(builder));
 	}
-}
-
-core::DataObject MapDataObjectJSONBuilder::getObject() const
-{
-	return core::DataObject();
 }
 
 void MapDataObjectJSONBuilder::createObject(std::function<void(core::DataObject)> callback)
