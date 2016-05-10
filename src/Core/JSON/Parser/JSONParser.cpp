@@ -22,7 +22,7 @@ JSONParser::~JSONParser()
 
 core::DataObject core::parsers::JSONParser::parse()
 {
-	const char json[] = " { \"backupFolder\" : \"world\", \"t\" : true , \"f\" : false, \"n\": null, \"i\":123, \"pi\": 3.1416, \"a\":[1, 2, 3, 4] } ";
+	const char json[] = " { \"backupFolder\" : \"world\", \"backupFiles\" :[\"1\", \"2\", \"3\", \"4\"] } ";
 
 	Reader reader;
 	JSONHandler handler;

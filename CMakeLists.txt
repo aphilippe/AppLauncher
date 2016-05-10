@@ -40,8 +40,10 @@ SOURCE_GROUP("Core\\JSON\\DataObjectBuilder" FILES
 				src/Core/JSON/DataObjectBuilder/RootDataObjectJSONBuilder.cpp
 				src/Core/JSON/DataObjectBuilder/MapDataObjectBuilder.cpp
 				src/Core/JSON/DataObjectBuilder/MapDataObjectBuilder.h
-				src/Core/JSON/DataObjectBuilder/StringDataObjectBuilder.cpp
-				src/Core/JSON/DataObjectBuilder/StringDataObjectBuilder.h)
+				src/Core/JSON/DataObjectBuilder/StringDataObjectJSONBuilder.cpp
+				src/Core/JSON/DataObjectBuilder/StringDataObjectJSONBuilder.h
+				src/Core/JSON/DataObjectBuilder/ArrayDataObjectBuilder.h
+				src/Core/JSON/DataObjectBuilder/ArrayDataObjectBuilder.cpp)
 
 SOURCE_GROUP("Core\\JSON\\Parsers" FILES
 				src/Core/JSON/Parser/JSONParser.cpp
