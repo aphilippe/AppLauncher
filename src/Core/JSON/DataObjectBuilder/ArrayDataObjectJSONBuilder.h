@@ -2,11 +2,11 @@
 #include "Core/JSON/DataObjectBuilder/IDataObjectJSONBuilder.h"
 #include <vector>
 
-class ArrayDataObjectBuilder : public IDataObjectJSONBuilder
+class ArrayDataObjectJSONBuilder : public IDataObjectJSONBuilder
 {
 public:
-	ArrayDataObjectBuilder();
-	virtual ~ArrayDataObjectBuilder();
+	ArrayDataObjectJSONBuilder();
+	virtual ~ArrayDataObjectJSONBuilder();
 
 	// Inherited via IDataObjectJSONBuilder
 	virtual void addChild(std::unique_ptr<IDataObjectJSONBuilder> builder) override;

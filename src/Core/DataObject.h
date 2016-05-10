@@ -69,8 +69,6 @@ namespace core {
 		};
 
 		PlaceHolder* _content;
-		template<typename T> friend T      & any_cast(DataObject      &);
-		template<typename T> friend T const& any_cast(const DataObject &);
 	};
 
 }

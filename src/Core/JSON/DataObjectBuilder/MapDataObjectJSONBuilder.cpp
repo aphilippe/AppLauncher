@@ -1,17 +1,17 @@
-#include "MapDataObjectBuilder.h"
+#include "MapDataObjectJSONBuilder.h"
 
 
 
-MapDataObjectBuilder::MapDataObjectBuilder()
+MapDataObjectJSONBuilder::MapDataObjectJSONBuilder()
 {
 }
 
 
-MapDataObjectBuilder::~MapDataObjectBuilder()
+MapDataObjectJSONBuilder::~MapDataObjectJSONBuilder()
 {
 }
 
-void MapDataObjectBuilder::addChild(std::unique_ptr<IDataObjectJSONBuilder> builder)
+void MapDataObjectJSONBuilder::addChild(std::unique_ptr<IDataObjectJSONBuilder> builder)
 {
 	if (_childBuilder == nullptr) {
 		_childBuilder = std::move(builder);
@@ -21,12 +21,12 @@ void MapDataObjectBuilder::addChild(std::unique_ptr<IDataObjectJSONBuilder> buil
 	}
 }
 
-core::DataObject MapDataObjectBuilder::getObject() const
+core::DataObject MapDataObjectJSONBuilder::getObject() const
 {
 	return core::DataObject();
 }
 
-void MapDataObjectBuilder::createObject(std::function<void(core::DataObject)> callback)
+void MapDataObjectJSONBuilder::createObject(std::function<void(core::DataObject)> callback)
 {
 	if (_childBuilder == nullptr) {
 		callback(core::DataObject(_map));
@@ -39,7 +39,7 @@ void MapDataObjectBuilder::createObject(std::function<void(core::DataObject)> ca
 	}
 }
 
-void MapDataObjectBuilder::addKey(const std::string & key)
+void MapDataObjectJSONBuilder::addKey(const std::string & key)
 {
 	_currentKey = key;
 }

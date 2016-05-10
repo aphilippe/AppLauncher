@@ -1,9 +1,9 @@
 #include "Core/JSON/Parser/Handler/JSONHandler.h"
 #include <iostream>
 #include "RapidJSON/rapidjson.h"
-#include "Core/JSON/DataObjectBuilder/MapDataObjectBuilder.h"
+#include "Core/JSON/DataObjectBuilder/MapDataObjectJSONBuilder.h"
 #include "Core/JSON/DataObjectBuilder/StringDataObjectJSONBuilder.h"
-#include "Core/JSON/DataObjectBuilder/ArrayDataObjectBuilder.h"
+#include "Core/JSON/DataObjectBuilder/ArrayDataObjectJSONBuilder.h"
 
 using core::json::parser::handler::JSONHandler;
 using std::cout;
@@ -62,7 +62,7 @@ bool JSONHandler::String(const char* str, SizeType length, bool copy)
 bool JSONHandler::StartObject() 
 {
 
-	_rootBuilder.addChild(std::make_unique<MapDataObjectBuilder>());
+	_rootBuilder.addChild(std::make_unique<MapDataObjectJSONBuilder>());
 	
 	return true; 
 }
@@ -83,7 +83,7 @@ bool JSONHandler::EndObject(SizeType memberCount)
 
 bool JSONHandler::StartArray()
 {
-	_rootBuilder.addChild(std::make_unique<ArrayDataObjectBuilder>());
+	_rootBuilder.addChild(std::make_unique<ArrayDataObjectJSONBuilder>());
 	return true; 
 }
 

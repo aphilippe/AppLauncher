@@ -4,11 +4,11 @@
 #include <memory>
 #include <map>
 
-class MapDataObjectBuilder : public IDataObjectJSONBuilder
+class MapDataObjectJSONBuilder : public IDataObjectJSONBuilder
 {
 public:
-	MapDataObjectBuilder();
-	virtual ~MapDataObjectBuilder();
+	MapDataObjectJSONBuilder();
+	virtual ~MapDataObjectJSONBuilder();
 
 	// Inherited via IDataObjectJSONBuilder
 	virtual void addChild(std::unique_ptr<IDataObjectJSONBuilder> builder) override;
