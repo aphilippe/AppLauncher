@@ -12,7 +12,7 @@ namespace userparameter {
 			virtual ~JSONUserParameterDAO();
 
 			// Inherited via IUserParameterDAO
-			virtual core::DataObject get() override;
+			virtual core::DataObject get(const std::string& path) override;
 		};
 
 	}

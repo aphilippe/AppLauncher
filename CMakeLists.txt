@@ -38,12 +38,12 @@ SOURCE_GROUP("Core\\JSON\\DataObjectBuilder" FILES
 				src/Core/JSON/DataObjectBuilder/IDataObjectJSONBuilder.h
 				src/Core/JSON/DataObjectBuilder/RootDataObjectJSONBuilder.h
 				src/Core/JSON/DataObjectBuilder/RootDataObjectJSONBuilder.cpp
-				src/Core/JSON/DataObjectBuilder/MapDataObjectBuilder.cpp
-				src/Core/JSON/DataObjectBuilder/MapDataObjectBuilder.h
+				src/Core/JSON/DataObjectBuilder/MapDataObjectJSONBuilder.cpp
+				src/Core/JSON/DataObjectBuilder/MapDataObjectJSONBuilder.h
 				src/Core/JSON/DataObjectBuilder/StringDataObjectJSONBuilder.cpp
 				src/Core/JSON/DataObjectBuilder/StringDataObjectJSONBuilder.h
-				src/Core/JSON/DataObjectBuilder/ArrayDataObjectBuilder.h
-				src/Core/JSON/DataObjectBuilder/ArrayDataObjectBuilder.cpp)
+				src/Core/JSON/DataObjectBuilder/ArrayDataObjectJSONBuilder.h
+				src/Core/JSON/DataObjectBuilder/ArrayDataObjectJSONBuilder.cpp)
 
 SOURCE_GROUP("Core\\JSON\\Parsers" FILES
 				src/Core/JSON/Parser/JSONParser.cpp
@@ -60,7 +60,9 @@ SOURCE_GROUP("Core\\JSON\\Parsers\\Handler" FILES
 
 SOURCE_GROUP("UserParameter\\Domain" FILES
 				src/Common/UserParameter/Domain/UserParameter.cpp
-				src/Common/UserParameter/Domain/UserParameter.h)
+				src/Common/UserParameter/Domain/UserParameter.h
+				src/Common/UserParameter/Domain/UserParameterFile.cpp
+				src/Common/UserParameter/Domain/UserParameterFile.h)
 
 SOURCE_GROUP("UserParameter\\Repositories" FILES
 				src/Common/UserParameter/Repositories/UserParameterRepository.cpp

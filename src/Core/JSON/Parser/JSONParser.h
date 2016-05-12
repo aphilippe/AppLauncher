@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Core/DataObject.h"
+class File;
 
 namespace core {
 	namespace parsers {
@@ -11,7 +12,7 @@ namespace core {
 		JSONParser();
 		virtual ~JSONParser();
 
-		core::DataObject parse();
+		core::DataObject parse(FILE* file);
 	};
 
 }}
