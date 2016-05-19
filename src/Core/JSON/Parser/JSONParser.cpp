@@ -1,6 +1,6 @@
 #include "JSONParser.h"
 #include "RapidJSON/reader.h"
-#include "rapidjson/filereadstream.h"
+#include "RapidJSON/filereadstream.h"
 #include "Core/JSON/Parser/Handler/JSONHandler.h"
 #include <cstdio>
 
