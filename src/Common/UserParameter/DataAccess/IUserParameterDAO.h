@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Core/DataObject.h"
+#include <string>
 
 namespace userparameter {
 	namespace dataaccess {
@@ -8,7 +9,7 @@ namespace userparameter {
 		public:
 			virtual ~IUserParameterDAO(){};
 
-			virtual core::DataObject get()=0;
+			virtual core::DataObject get(const std::string& path)=0;
 		};
 	}
 }

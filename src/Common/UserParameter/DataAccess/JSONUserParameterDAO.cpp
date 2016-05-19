@@ -1,8 +1,10 @@
 #include "JSONUserParameterDAO.h"
+#include "Core/JSON/Parser/JSONParser.h"
 
 #include <map>
 #include <string>
 #include <vector>
+#include <cstdio>
 
 using userparameter::dataaccess::JSONUserParameterDAO;
 using namespace std;
@@ -16,17 +18,11 @@ JSONUserParameterDAO::~JSONUserParameterDAO()
 {
 }
 
-core::DataObject userparameter::dataaccess::JSONUserParameterDAO::get()
+core::DataObject userparameter::dataaccess::JSONUserParameterDAO::get(const std::string& path)
 {
-	map<string, core::DataObject> json;
-	json["backupFolder"] = core::DataObject(string("plop backupFolder"));
+	FILE* file = fopen(path.c_str(), "rb");
+	core::parsers::JSONParser parser;
 
-	vector<core::DataObject> fileList;
-	for (int i = 0; i < 4; ++i) {
-		fileList.push_back(core::DataObject(string("plip")));
-	}
 
-	json["backupFiles"] = core::DataObject(fileList);
-
-	return core::DataObject(json);
+	return parser.parse(file);
 }
