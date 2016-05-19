@@ -1,6 +1,7 @@
 #pragma once
 #include "Core/JSON/DataObjectBuilder/IDataObjectJSONBuilder.h"
 #include <vector>
+#include <string>
 
 namespace core {
 	namespace json {
