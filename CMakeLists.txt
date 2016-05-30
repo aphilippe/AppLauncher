@@ -11,7 +11,7 @@ include_directories(src/Common)
 include_directories(src/Libraries)
 include_directories(src)
 
-file(GLOB_RECURSE source_files_common src/Common/*.cpp src/Common/*.h src/Core/*.cpp src/Core/*.h)
+file(GLOB_RECURSE source_files_common src/Common/*.cpp src/Common/*.h src/Core/*.cpp src/Core/*.h src/Settings/*.cpp src/Settings/*.h)
 
 IF (WIN32)
 	include_directories(src/Windows)
@@ -52,6 +52,24 @@ SOURCE_GROUP("Core\\JSON\\Parsers" FILES
 SOURCE_GROUP("Core\\JSON\\Parsers\\Handler" FILES
 				src/Core/JSON/Parser/Handler/JSONHandler.h
 				src/Core/JSON/Parser/Handler/JSONHandler.cpp)
+
+
+###################
+# Settings        #
+###################
+
+SOURCE_GROUP("Settings\\Factories" FILES
+				src/Settings/Factories/SettingsRepositoryFactory.h
+				src/Settings/Factories/SettingsRepositoryFactory.cpp)
+
+SOURCE_GROUP("Settings\\Repositories" FILES
+				src/Settings/Repositories/SettingsRepository.h
+				src/Settings/Repositories/ConcreteSettingsRepository.h
+				src/Settings/Repositories/ConcreteSettingsRepository.cpp)
+
+SOURCE_GROUP("Settings\\Domain\\" FILES
+				src/Settings/Domain/Settings.h
+				src/Settings/Domain/Settings.cpp)
 
 
 ###################
