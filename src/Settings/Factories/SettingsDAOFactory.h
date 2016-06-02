@@ -2,7 +2,7 @@
 #ifndef SettingsDAOFactory_hpp
 #define SettingsDAOFactory_hpp
 
-#include <stdio.h>
+#include <memory>
 #include "Settings/DataAccess/CommandLineArgumentSettingsDAO.h"
 #include "Settings/DataAccess/CustomSettingsDAO.h"
 
