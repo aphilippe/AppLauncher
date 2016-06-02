@@ -1,13 +1,13 @@
-//
-//  CustomSettingsDAO.h
-//  AppLauncher
-//
-//  Created by aphilippe on 02/06/2016.
-//
-//
-
 #ifndef CustomSettingsDAO_h
 #define CustomSettingsDAO_h
 
+namespace settings { namespace dataaccess {
+
+class CustomSettingsDAO {
+public:
+	virtual ~CustomSettingsDAO() {}
+};
+
+} }
 
 #endif /* CustomSettingsDAO_h */
