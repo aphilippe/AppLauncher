@@ -1,20 +1,14 @@
+//
+//  SettingsDAOFactory.hpp
+//  AppLauncher
+//
+//  Created by aphilippe on 02/06/2016.
+//
+//
+
 #ifndef SettingsDAOFactory_hpp
 #define SettingsDAOFactory_hpp
 
-#include <memory>
-#include "Settings/DataAccess/CommandLineArgumentSettingsDAO.h"
-#include "Settings/DataAccess/CustomSettingsDAO.h"
+#include <stdio.h>
 
-namespace settings { namespace factories {
-
-class SettingsDAOFactory {
-	
-public:
-	virtual ~SettingsDAOFactory(){}
-	
-	virtual std::unique_ptr<settings::dataaccess::CommandLineArgumentSettingsDAO> createCommandLineArgumentDAO() = 0;
-};
-
-} }
-	
 #endif /* SettingsDAOFactory_hpp */
