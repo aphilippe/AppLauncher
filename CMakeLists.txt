@@ -60,7 +60,8 @@ SOURCE_GROUP("Core\\JSON\\Parsers\\Handler" FILES
 
 SOURCE_GROUP("Settings\\Factories" FILES
 				src/Settings/Factories/SettingsRepositoryFactory.h
-				src/Settings/Factories/SettingsRepositoryFactory.cpp)
+				src/Settings/Factories/SettingsRepositoryFactory.cpp
+				src/Settings/Factories/SettingsDAOFactory.h)
 
 SOURCE_GROUP("Settings\\Repositories" FILES
 				src/Settings/Repositories/SettingsRepository.h
@@ -70,6 +71,10 @@ SOURCE_GROUP("Settings\\Repositories" FILES
 SOURCE_GROUP("Settings\\Domain\\" FILES
 				src/Settings/Domain/Settings.h
 				src/Settings/Domain/Settings.cpp)
+
+SOURCE_GROUP("Settings\\DataAccess" FILES
+				src/Settings/DataAccess/CommandLineArgumentSettingsDAO.h
+				src/Settings/DataAccess/CustomSettingsDAO.h)
 
 
 ###################

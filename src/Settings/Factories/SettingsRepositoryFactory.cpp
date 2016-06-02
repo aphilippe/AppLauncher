@@ -16,5 +16,5 @@ SettingsRepositoryFactory::~SettingsRepositoryFactory()
 
 std::unique_ptr<SettingsRepository> SettingsRepositoryFactory::createRepository()
 {
-	return std::make_unique<ConcreteSettingsRepository>();
+	return std::make_unique<ConcreteSettingsRepository>(nullptr);
 }
