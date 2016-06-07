@@ -15,7 +15,7 @@
 #include "UserParameter/Domain/UserParameterFile.h"
 
 #include "Settings/Factories/SettingsRepositoryFactory.h"
-#include "main.h"
+#include "Core/Application/CommandLine.h"
 
 using namespace clt::filesystem;
 using namespace clt::filesystem::factories;
@@ -28,20 +28,22 @@ using settings::repositories::SettingsRepository;
 using settings::domain::Settings;
 using std::unique_ptr;
 
+using core::application::CommandLine;
+
 
 int main(int argc, char* argv[]) {
 	// to be removed with refactoring
-	/*ApplicationParametersManager parametersManager(std::make_unique<ApplicationParametersBuilder>(), std::make_unique<ApplicationParametersReader>());
-	parametersManager.start(argc, argv);
-	ApplicationParameters parameters = parametersManager.getParameters();
+	//ApplicationParametersManager parametersManager(std::make_unique<ApplicationParametersBuilder>(), std::make_unique<ApplicationParametersReader>());
+	//parametersManager.start(cmdLine._argc, cmdLine._argv);
+	//ApplicationParameters parameters = parametersManager.getParameters();
 
-	userparameter::domain::UserParameterFile userParameterFile(parameters.getBackupParametersFilePath());
-	userparameter::repositories::UserParameterRepository userParameterRepository(std::move(std::make_unique<userparameter::dataaccess::JSONUserParameterDAO>()));
-	userParameterRepository.getUserParameter(userParameterFile);*/
+	//userparameter::domain::UserParameterFile userParameterFile(parameters.getBackupParametersFilePath());
+	//userparameter::repositories::UserParameterRepository userParameterRepository(std::move(std::make_unique<userparameter::dataaccess::JSONUserParameterDAO>()));
+	//userParameterRepository.getUserParameter(userParameterFile);
 	
-
+	CommandLine cmdLine(argc, argv);
 	SettingsRepositoryFactory settingsRepositoryFactory;
-	unique_ptr<SettingsRepository> settingsRepository = settingsRepositoryFactory.createRepository();
+	unique_ptr<SettingsRepository> settingsRepository = settingsRepositoryFactory.createRepository(cmdLine);
 	const Settings settings = settingsRepository->get();
 
 	// To be uncomment after refactoring

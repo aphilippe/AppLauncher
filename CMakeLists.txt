@@ -53,6 +53,9 @@ SOURCE_GROUP("Core\\JSON\\Parsers\\Handler" FILES
 				src/Core/JSON/Parser/Handler/JSONHandler.h
 				src/Core/JSON/Parser/Handler/JSONHandler.cpp)
 
+SOURCE_GROUP("Core\\Application" FILES
+				src/Core/Application/CommandLine.h
+				src/Core/Application/CommandLine.cpp)
 
 ###################
 # Settings        #
