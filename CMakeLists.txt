@@ -85,6 +85,10 @@ SOURCE_GROUP("Settings\\DataAccess" FILES
 				src/Settings/DataAccess/ConcreteCommandLineArgumentSettingsDAO.cpp
 				src/Settings/DataAccess/CustomSettingsDAO.h)
 
+SOURCE_GROUP("Settings\\Builders" FILES
+				src/Settings/Builders/CommandLineSettingsBuilder.h
+				src/Settings/Builders/CommandLineSettingsBuilder.cpp)
+
 
 ###################
 #   UserParameter   #
