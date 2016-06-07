@@ -47,7 +47,7 @@ int main(int argc, char* argv[]) {
 	const Settings settings = settingsRepository->get();
 
 	// To be uncomment after refactoring
-	/*EntityFactory entityFactory;
+	EntityFactory entityFactory;
 	
 	try
 	{
@@ -56,7 +56,7 @@ int main(int argc, char* argv[]) {
 	}
 	catch (InvalidExecutablePathException exception) {
 		std::cout << "Invalid executable path : " << std::endl << "\t - " << exception.getDescription() << std::endl;
-	}*/
+	}
 	
 	return EXIT_SUCCESS;
 }
