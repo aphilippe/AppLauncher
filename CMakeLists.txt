@@ -113,25 +113,6 @@ SOURCE_GROUP("UserParameter\\Factories" FILES
 				src/Common/UserParameter/Factories/UserParameterFactory.h
 				src/Common/UserParameter/Factories/UserParameterFactory.cpp)
 
-###################
-#   Application   #
-###################
-
-SOURCE_GROUP("Application\\Parameters" FILES
-				src/Common/Application/Parameters/ApplicationParameters.cpp
-				src/Common/Application/Parameters/ApplicationParameters.h)
-
-SOURCE_GROUP("Application\\Parameters\\Builders" FILES
-				src/Common/Application/Parameters/ApplicationParametersBuilder.cpp
-				src/Common/Application/Parameters/ApplicationParametersBuilder.h)
-
-SOURCE_GROUP("Application\\Parameters\\Manager" FILES
-				src/Common/Application/Parameters/ApplicationParametersManager.cpp
-				src/Common/Application/Parameters/ApplicationParametersManager.h)
-
-SOURCE_GROUP("Application\\Parameters\\Reader" FILES
-				src/Common/Application/Parameters/ApplicationParametersReader.cpp
-				src/Common/Application/Parameters/ApplicationParametersReader.h)
 
 ####################
 #    FileSystem    #

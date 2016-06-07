@@ -1,9 +1,5 @@
 #include <cstdlib>
 
-#include "Application/Parameters/ApplicationParameters.h"
-#include "Application/Parameters/ApplicationParametersBuilder.h"
-#include "Application/Parameters/ApplicationParametersManager.h"
-#include "Application/Parameters/ApplicationParametersReader.h"
 #include "FileSystem/Entities/Executable.h"
 #include "FileSystem/Factories/EntityFactory.h"
 #include "FileSystem/Entities/Exceptions/InvalidExecutablePathException.h"
@@ -21,7 +17,6 @@ using namespace clt::filesystem;
 using namespace clt::filesystem::factories;
 using namespace clt::filesystem::entities;
 using namespace clt::filesystem::entities::exceptions;
-using namespace application::parameters;
 
 using settings::factories::SettingsRepositoryFactory;
 using settings::repositories::SettingsRepository;
@@ -33,10 +28,6 @@ using core::application::CommandLine;
 
 int main(int argc, char* argv[]) {
 	// to be removed with refactoring
-	//ApplicationParametersManager parametersManager(std::make_unique<ApplicationParametersBuilder>(), std::make_unique<ApplicationParametersReader>());
-	//parametersManager.start(cmdLine._argc, cmdLine._argv);
-	//ApplicationParameters parameters = parametersManager.getParameters();
-
 	//userparameter::domain::UserParameterFile userParameterFile(parameters.getBackupParametersFilePath());
 	//userparameter::repositories::UserParameterRepository userParameterRepository(std::move(std::make_unique<userparameter::dataaccess::JSONUserParameterDAO>()));
 	//userParameterRepository.getUserParameter(userParameterFile);
