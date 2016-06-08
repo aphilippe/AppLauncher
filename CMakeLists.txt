@@ -77,7 +77,9 @@ SOURCE_GROUP("Settings\\Domain" FILES
 				src/Settings/Domain/Settings.h
 				src/Settings/Domain/Settings.cpp
 				src/Settings/Domain/CommandLineSettings.h
-				src/Settings/Domain/CommandLineSettings.cpp)
+				src/Settings/Domain/CommandLineSettings.cpp
+				src/Settings/Domain/CustomFileSettings.h
+				src/Settings/Domain/CustomFileSettings.cpp)
 
 SOURCE_GROUP("Settings\\DataAccess" FILES
 				src/Settings/DataAccess/CommandLineArgumentSettingsDAO.h

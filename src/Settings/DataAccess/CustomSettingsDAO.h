@@ -6,6 +6,7 @@ namespace settings { namespace dataaccess {
 class CustomSettingsDAO {
 public:
 	virtual ~CustomSettingsDAO() {}
+
 };
 
 } }
