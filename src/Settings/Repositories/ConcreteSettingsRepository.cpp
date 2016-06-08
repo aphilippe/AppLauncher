@@ -40,7 +40,7 @@ ConcreteSettingsRepository::getCommandLineDAO() {
 	return *_commandLineDAO;
 }
 
-const settings::dataaccess::CustomSettingsDAO&
-ConcreteSettingsRepository::getCustomDAO() {
+const settings::dataaccess::CustomFileSettingsDAO&
+ConcreteSettingsRepository::getCustomFileDAO() {
 	return *_customDAO;
 }

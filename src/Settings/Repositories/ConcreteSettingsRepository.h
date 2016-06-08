@@ -26,10 +26,10 @@ private:
 	std::unique_ptr<settings::factories::SettingsDAOFactory> _daoFactory;
 	
 	std::unique_ptr<settings::dataaccess::CommandLineArgumentSettingsDAO> _commandLineDAO;
-	std::unique_ptr<settings::dataaccess::CustomSettingsDAO> _customDAO;
+	std::unique_ptr<settings::dataaccess::CustomFileSettingsDAO> _customDAO;
 	
 	const settings::dataaccess::CommandLineArgumentSettingsDAO& getCommandLineDAO();
-	const settings::dataaccess::CustomSettingsDAO& getCustomDAO();
+	const settings::dataaccess::CustomFileSettingsDAO& getCustomFileDAO();
 };
 
 } }

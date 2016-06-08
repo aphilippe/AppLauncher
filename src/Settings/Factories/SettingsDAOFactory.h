@@ -4,7 +4,7 @@
 
 #include <memory>
 #include "Settings/DataAccess/CommandLineArgumentSettingsDAO.h"
-#include "Settings/DataAccess/CustomSettingsDAO.h"
+#include "Settings/DataAccess/CustomFileSettingsDAO.h"
 
 namespace settings { namespace factories {
 

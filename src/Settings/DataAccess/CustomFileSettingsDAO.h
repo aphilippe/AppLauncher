@@ -3,9 +3,9 @@
 
 namespace settings { namespace dataaccess {
 
-class CustomSettingsDAO {
+class CustomFileSettingsDAO {
 public:
-	virtual ~CustomSettingsDAO() {}
+	virtual ~CustomFileSettingsDAO() {}
 
 };
 
