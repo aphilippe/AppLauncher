@@ -12,6 +12,7 @@ class SettingsDAOFactory {
 public:
 	virtual ~SettingsDAOFactory() {}
 	virtual std::unique_ptr<settings::dataaccess::CommandLineArgumentSettingsDAO> createCommandLineArgumentDAO() = 0;
+	virtual std::unique_ptr<settings::dataaccess::CustomFileSettingsDAO> createCustomFileSettingsDAO() = 0;
 };
 
 } }

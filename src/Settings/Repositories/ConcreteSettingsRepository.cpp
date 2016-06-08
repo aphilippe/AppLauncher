@@ -20,17 +20,13 @@ ConcreteSettingsRepository::~ConcreteSettingsRepository()
 
 const Settings& ConcreteSettingsRepository::get()
 {
-	if (!_commandLineDAO) {
-		_commandLineDAO = _daoFactory->createCommandLineArgumentDAO();
-	}
-
-	settings::domain::CommandLineSettings cmdSettings = _commandLineDAO->get();
+	settings::domain::CommandLineSettings cmdSettings = this->getCommandLineDAO().get();
 
 	_settings = std::make_unique<Settings>(cmdSettings.getExecutablePath());
 	return *_settings;
 }
 
-const settings::dataaccess::CommandLineArgumentSettingsDAO&
+settings::dataaccess::CommandLineArgumentSettingsDAO&
 ConcreteSettingsRepository::getCommandLineDAO() {
 	
 	if (_commandLineDAO == nullptr) {
@@ -40,7 +36,10 @@ ConcreteSettingsRepository::getCommandLineDAO() {
 	return *_commandLineDAO;
 }
 
-const settings::dataaccess::CustomFileSettingsDAO&
+settings::dataaccess::CustomFileSettingsDAO&
 ConcreteSettingsRepository::getCustomFileDAO() {
+	if (_customDAO == nullptr) {
+		_customDAO = _daoFactory->createCustomFileSettingsDAO();
+	}
 	return *_customDAO;
 }
