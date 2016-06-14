@@ -1,9 +1,10 @@
 #include "Settings.h"
 
 using settings::domain::Settings;
+using std::string;
 
-Settings::Settings(const std::string& executablPath)
-	: _executablePath(executablPath)
+Settings::Settings(const std::string& executablPath, const string& backupPath)
+	: _executablePath(executablPath), _backupPath(backupPath)
 {
 }
 
@@ -12,7 +13,12 @@ Settings::~Settings()
 {
 }
 
-std::string settings::domain::Settings::getExecutablePath() const
+string Settings::getExecutablePath() const
 {
 	return _executablePath;
+}
+
+string Settings::getBackupPath() const
+{
+	return _backupPath;
 }

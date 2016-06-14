@@ -10,6 +10,9 @@ namespace settings {
 	public:
 		ConcreteCustomFileSettingsDAO();
 		virtual ~ConcreteCustomFileSettingsDAO();
+
+		// Inherited via CustomFileSettingsDAO
+		virtual settings::domain::CustomFileSettings get() override;
 	};
 
 } }

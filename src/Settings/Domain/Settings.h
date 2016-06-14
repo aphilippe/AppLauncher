@@ -10,9 +10,11 @@ public:
 	virtual ~Settings();
 
 	std::string getExecutablePath() const;
+	std::string getBackupPath() const;
 
 private:
 	std::string _executablePath;
+	std::string _backupPath;
 };
 
 } }

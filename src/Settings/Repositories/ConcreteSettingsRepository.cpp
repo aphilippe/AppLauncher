@@ -1,10 +1,13 @@
 #include "ConcreteSettingsRepository.h"
 #include "Settings/Domain/CommandLineSettings.h"
+#include "Settings/Domain/CustomFileSettings.h"
 
 using std::move;
 
 using settings::repositories::ConcreteSettingsRepository;
 using settings::domain::Settings;
+using settings::domain::CommandLineSettings;
+using settings::domain::CustomFileSettings;
 
 
 ConcreteSettingsRepository::ConcreteSettingsRepository(std::unique_ptr<settings::factories::SettingsDAOFactory> daoFactory)
@@ -20,7 +23,8 @@ ConcreteSettingsRepository::~ConcreteSettingsRepository()
 
 const Settings& ConcreteSettingsRepository::get()
 {
-	settings::domain::CommandLineSettings cmdSettings = this->getCommandLineDAO().get();
+	CommandLineSettings cmdSettings = this->getCommandLineDAO().get();
+	CustomFileSettings customSettings = this->getCustomFileDAO().get();
 
 	_settings = std::make_unique<Settings>(cmdSettings.getExecutablePath());
 	return *_settings;
