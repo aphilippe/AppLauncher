@@ -1,12 +1,16 @@
 #include "ConcreteCustomFileSettingsDAO.h"
+#include "RapidJSON/document.h"
+#include "Settings/Builders/CustomFileSettingsBuilder.h"
 
 using settings::dataaccess::ConcreteCustomFileSettingsDAO;
 using settings::domain::CustomFileSettings;
 
 using std::string;
 
-ConcreteCustomFileSettingsDAO::ConcreteCustomFileSettingsDAO(const string& filePath)
-: _filePath(filePath)
+using rapidjson::Document;
+
+ConcreteCustomFileSettingsDAO::ConcreteCustomFileSettingsDAO(const string& filePath, std::unique_ptr<settings::builders::CustomFileSettingsBuilder> builder)
+: _filePath(filePath), _builder(std::move(builder))
 {
 }
 
@@ -15,7 +19,10 @@ ConcreteCustomFileSettingsDAO::~ConcreteCustomFileSettingsDAO()
 {
 }
 
-settings::domain::CustomFileSettings settings::dataaccess::ConcreteCustomFileSettingsDAO::get()
+CustomFileSettings ConcreteCustomFileSettingsDAO::get()
 {
-	return CustomFileSettings("path");
+	Document document;
+	document.Parse(_filePath.c_str());
+	
+	return _builder->build();
 }

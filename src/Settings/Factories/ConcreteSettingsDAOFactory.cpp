@@ -2,6 +2,7 @@
 #include "Settings/DataAccess/ConcreteCommandLineArgumentSettingsDAO.h"
 #include "Settings/Builders/CommandLineSettingsBuilder.h"
 #include "Settings/DataAccess/ConcreteCustomFileSettingsDAO.h"
+#include "Settings/Builders/CustomFileSettingsBuilder.h"
 
 using std::unique_ptr;
 using std::make_unique;
@@ -13,6 +14,7 @@ using core::application::CommandLine;
 using settings::builders::CommandLineSettingsBuilder;
 using settings::dataaccess::CustomFileSettingsDAO;
 using settings::dataaccess::ConcreteCustomFileSettingsDAO;
+using settings::builders::CustomFileSettingsBuilder;
 
 ConcreteSettingsDAOFactory::ConcreteSettingsDAOFactory(const CommandLine& commandLine) 
 	: _commandLine(commandLine)
@@ -32,5 +34,6 @@ unique_ptr<CommandLineArgumentSettingsDAO> ConcreteSettingsDAOFactory::createCom
 
 unique_ptr<CustomFileSettingsDAO> ConcreteSettingsDAOFactory::createCustomFileSettingsDAO(const string& customFileSettingsPath)
 {
-	return make_unique<ConcreteCustomFileSettingsDAO>(customFileSettingsPath);
+	unique_ptr<CustomFileSettingsBuilder> builder = make_unique<CustomFileSettingsBuilder>();
+	return make_unique<ConcreteCustomFileSettingsDAO>(customFileSettingsPath, std::move(builder));
 }
