@@ -29,7 +29,7 @@ private:
 	std::unique_ptr<settings::dataaccess::CustomFileSettingsDAO> _customDAO;
 	
 	settings::dataaccess::CommandLineArgumentSettingsDAO& getCommandLineDAO();
-	settings::dataaccess::CustomFileSettingsDAO& getCustomFileDAO();
+	settings::dataaccess::CustomFileSettingsDAO& getCustomFileDAO(const std::string& path);
 };
 
 } }

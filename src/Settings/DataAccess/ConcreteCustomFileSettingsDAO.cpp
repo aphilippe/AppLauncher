@@ -3,7 +3,10 @@
 using settings::dataaccess::ConcreteCustomFileSettingsDAO;
 using settings::domain::CustomFileSettings;
 
-ConcreteCustomFileSettingsDAO::ConcreteCustomFileSettingsDAO()
+using std::string;
+
+ConcreteCustomFileSettingsDAO::ConcreteCustomFileSettingsDAO(const string& filePath)
+: _filePath(filePath)
 {
 }
 

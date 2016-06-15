@@ -8,11 +8,14 @@ namespace settings {
 	class ConcreteCustomFileSettingsDAO : public CustomFileSettingsDAO
 	{
 	public:
-		ConcreteCustomFileSettingsDAO();
+		ConcreteCustomFileSettingsDAO(const std::string& filePath);
 		virtual ~ConcreteCustomFileSettingsDAO();
 
 		// Inherited via CustomFileSettingsDAO
 		virtual settings::domain::CustomFileSettings get() override;
+		
+	private:
+		std::string _filePath;
 	};
 
 } }

@@ -12,9 +12,11 @@ public:
 	settings::domain::CommandLineSettings build();
 
 	void setExecutablePath(const std::string& executablePath);
+	void setCustomSettingsFilePath(const std::string& path);
 
 private:
 	std::string _executablePath;
+	std::string _customSettingsFilePath;
 };
 
 } }

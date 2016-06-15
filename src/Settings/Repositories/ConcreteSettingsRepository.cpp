@@ -3,6 +3,7 @@
 #include "Settings/Domain/CustomFileSettings.h"
 
 using std::move;
+using std::string;
 
 using settings::repositories::ConcreteSettingsRepository;
 using settings::domain::Settings;
@@ -24,7 +25,7 @@ ConcreteSettingsRepository::~ConcreteSettingsRepository()
 const Settings& ConcreteSettingsRepository::get()
 {
 	CommandLineSettings cmdSettings = this->getCommandLineDAO().get();
-	CustomFileSettings customSettings = this->getCustomFileDAO().get();
+	CustomFileSettings customSettings = this->getCustomFileDAO(cmdSettings.getCustomSettingsFilePath()).get();
 
 	_settings = std::make_unique<Settings>(cmdSettings.getExecutablePath(), customSettings.getBackupFolderPath());
 	return *_settings;
@@ -41,9 +42,9 @@ ConcreteSettingsRepository::getCommandLineDAO() {
 }
 
 settings::dataaccess::CustomFileSettingsDAO&
-ConcreteSettingsRepository::getCustomFileDAO() {
+ConcreteSettingsRepository::getCustomFileDAO(const string& path) {
 	if (_customDAO == nullptr) {
-		_customDAO = _daoFactory->createCustomFileSettingsDAO();
+		_customDAO = _daoFactory->createCustomFileSettingsDAO(path);
 	}
 	return *_customDAO;
 }

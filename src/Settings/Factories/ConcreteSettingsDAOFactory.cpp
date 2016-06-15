@@ -5,6 +5,7 @@
 
 using std::unique_ptr;
 using std::make_unique;
+using std::string;
 using settings::factories::ConcreteSettingsDAOFactory;
 using settings::dataaccess::CommandLineArgumentSettingsDAO;
 using settings::dataaccess::ConcreteCommandLineArgumentSettingsDAO;
@@ -29,7 +30,7 @@ unique_ptr<CommandLineArgumentSettingsDAO> ConcreteSettingsDAOFactory::createCom
 	return make_unique<ConcreteCommandLineArgumentSettingsDAO>(_commandLine, std::move(commandLineSettingsBuilder));
 }
 
-unique_ptr<CustomFileSettingsDAO> ConcreteSettingsDAOFactory::createCustomFileSettingsDAO()
+unique_ptr<CustomFileSettingsDAO> ConcreteSettingsDAOFactory::createCustomFileSettingsDAO(const string& customFileSettingsPath)
 {
-	return make_unique<ConcreteCustomFileSettingsDAO>();
+	return make_unique<ConcreteCustomFileSettingsDAO>(customFileSettingsPath);
 }

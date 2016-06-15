@@ -14,12 +14,17 @@ CommandLineSettingsBuilder::~CommandLineSettingsBuilder()
 {
 }
 
-settings::domain::CommandLineSettings settings::builders::CommandLineSettingsBuilder::build()
+CommandLineSettings CommandLineSettingsBuilder::build()
 {
-	return CommandLineSettings(_executablePath);
+	return CommandLineSettings(_executablePath, _customSettingsFilePath);
 }
 
 void CommandLineSettingsBuilder::setExecutablePath(const string & executablePath)
 {
 	_executablePath = executablePath;
+}
+
+void CommandLineSettingsBuilder::setCustomSettingsFilePath(const std::string& path)
+{
+	_customSettingsFilePath = path;
 }

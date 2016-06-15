@@ -23,15 +23,16 @@ CommandLineSettings ConcreteCommandLineArgumentSettingsDAO::get()
 	TCLAP::CmdLine parser("Command description", ' ', "0.2");
 
 	TCLAP::ValueArg<string> executablePathArg("e", "executable", "The path of the executable to launch", true, "", "string");
-
 	parser.add(executablePathArg);
+	
+	TCLAP::ValueArg<string> customSettingsFilePathArg("s", "settings", "The path of the Clapp file settings", false, "", "string");
+	parser.add(customSettingsFilePathArg);
 
 	parser.parse(_commandLine.getArgc(), _commandLine.getArgv());
 
-	string executablePath = executablePathArg.getValue();
-	if (!executablePath.empty()) {
-		_settingsBuilder->setExecutablePath(executablePath);
-	}
+	
+	_settingsBuilder->setExecutablePath(executablePathArg.getValue());
+	_settingsBuilder->setCustomSettingsFilePath(customSettingsFilePathArg.getValue());
 
 	return _settingsBuilder->build();
 }
