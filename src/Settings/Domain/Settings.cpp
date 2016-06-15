@@ -3,7 +3,7 @@
 using settings::domain::Settings;
 using std::string;
 
-Settings::Settings(const std::string& executablPath, const string& backupPath)
+Settings::Settings(const string& executablPath, const string& backupPath)
 	: _executablePath(executablPath), _backupPath(backupPath)
 {
 }
