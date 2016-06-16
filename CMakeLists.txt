@@ -81,17 +81,21 @@ SOURCE_GROUP("Settings\\Domain" FILES
 				src/Settings/Domain/CustomFileSettings.h
 				src/Settings/Domain/CustomFileSettings.cpp)
 
-SOURCE_GROUP("Settings\\DataAccess" FILES
+SOURCE_GROUP("Settings\\DataAccess\\CommandLine" FILES
 				src/Settings/DataAccess/CommandLineArgumentSettingsDAO.h
 				src/Settings/DataAccess/ConcreteCommandLineArgumentSettingsDAO.h
-				src/Settings/DataAccess/ConcreteCommandLineArgumentSettingsDAO.cpp
+				src/Settings/DataAccess/ConcreteCommandLineArgumentSettingsDAO.cpp)
+
+SOURCE_GROUP("Settings\\DataAccess\\CustomFile" FILES
 				src/Settings/DataAccess/CustomFileSettingsDAO.h
 				src/Settings/DataAccess/ConcreteCustomFileSettingsDAO.h
 				src/Settings/DataAccess/ConcreteCustomFileSettingsDAO.cpp)
 
 SOURCE_GROUP("Settings\\Builders" FILES
 				src/Settings/Builders/CommandLineSettingsBuilder.h
-				src/Settings/Builders/CommandLineSettingsBuilder.cpp)
+				src/Settings/Builders/CommandLineSettingsBuilder.cpp
+				src/Settings/Builders/CustomFileSettingsBuilder.h
+				src/Settings/Builders/CustomFileSettingsBuilder.cpp)
 
 
 ###################

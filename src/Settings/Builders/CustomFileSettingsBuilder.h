@@ -10,6 +10,11 @@ namespace settings { namespace builders {
 class CustomFileSettingsBuilder {
 public:
 	settings::domain::CustomFileSettings build();
+
+	void setBackupFolderPath(const std::string& path);
+
+private:
+	std::string _backupFolderPath;
 };
 
 } }

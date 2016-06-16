@@ -23,6 +23,8 @@ CustomFileSettings ConcreteCustomFileSettingsDAO::get()
 {
 	Document document;
 	document.Parse(_filePath.c_str());
+
+	_builder->setBackupFolderPath("plop");
 	
 	return _builder->build();
 }
