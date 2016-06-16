@@ -11,7 +11,7 @@ include_directories(src/Common)
 include_directories(src/Libraries)
 include_directories(src)
 
-file(GLOB_RECURSE source_files_common src/Common/*.cpp src/Common/*.h src/Core/*.cpp src/Core/*.h)
+file(GLOB_RECURSE source_files_common src/Common/*.cpp src/Common/*.h src/Core/*.cpp src/Core/*.h src/Settings/*.cpp src/Settings/*.h)
 
 IF (WIN32)
 	include_directories(src/Windows)
@@ -53,49 +53,50 @@ SOURCE_GROUP("Core\\JSON\\Parsers\\Handler" FILES
 				src/Core/JSON/Parser/Handler/JSONHandler.h
 				src/Core/JSON/Parser/Handler/JSONHandler.cpp)
 
+SOURCE_GROUP("Core\\Application" FILES
+				src/Core/Application/CommandLine.h
+				src/Core/Application/CommandLine.cpp)
 
 ###################
-#   UserParameter   #
+# Settings        #
 ###################
 
-SOURCE_GROUP("UserParameter\\Domain" FILES
-				src/Common/UserParameter/Domain/UserParameter.cpp
-				src/Common/UserParameter/Domain/UserParameter.h
-				src/Common/UserParameter/Domain/UserParameterFile.cpp
-				src/Common/UserParameter/Domain/UserParameterFile.h)
+SOURCE_GROUP("Settings\\Factories" FILES
+				src/Settings/Factories/SettingsRepositoryFactory.h
+				src/Settings/Factories/SettingsRepositoryFactory.cpp
+				src/Settings/Factories/SettingsDAOFactory.h
+				src/Settings/Factories/ConcreteSettingsDAOFactory.h
+				src/Settings/Factories/ConcreteSettingsDAOFactory.cpp)
 
-SOURCE_GROUP("UserParameter\\Repositories" FILES
-				src/Common/UserParameter/Repositories/UserParameterRepository.cpp
-				src/Common/UserParameter/Repositories/UserParameterRepository.h)
+SOURCE_GROUP("Settings\\Repositories" FILES
+				src/Settings/Repositories/SettingsRepository.h
+				src/Settings/Repositories/ConcreteSettingsRepository.h
+				src/Settings/Repositories/ConcreteSettingsRepository.cpp)
 
-SOURCE_GROUP("UserParameter\\DataAccess" FILES
-				src/Common/UserParameter/DataAccess/IUserParameterDAO.h
-				src/Common/UserParameter/DataAccess/JSONUserParameterDAO.h
-				src/Common/UserParameter/DataAccess/JSONUserParameterDAO.cpp)
+SOURCE_GROUP("Settings\\Domain" FILES
+				src/Settings/Domain/Settings.h
+				src/Settings/Domain/Settings.cpp
+				src/Settings/Domain/CommandLineSettings.h
+				src/Settings/Domain/CommandLineSettings.cpp
+				src/Settings/Domain/CustomFileSettings.h
+				src/Settings/Domain/CustomFileSettings.cpp)
 
-SOURCE_GROUP("UserParameter\\Factories" FILES
-				src/Common/UserParameter/Factories/UserParameterFactory.h
-				src/Common/UserParameter/Factories/UserParameterFactory.cpp)
+SOURCE_GROUP("Settings\\DataAccess\\CommandLine" FILES
+				src/Settings/DataAccess/CommandLineArgumentSettingsDAO.h
+				src/Settings/DataAccess/ConcreteCommandLineArgumentSettingsDAO.h
+				src/Settings/DataAccess/ConcreteCommandLineArgumentSettingsDAO.cpp)
 
-###################
-#   Application   #
-###################
+SOURCE_GROUP("Settings\\DataAccess\\CustomFile" FILES
+				src/Settings/DataAccess/CustomFileSettingsDAO.h
+				src/Settings/DataAccess/ConcreteCustomFileSettingsDAO.h
+				src/Settings/DataAccess/ConcreteCustomFileSettingsDAO.cpp)
 
-SOURCE_GROUP("Application\\Parameters" FILES
-				src/Common/Application/Parameters/ApplicationParameters.cpp
-				src/Common/Application/Parameters/ApplicationParameters.h)
+SOURCE_GROUP("Settings\\Builders" FILES
+				src/Settings/Builders/CommandLineSettingsBuilder.h
+				src/Settings/Builders/CommandLineSettingsBuilder.cpp
+				src/Settings/Builders/CustomFileSettingsBuilder.h
+				src/Settings/Builders/CustomFileSettingsBuilder.cpp)
 
-SOURCE_GROUP("Application\\Parameters\\Builders" FILES
-				src/Common/Application/Parameters/ApplicationParametersBuilder.cpp
-				src/Common/Application/Parameters/ApplicationParametersBuilder.h)
-
-SOURCE_GROUP("Application\\Parameters\\Manager" FILES
-				src/Common/Application/Parameters/ApplicationParametersManager.cpp
-				src/Common/Application/Parameters/ApplicationParametersManager.h)
-
-SOURCE_GROUP("Application\\Parameters\\Reader" FILES
-				src/Common/Application/Parameters/ApplicationParametersReader.cpp
-				src/Common/Application/Parameters/ApplicationParametersReader.h)
 
 ####################
 #    FileSystem    #
