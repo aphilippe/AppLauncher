@@ -3,8 +3,8 @@
 using settings::domain::Settings;
 using std::string;
 
-Settings::Settings(const string& executablPath, const string& backupPath)
-	: _executablePath(executablPath), _backupPath(backupPath)
+Settings::Settings(const string& executablPath, const string& backupPath, const std::vector<std::string>& filePaths)
+	: _executablePath(executablPath), _backupPath(backupPath), _filePaths(filePaths)
 {
 }
 
@@ -21,4 +21,9 @@ string Settings::getExecutablePath() const
 string Settings::getBackupPath() const
 {
 	return _backupPath;
+}
+
+const std::vector<std::string>& Settings::getFilePaths() const
+{
+	return _filePaths;
 }

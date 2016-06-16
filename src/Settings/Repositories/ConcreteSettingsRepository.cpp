@@ -27,7 +27,7 @@ const Settings& ConcreteSettingsRepository::get()
 	CommandLineSettings cmdSettings = this->getCommandLineDAO().get();
 	CustomFileSettings customSettings = this->getCustomFileDAO(cmdSettings.getCustomSettingsFilePath()).get();
 
-	_settings = std::make_unique<Settings>(cmdSettings.getExecutablePath(), customSettings.getBackupFolderPath());
+	_settings = std::make_unique<Settings>(cmdSettings.getExecutablePath(), customSettings.getBackupFolderPath(), customSettings.getFilePaths());
 	return *_settings;
 }
 

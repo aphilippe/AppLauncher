@@ -3,6 +3,8 @@
 #include "RapidJSON/filereadstream.h"
 #include "Settings/Builders/CustomFileSettingsBuilder.h"
 
+#include <vector>
+
 using settings::dataaccess::ConcreteCustomFileSettingsDAO;
 using settings::domain::CustomFileSettings;
 
@@ -31,7 +33,19 @@ CustomFileSettings ConcreteCustomFileSettingsDAO::get()
 	document.ParseStream(fileStream);
 
 	_builder->setBackupFolderPath(document["backupFolder"].GetString());
-	
+
+	if (document.HasMember("backupFiles")) {
+		std::vector<string> pathArray;
+
+		auto jsonArray = document["backupFiles"].GetArray();
+
+		for (auto it = jsonArray.Begin(); it != jsonArray.End(); it++) {
+			pathArray.push_back(it->GetString());
+		}
+
+		_builder->setFilePaths(pathArray);
+	}
+
 	fclose(fp);
 
 	return _builder->build();
