@@ -98,30 +98,6 @@ SOURCE_GROUP("Settings\\Builders" FILES
 				src/Settings/Builders/CustomFileSettingsBuilder.cpp)
 
 
-###################
-#   UserParameter   #
-###################
-
-SOURCE_GROUP("UserParameter\\Domain" FILES
-				src/Common/UserParameter/Domain/UserParameter.cpp
-				src/Common/UserParameter/Domain/UserParameter.h
-				src/Common/UserParameter/Domain/UserParameterFile.cpp
-				src/Common/UserParameter/Domain/UserParameterFile.h)
-
-SOURCE_GROUP("UserParameter\\Repositories" FILES
-				src/Common/UserParameter/Repositories/UserParameterRepository.cpp
-				src/Common/UserParameter/Repositories/UserParameterRepository.h)
-
-SOURCE_GROUP("UserParameter\\DataAccess" FILES
-				src/Common/UserParameter/DataAccess/IUserParameterDAO.h
-				src/Common/UserParameter/DataAccess/JSONUserParameterDAO.h
-				src/Common/UserParameter/DataAccess/JSONUserParameterDAO.cpp)
-
-SOURCE_GROUP("UserParameter\\Factories" FILES
-				src/Common/UserParameter/Factories/UserParameterFactory.h
-				src/Common/UserParameter/Factories/UserParameterFactory.cpp)
-
-
 ####################
 #    FileSystem    #
 ####################

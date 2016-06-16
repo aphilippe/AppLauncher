@@ -5,10 +5,6 @@
 #include "FileSystem/Entities/Exceptions/InvalidExecutablePathException.h"
 #include <memory>
 #include <iostream>
-#include "UserParameter/Repositories/UserParameterRepository.h"
-#include "UserParameter/DataAccess/JSONUserParameterDAO.h"
-#include "UserParameter/Domain/UserParameter.h"
-#include "UserParameter/Domain/UserParameterFile.h"
 
 #include "Settings/Factories/SettingsRepositoryFactory.h"
 #include "Core/Application/CommandLine.h"
@@ -27,10 +23,6 @@ using core::application::CommandLine;
 
 
 int main(int argc, char* argv[]) {
-	// to be removed with refactoring
-	//userparameter::domain::UserParameterFile userParameterFile(parameters.getBackupParametersFilePath());
-	//userparameter::repositories::UserParameterRepository userParameterRepository(std::move(std::make_unique<userparameter::dataaccess::JSONUserParameterDAO>()));
-	//userParameterRepository.getUserParameter(userParameterFile);
 	
 	CommandLine cmdLine(argc, argv);
 	SettingsRepositoryFactory settingsRepositoryFactory;
