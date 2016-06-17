@@ -2,6 +2,7 @@
 #include "RapidJSON/document.h"
 #include "RapidJSON/filereadstream.h"
 #include "Settings/Builders/CustomFileSettingsBuilder.h"
+#include "Settings/Exceptions/BadFormatCustomFileSettingsException.h"
 
 #include <vector>
 
@@ -31,6 +32,10 @@ CustomFileSettings ConcreteCustomFileSettingsDAO::get()
 
 	Document document;
 	document.ParseStream(fileStream);
+
+	if (document.HasParseError()) {
+		throw BadFormatCustomFileSettingsException();
+	}
 
 	_builder->setBackupFolderPath(document["backupFolder"].GetString());
 

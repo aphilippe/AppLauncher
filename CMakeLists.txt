@@ -97,6 +97,10 @@ SOURCE_GROUP("Settings\\Builders" FILES
 				src/Settings/Builders/CustomFileSettingsBuilder.h
 				src/Settings/Builders/CustomFileSettingsBuilder.cpp)
 
+SOURCE_GROUP("Settings\\Exceptions" FILES
+				src/Settings/Exceptions/BadFormatCustomFileSettingsException.h
+				src/Settings/Exceptions/BadFormatCustomFileSettingsException.cpp)
+
 
 ####################
 #    FileSystem    #
