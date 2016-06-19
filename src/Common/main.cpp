@@ -30,9 +30,9 @@ int main(int argc, char* argv[]) {
 		unique_ptr<SettingsRepository> settingsRepository = settingsRepositoryFactory.createRepository(cmdLine);
 		const Settings settings = settingsRepository->get();
 	}
-	catch (std::exception e)
+	catch (const std::exception& e)
 	{
-		printf(e.what());
+		std::cout << e.what() << std::endl;
 	}
 	// To be uncomment after refactoring
 	/*EntityFactory entityFactory;

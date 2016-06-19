@@ -8,6 +8,7 @@
 
 using settings::dataaccess::ConcreteCustomFileSettingsDAO;
 using settings::domain::CustomFileSettings;
+using settings::exceptions::BadFormatCustomFileSettingsException;
 
 using std::string;
 
@@ -34,7 +35,7 @@ CustomFileSettings ConcreteCustomFileSettingsDAO::get()
 	document.ParseStream(fileStream);
 
 	if (document.HasParseError()) {
-		throw BadFormatCustomFileSettingsException();
+		throw BadFormatCustomFileSettingsException(_filePath);
 	}
 
 	_builder->setBackupFolderPath(document["backupFolder"].GetString());

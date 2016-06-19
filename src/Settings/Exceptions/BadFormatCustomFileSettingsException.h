@@ -1,12 +1,13 @@
 #pragma once
-#include <exception>
+#include "Core/Exceptions/Exception.h"
 
+namespace settings { namespace exceptions {
 
-class BadFormatCustomFileSettingsException : public std::exception
+class BadFormatCustomFileSettingsException : public core::Exception
 {
 public:
-	BadFormatCustomFileSettingsException();
+	BadFormatCustomFileSettingsException(const std::string& filePath);
 	virtual ~BadFormatCustomFileSettingsException();
-
 };
 
+} }

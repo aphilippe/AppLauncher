@@ -57,6 +57,10 @@ SOURCE_GROUP("Core\\Application" FILES
 				src/Core/Application/CommandLine.h
 				src/Core/Application/CommandLine.cpp)
 
+SOURCE_GROUP("Core\\Exceptions" FILES
+				src/Core/Exceptions/Exception.h
+				src/Core/Exceptions/Exception.cpp)
+
 ###################
 # Settings        #
 ###################
