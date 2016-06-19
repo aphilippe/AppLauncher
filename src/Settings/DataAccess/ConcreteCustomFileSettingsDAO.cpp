@@ -4,12 +4,14 @@
 #include "RapidJSON/error/en.h"
 #include "Settings/Builders/CustomFileSettingsBuilder.h"
 #include "Settings/Exceptions/BadFormatCustomFileSettingsException.h"
+#include "Settings/Exceptions/BadTypeCustomFileSettingsException.h"
 
 #include <vector>
 
 using settings::dataaccess::ConcreteCustomFileSettingsDAO;
 using settings::domain::CustomFileSettings;
 using settings::exceptions::BadFormatCustomFileSettingsException;
+using settings::exceptions::BadTypeCustomFileSettingsException;
 
 using std::string;
 
@@ -40,7 +42,15 @@ CustomFileSettings ConcreteCustomFileSettingsDAO::get()
 		throw BadFormatCustomFileSettingsException(_filePath, GetParseError_En(document.GetParseError()));
 	}
 
-	_builder->setBackupFolderPath(document["backupFolder"].GetString());
+	if (document.HasMember("backupFolder"))
+	{
+		if (!document["backupFolder"].IsString())
+		{
+			throw BadTypeCustomFileSettingsException(_filePath, "backupFolder", "string");
+		}
+
+		_builder->setBackupFolderPath(document["backupFolder"].GetString());
+	}
 
 	if (document.HasMember("backupFiles")) {
 		std::vector<string> pathArray;
