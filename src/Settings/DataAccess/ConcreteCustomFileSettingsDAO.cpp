@@ -1,6 +1,7 @@
 #include "ConcreteCustomFileSettingsDAO.h"
 #include "RapidJSON/document.h"
 #include "RapidJSON/filereadstream.h"
+#include "RapidJSON/error/en.h"
 #include "Settings/Builders/CustomFileSettingsBuilder.h"
 #include "Settings/Exceptions/BadFormatCustomFileSettingsException.h"
 
@@ -13,6 +14,7 @@ using settings::exceptions::BadFormatCustomFileSettingsException;
 using std::string;
 
 using rapidjson::Document;
+using rapidjson::GetParseError_En;
 
 ConcreteCustomFileSettingsDAO::ConcreteCustomFileSettingsDAO(const string& filePath, std::unique_ptr<settings::builders::CustomFileSettingsBuilder> builder)
 : _filePath(filePath), _builder(std::move(builder))
@@ -35,7 +37,7 @@ CustomFileSettings ConcreteCustomFileSettingsDAO::get()
 	document.ParseStream(fileStream);
 
 	if (document.HasParseError()) {
-		throw BadFormatCustomFileSettingsException(_filePath);
+		throw BadFormatCustomFileSettingsException(_filePath, GetParseError_En(document.GetParseError()));
 	}
 
 	_builder->setBackupFolderPath(document["backupFolder"].GetString());
