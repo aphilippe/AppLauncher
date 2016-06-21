@@ -12,7 +12,7 @@ Exception::~Exception()
 {
 }
 
-char const * core::Exception::what() const
+char const * core::Exception::what()  const throw()
 {
 	return _message.c_str();
 }
