@@ -24,13 +24,18 @@ using core::application::CommandLine;
 
 int main(int argc, char* argv[]) {
 	
-	CommandLine cmdLine(argc, argv);
-	SettingsRepositoryFactory settingsRepositoryFactory;
-	unique_ptr<SettingsRepository> settingsRepository = settingsRepositoryFactory.createRepository(cmdLine);
-	const Settings settings = settingsRepository->get();
-
+	try {
+		CommandLine cmdLine(argc, argv);
+		SettingsRepositoryFactory settingsRepositoryFactory;
+		unique_ptr<SettingsRepository> settingsRepository = settingsRepositoryFactory.createRepository(cmdLine);
+		const Settings settings = settingsRepository->get();
+	}
+	catch (const std::exception& e)
+	{
+		std::cout << e.what() << std::endl;
+	}
 	// To be uncomment after refactoring
-	EntityFactory entityFactory;
+	/*EntityFactory entityFactory;
 	
 	try
 	{
@@ -39,7 +44,9 @@ int main(int argc, char* argv[]) {
 	}
 	catch (InvalidExecutablePathException exception) {
 		std::cout << "Invalid executable path : " << std::endl << "\t - " << exception.getDescription() << std::endl;
-	}
+	}*/
+
+	
 	
 	return EXIT_SUCCESS;
 }

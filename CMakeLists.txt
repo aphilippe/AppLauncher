@@ -57,6 +57,10 @@ SOURCE_GROUP("Core\\Application" FILES
 				src/Core/Application/CommandLine.h
 				src/Core/Application/CommandLine.cpp)
 
+SOURCE_GROUP("Core\\Exceptions" FILES
+				src/Core/Exceptions/Exception.h
+				src/Core/Exceptions/Exception.cpp)
+
 ###################
 # Settings        #
 ###################
@@ -96,6 +100,12 @@ SOURCE_GROUP("Settings\\Builders" FILES
 				src/Settings/Builders/CommandLineSettingsBuilder.cpp
 				src/Settings/Builders/CustomFileSettingsBuilder.h
 				src/Settings/Builders/CustomFileSettingsBuilder.cpp)
+
+SOURCE_GROUP("Settings\\Exceptions" FILES
+				src/Settings/Exceptions/BadFormatCustomFileSettingsException.h
+				src/Settings/Exceptions/BadFormatCustomFileSettingsException.cpp
+				src/Settings/Exceptions/BadTypeCustomFileSettingsException.h
+				src/Settings/Exceptions/BadTypeCustomFileSettingsException.cpp)
 
 
 ####################
