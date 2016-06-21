@@ -53,11 +53,21 @@ CustomFileSettings ConcreteCustomFileSettingsDAO::get()
 	}
 
 	if (document.HasMember("backupFiles")) {
+		if (!document["backupFiles"].IsArray())
+		{
+			throw BadTypeCustomFileSettingsException(_filePath, "backupFiles", "array");
+		}
+
 		std::vector<string> pathArray;
 
 		auto jsonArray = document["backupFiles"].GetArray();
 
 		for (auto it = jsonArray.Begin(); it != jsonArray.End(); it++) {
+			if (!it->IsString())
+			{
+				throw BadTypeCustomFileSettingsException(_filePath, "backupFiles.object", "string");
+			}
+
 			pathArray.push_back(it->GetString());
 		}
 
