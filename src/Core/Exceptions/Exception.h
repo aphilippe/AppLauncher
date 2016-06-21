@@ -11,7 +11,7 @@ namespace core {
 		Exception();
 		virtual ~Exception();
 
-		virtual char const * what() const override;
+		virtual char const * what() const  throw() override;
 
 	protected:
 		void setMessage(const std::string& message);
