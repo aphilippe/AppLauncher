@@ -107,7 +107,9 @@ SOURCE_GROUP("Settings\\Exceptions" FILES
 				src/Settings/Exceptions/BadFormatCustomFileSettingsException.h
 				src/Settings/Exceptions/BadFormatCustomFileSettingsException.cpp
 				src/Settings/Exceptions/BadTypeCustomFileSettingsException.h
-				src/Settings/Exceptions/BadTypeCustomFileSettingsException.cpp)
+				src/Settings/Exceptions/BadTypeCustomFileSettingsException.cpp
+				src/Settings/Exceptions/MissingSettingsException.cpp
+				src/Settings/Exceptions/MissingSettingsException.h)
 
 
 ####################
