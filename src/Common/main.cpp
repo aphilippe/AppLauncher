@@ -29,11 +29,14 @@ int main(int argc, char* argv[]) {
 		SettingsRepositoryFactory settingsRepositoryFactory;
 		unique_ptr<SettingsRepository> settingsRepository = settingsRepositoryFactory.createRepository(cmdLine);
 		const Settings settings = settingsRepository->get();
+		printf("fsdfdsf");
 	}
 	catch (const std::exception& e)
 	{
 		std::cout << e.what() << std::endl;
 	}
+
+	
 	// To be uncomment after refactoring
 	/*EntityFactory entityFactory;
 	

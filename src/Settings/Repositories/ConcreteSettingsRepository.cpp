@@ -1,6 +1,7 @@
 #include "ConcreteSettingsRepository.h"
 #include "Settings/Domain/CommandLineSettings.h"
 #include "Settings/Domain/CustomFileSettings.h"
+#include "Settings/Builders/MergedSettingsBuilder.h"
 
 using std::move;
 using std::string;
@@ -9,6 +10,7 @@ using settings::repositories::ConcreteSettingsRepository;
 using settings::domain::Settings;
 using settings::domain::CommandLineSettings;
 using settings::domain::CustomFileSettings;
+using settings::builders::MergedSettingsBuilder;
 
 
 ConcreteSettingsRepository::ConcreteSettingsRepository(std::unique_ptr<settings::factories::SettingsDAOFactory> daoFactory)
@@ -24,10 +26,14 @@ ConcreteSettingsRepository::~ConcreteSettingsRepository()
 
 const Settings& ConcreteSettingsRepository::get()
 {
-	CommandLineSettings cmdSettings = this->getCommandLineDAO().get();
-	CustomFileSettings customSettings = this->getCustomFileDAO(cmdSettings.getCustomSettingsFilePath()).get();
+	std::shared_ptr<CommandLineSettings> cmdSettings = std::make_shared<CommandLineSettings>(this->getCommandLineDAO().get());
+	std::shared_ptr<CustomFileSettings> customSettings = std::make_shared<CustomFileSettings>(this->getCustomFileDAO(cmdSettings->getCustomSettingsFilePath()).get());
 
-	_settings = std::make_unique<Settings>(cmdSettings.getExecutablePath(), customSettings.getBackupFolderPath(), customSettings.getFilePaths());
+	MergedSettingsBuilder builder;
+	builder.setCommandLineSettings(cmdSettings);
+	builder.setCustomFileSettings(customSettings);
+
+	_settings = builder.build();
 	return *_settings;
 }
 

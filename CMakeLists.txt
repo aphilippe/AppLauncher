@@ -99,7 +99,9 @@ SOURCE_GROUP("Settings\\Builders" FILES
 				src/Settings/Builders/CommandLineSettingsBuilder.h
 				src/Settings/Builders/CommandLineSettingsBuilder.cpp
 				src/Settings/Builders/CustomFileSettingsBuilder.h
-				src/Settings/Builders/CustomFileSettingsBuilder.cpp)
+				src/Settings/Builders/CustomFileSettingsBuilder.cpp
+				src/Settings/Builders/MergedSettingsBuilder.h
+				src/Settings/Builders/MergedSettingsBuilder.cpp)
 
 SOURCE_GROUP("Settings\\Exceptions" FILES
 				src/Settings/Exceptions/BadFormatCustomFileSettingsException.h
