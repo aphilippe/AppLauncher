@@ -132,11 +132,15 @@ SOURCE_GROUP("AppLauncher\\Domain" FILES
 
 SOURCE_GROUP("AppLauncher\\Repositories" FILES
 				src/AppLauncher/Repositories/FileToBackupRepository.h
-				src/AppLauncher/Repositories/FileToBackupRepository.cpp)
+				src/AppLauncher/Repositories/FileToBackupRepository.cpp
+				src/AppLauncher/Repositories/BackupFolderRepository.h
+				src/AppLauncher/Repositories/BackupFolderRepository.cpp)
 
 SOURCE_GROUP("AppLauncher\\Factories" FILES
 				src/AppLauncher/Factories/FileToBackupRepositoryFactory.h
-				src/AppLauncher/Factories/FileToBackupRepositoryFactory.cpp)
+				src/AppLauncher/Factories/FileToBackupRepositoryFactory.cpp
+				src/AppLauncher/Factories/BackupFolderRepositoryFactory.h
+				src/AppLauncher/Factories/BackupFolderRepositoryFactory.cpp)
 
 ####################
 #    FileSystem    #
