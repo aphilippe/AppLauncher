@@ -124,6 +124,10 @@ SOURCE_GROUP("AppLauncher\\Operations" FILES
 				src/AppLauncher/Operations/BackupOperation.cpp
 				src/AppLauncher/Operations/BackupOperation.h)
 
+SOURCE_GROUP("AppLauncher\\Domain" FILES
+				src/AppLauncher/Domain/FileToBackup.h
+				src/AppLauncher/Domain/FileToBackup.cpp)
+
 ####################
 #    FileSystem    #
 ####################
