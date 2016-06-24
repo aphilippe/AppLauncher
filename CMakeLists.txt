@@ -7,20 +7,15 @@ set(executableName applauncher)
 project(AppLauncher)
 set(EXECUTABLE_OUTPUT_PATH bin/)
 
-include_directories(src/Common)
 include_directories(src/Libraries)
 include_directories(src)
 
-file(GLOB_RECURSE source_files_common src/Common/*.cpp src/Common/*.h src/Core/*.cpp src/Core/*.h src/Settings/*.cpp src/Settings/*.h src/AppLauncher/*.cpp src/AppLauncher/*.h)
+file(GLOB_RECURSE source_files_common src/main.cpp src/Core/*.cpp src/Core/*.h src/Settings/*.cpp src/Settings/*.h src/AppLauncher/*.cpp src/AppLauncher/*.h)
 
 IF (WIN32)
-	include_directories(src/Windows)
-    file(GLOB_RECURSE source_files_win src/Windows/*.cpp src/Windows/*h)
-    add_executable(${executableName} ${source_files_common} ${source_files_win})
+    add_executable(${executableName} ${source_files_common})
 ELSE()
-	include_directories(src/Unix)
-    file(GLOB_RECURSE source_files_unix src/Unix/*.cpp src/Unix/*h)
-    add_executable(${executableName} ${source_files_common} ${source_files_unix})
+    add_executable(${executableName} ${source_files_common})
 	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
 ENDIF()
 
