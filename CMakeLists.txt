@@ -11,7 +11,7 @@ include_directories(src/Common)
 include_directories(src/Libraries)
 include_directories(src)
 
-file(GLOB_RECURSE source_files_common src/Common/*.cpp src/Common/*.h src/Core/*.cpp src/Core/*.h src/Settings/*.cpp src/Settings/*.h)
+file(GLOB_RECURSE source_files_common src/Common/*.cpp src/Common/*.h src/Core/*.cpp src/Core/*.h src/Settings/*.cpp src/Settings/*.h src/AppLauncher/*.cpp src/AppLauncher/*.h)
 
 IF (WIN32)
 	include_directories(src/Windows)
@@ -111,6 +111,18 @@ SOURCE_GROUP("Settings\\Exceptions" FILES
 				src/Settings/Exceptions/MissingSettingsException.cpp
 				src/Settings/Exceptions/MissingSettingsException.h)
 
+#####################
+#    Application    #
+#####################
+
+SOURCE_GROUP("AppLauncher\\Operations" FILES
+				src/AppLauncher/Operations/IOperation.h
+				src/AppLauncher/Operations/RestoreOperation.cpp
+				src/AppLauncher/Operations/RestoreOperation.h
+				src/AppLauncher/Operations/ExecuteOperation.cpp
+				src/AppLauncher/Operations/ExecuteOperation.h
+				src/AppLauncher/Operations/BackupOperation.cpp
+				src/AppLauncher/Operations/BackupOperation.h)
 
 ####################
 #    FileSystem    #
