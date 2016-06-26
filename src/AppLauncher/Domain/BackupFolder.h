@@ -10,6 +10,8 @@ public:
 	BackupFolder(const file_system::Path& path);
 	virtual ~BackupFolder();
 
+	file_system::Path getPath() const;
+
 private:
 	file_system::Path _path;
 };

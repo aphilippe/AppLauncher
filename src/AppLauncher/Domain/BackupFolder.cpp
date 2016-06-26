@@ -12,7 +12,7 @@ BackupFolder::BackupFolder(const Path& path)
 {
 	if (!path.exists())
 	{
-		throw launcher::exceptions::BackupFolderNotAFolderException(path);
+		throw launcher::exceptions::BackupFolderNotFoundException(path);
 	}
 
 	if (!_path.isFolder())
@@ -29,4 +29,9 @@ BackupFolder::BackupFolder(const Path& path)
 
 BackupFolder::~BackupFolder()
 {
+}
+
+Path BackupFolder::getPath() const
+{
+	return _path;
 }

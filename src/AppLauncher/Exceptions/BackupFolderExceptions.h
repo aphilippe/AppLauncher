@@ -21,10 +21,10 @@ namespace launcher { namespace exceptions {
 	};
 
 
-	class BackuFolderpNotFoundException : public core::Exception
+	class BackupFolderNotFoundException : public core::Exception
 	{
 	public:
-		BackuFolderpNotfoundException(const file_system::Path& path);
-		virtual ~BackuFolderpNotfoundException() {}
+		BackupFolderNotFoundException(const file_system::Path& path);
+		virtual ~BackupFolderNotFoundException() {}
 	};
 } }

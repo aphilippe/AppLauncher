@@ -3,7 +3,7 @@
 
 using launcher::exceptions::BackupFolderInvalidPermissionException;
 using launcher::exceptions::BackupFolderNotAFolderException;
-using launcher::exceptions::BackuFolderpNotFoundException;
+using launcher::exceptions::BackupFolderNotFoundException;
 
 using file_system::Path;
 
@@ -27,7 +27,7 @@ BackupFolderNotAFolderException::BackupFolderNotAFolderException(const Path& pat
 }
 
 
-BackuFolderpNotFoundException::BackuFolderpNotFoundException(const Path& path)
+BackupFolderNotFoundException::BackupFolderNotFoundException(const Path& path)
 {
 	std::ostringstream stringStream;
 
