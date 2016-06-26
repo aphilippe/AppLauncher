@@ -1,5 +1,7 @@
 #include "BackupFolderRepositoryFactory.h"
 
+#include "Repositories.h"
+
 using launcher::factories::BackupFolderRepositoryFactory;
 
 using std::unique_ptr;
@@ -17,5 +19,5 @@ BackupFolderRepositoryFactory::~BackupFolderRepositoryFactory()
 
 unique_ptr<BackupFolderRepository> BackupFolderRepositoryFactory::create() const
 {
-	return unique_ptr<BackupFolderRepository>();
+	return std::make_unique<BackupFolderRepository>(*settingsRepository);
 }
