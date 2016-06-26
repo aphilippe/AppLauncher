@@ -29,8 +29,8 @@ BackupOperation::~BackupOperation()
 
 void BackupOperation::run()
 {
-	vector<FileToBackup> files = _fileToBackupRepository.get();
 	BackupFolder backupFolder = _backupFolderRepository.get();
+	vector<FileToBackup> files = _fileToBackupRepository.get();
 
 	for (FileToBackup& file : files) {
 		file.copyTo(backupFolder);

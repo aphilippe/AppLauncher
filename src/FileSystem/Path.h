@@ -9,7 +9,15 @@ namespace file_system {
 		Path(const std::string& value);
 		virtual ~Path();
 
-		std::string stringValue();
+		std::string stringValue() const;
+
+		bool exists() const;
+
+		bool isFile() const;
+		bool isFolder() const;
+
+		bool canRead() const;
+		bool canWrite() const;
 
 	private:
 		std::string _value;

@@ -14,7 +14,37 @@ Path::~Path()
 {
 }
 
-string Path::stringValue()
+string Path::stringValue() const
 {
 	return _value;
+}
+
+bool Path::exists() const
+{
+	// TODO
+	return false;
+}
+
+bool Path::isFile() const
+{
+	// TODO
+	return true;
+}
+
+bool Path::isFolder() const
+{
+	// TODO
+	return  true;
+}
+
+bool Path::canRead() const
+{
+	// TODO
+	return true;
+}
+
+bool Path::canWrite() const
+{
+	// TODO
+	return true;
 }

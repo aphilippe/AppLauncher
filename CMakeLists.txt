@@ -137,6 +137,12 @@ SOURCE_GROUP("AppLauncher\\Factories" FILES
 				src/AppLauncher/Factories/BackupFolderRepositoryFactory.h
 				src/AppLauncher/Factories/BackupFolderRepositoryFactory.cpp)
 
+SOURCE_GROUP("AppLauncher\\Exceptions" FILES
+				src/AppLauncher/Exceptions/FileToBackupExceptions.h
+				src/AppLauncher/Exceptions/FileToBackupExceptions.cpp
+				src/AppLauncher/Exceptions/BackupFolderExceptions.h
+				src/AppLauncher/Exceptions/BackupFolderExceptions.cpp)
+
 ####################
 #    FileSystem    #
 ####################

@@ -1,6 +1,9 @@
 #include "FileToBackupRepository.h"
 
 #include "Settings/Repositories/SettingsRepository.h"
+#include "Core/Exceptions/Exception.h"
+
+#include <iostream>
 
 
 using launcher::repositories::FileToBackupRepository;
@@ -29,9 +32,18 @@ std::vector<FileToBackup>FileToBackupRepository::get()
 	std::vector<FileToBackup> files;
 	for (std::string pathString : settings.getFilePaths())
 	{
-		Path path(pathString);
-		FileToBackup newFile(path);
-		files.push_back(newFile);
+		try
+		{
+
+			Path path(pathString);
+			FileToBackup newFile(path);
+			files.push_back(newFile);
+		}
+		catch (core::Exception exception)
+		{
+			std::cout << "Can not backup file" << std::endl
+				<< "\t - " << exception.what() << std::endl;
+		}
 	}
 
 	return files;

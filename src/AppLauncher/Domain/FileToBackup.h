@@ -15,6 +15,8 @@ public:
 	FileToBackup(const file_system::Path& path);
 	virtual ~FileToBackup();
 
+	file_system::Path getPath() const;
+
 	void copyTo(const launcher::domain::BackupFolder& folder) const;
 
 private:
