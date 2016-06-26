@@ -3,9 +3,13 @@
 #include "AppLauncher/Domain/BackupFolder.h"
 
 using launcher::domain::FileToBackup;
+
+using file_system::Path;
+
 using launcher::domain::BackupFolder;
 
-FileToBackup::FileToBackup()
+FileToBackup::FileToBackup(const Path& path)
+	: _path(path)
 {
 }
 

@@ -10,7 +10,7 @@ set(EXECUTABLE_OUTPUT_PATH bin/)
 include_directories(src/Libraries)
 include_directories(src)
 
-file(GLOB_RECURSE source_files_common src/main.cpp src/Core/*.cpp src/Core/*.h src/Settings/*.cpp src/Settings/*.h src/AppLauncher/*.cpp src/AppLauncher/*.h)
+file(GLOB_RECURSE source_files_common src/main.cpp src/Core/*.cpp src/Core/*.h src/Settings/*.cpp src/Settings/*.h src/AppLauncher/*.cpp src/AppLauncher/*.h src/FileSystem/*.cpp src/FileSystem/*.h)
 
 IF (WIN32)
     add_executable(${executableName} ${source_files_common})
@@ -142,48 +142,8 @@ SOURCE_GROUP("AppLauncher\\Factories" FILES
 ####################
 
 SOURCE_GROUP("FileSystem" FILES
-				src/Common/FileSystem/FileSystem.cpp
-				src/Common/FileSystem/FileSystem.h)
-
-SOURCE_GROUP("FileSystem\\Factories" FILES
-				src/Common/FileSystem/Factories/FileSystemFactory.h
-				src/Windows/FileSystem/Factories/FileSystemFactoryWindows.cpp
-				src/Common/FileSystem/Factories/EntityFactory.h
-				src/Windows/FileSystem/Factories/EntityFactoryWindows.cpp
-                src/Unix/FileSystem/Factories/EntityFactoryUnix.cpp)
-
-SOURCE_GROUP("FileSystem\\Entities" FILES 
-                src/Common/FileSystem/Entities/Executable.cpp
-                src/Common/FileSystem/Entities/Executable.h
-                src/Common/FileSystem/Entities/Path.cpp
-                src/Common/FileSystem/Entities/Path.h)
-                
-SOURCE_GROUP("FileSystem\\Entities\\Exceptions" FILES 
-                src/Common/FileSystem/Entities/Exceptions/InvalidExecutablePathException.cpp
-                src/Common/FileSystem/Entities/Exceptions/InvalidExecutablePathException.h) 
-
-SOURCE_GROUP("FileSystem\\Entities\\Validators" FILES
-				src/Common/FileSystem/Entities/Validators/IPathValidator.h
-                src/Common/FileSystem/Entities/Validators/ValidatorBrokenRules.cpp
-                src/Common/FileSystem/Entities/Validators/ValidatorBrokenRules.h
-				src/Unix/FileSystem/Entities/Validators/UnixExecutablePathValidator.cpp
-				src/Unix/FileSystem/Entities/Validators/UnixExecutablePathValidator.h
-				src/Windows/FileSystem/Entities/Validators/WindowsExecutablePathValidator.cpp
-				src/Windows/FileSystem/Entities/Validators/WindowsExecutablePathValidator.h)
-
-SOURCE_GROUP("FileSystem\\Operations\\ExecutableLaunchers" FILES 
-                src/Common/FileSystem/Operations/IExecutableLauncher.h
-                src/Unix/FileSystem/Operations/ExecutableLauncherUnix.cpp
-                src/Unix/FileSystem/Operations/ExecutableLauncherUnix.h
-				src/Windows/FileSystem/Operations/ExecutableLauncherWindows.cpp
-                src/Windows/FileSystem/Operations/ExecutableLauncherWindows.h)
-
-SOURCE_GROUP("FileSystem\\Operations\\FileInformationReaders" FILES 
-                src/Common/FileSystem/Operations/IPathInformationReader.h
-				src/Unix/FileSystem/Operations/UnixPathInformationReader.cpp
-                src/Unix/FileSystem/Operations/UnixPathInformationReader.h
-				src/Windows/FileSystem/Operations/WindowsPathInformationReader.cpp
-                src/Windows/FileSystem/Operations/WindowsPathInformationReader.h)
+				src/FileSystem/Path.cpp
+				src/FileSystem/Path.h)
 				
 ####################
 #      Utils      #
