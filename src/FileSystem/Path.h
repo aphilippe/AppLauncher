@@ -1,12 +1,20 @@
 #pragma once
 #include <string>
+#include <memory>
+
+namespace file_system {
+	namespace operations {
+		class ReadInformationOperation;
+	}
+}
 
 namespace file_system {
 
 	class Path
 	{
 	public:
-		Path(const std::string& value);
+		Path(const std::string& value, std::shared_ptr<file_system::operations::ReadInformationOperation> readInformationOperation);
+		Path(const Path& other);
 		virtual ~Path();
 
 		std::string stringValue() const;
@@ -21,6 +29,7 @@ namespace file_system {
 
 	private:
 		std::string _value;
+		std::shared_ptr<file_system::operations::ReadInformationOperation> _readInformationOperation;
 	};
 
 }

@@ -2,6 +2,7 @@
 
 #include "Settings/Repositories/SettingsRepository.h"
 #include "Core/Exceptions/Exception.h"
+#include "FileSystem/Factories/PathFactory.h"
 
 #include <iostream>
 
@@ -9,6 +10,7 @@
 using launcher::repositories::FileToBackupRepository;
 
 using file_system::Path;
+using file_system::factories::PathFactory;
 
 using launcher::domain::FileToBackup;
 
@@ -30,12 +32,13 @@ std::vector<FileToBackup>FileToBackupRepository::get()
 	const Settings& settings = _settingsRepository.get();
 
 	std::vector<FileToBackup> files;
+	PathFactory pathFactory;
 	for (std::string pathString : settings.getFilePaths())
 	{
 		try
 		{
 
-			Path path(pathString);
+			Path path = pathFactory.createPath(pathString);
 			FileToBackup newFile(path);
 			files.push_back(newFile);
 		}

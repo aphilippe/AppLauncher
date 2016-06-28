@@ -13,7 +13,9 @@ include_directories(src)
 file(GLOB_RECURSE source_files_common src/main.cpp src/Core/*.cpp src/Core/*.h src/Settings/*.cpp src/Settings/*.h src/AppLauncher/*.cpp src/AppLauncher/*.h src/FileSystem/*.cpp src/FileSystem/*.h)
 
 IF (WIN32)
+	find_library(SHLWAPI Shlwapi.lib) 
     add_executable(${executableName} ${source_files_common})
+	target_link_libraries (${executableName} ${SHLWAPI})
 ELSE()
     add_executable(${executableName} ${source_files_common})
 	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
@@ -150,6 +152,15 @@ SOURCE_GROUP("AppLauncher\\Exceptions" FILES
 SOURCE_GROUP("FileSystem" FILES
 				src/FileSystem/Path.cpp
 				src/FileSystem/Path.h)
+
+SOURCE_GROUP("FileSystem\\Operations" FILES
+				src/FileSystem/Operations/ReadInformationOperation.h
+				src/FileSystem/Operations/ReadInformationOperationWindows.cpp
+				src/FileSystem/Operations/ReadInformationOperationUnix.cpp)
+
+SOURCE_GROUP("FileSystem\\Factories" FILES
+				src/FileSystem/Factories/PathFactory.h
+				src/FileSystem/Factories/PathFactory.cpp)
 				
 ####################
 #      Utils      #
