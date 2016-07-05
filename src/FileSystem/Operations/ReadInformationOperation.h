@@ -13,6 +13,8 @@ namespace file_system {
 			bool isFile(const Path & path) const;
 
 			bool isExecutable(const Path & path) const;
+
+			bool canRead(const Path& path) const;
 		};
 
 	}
