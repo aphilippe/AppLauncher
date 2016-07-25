@@ -15,7 +15,8 @@ addons:
     packages:
     - gcc-4.9
     - g++-4.9
-    - libboost1.55-all-dev
+    - libboost1.55-system-dev
+    - libboost1.55-filesystem-dev
 before_script:
 - sudo apt-get install libboost-all-dev
 - $CXX --version
