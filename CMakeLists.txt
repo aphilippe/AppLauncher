@@ -12,6 +12,9 @@ include_directories(src)
 
 file(GLOB_RECURSE source_files_common src/main.cpp src/Core/*.cpp src/Core/*.h src/Settings/*.cpp src/Settings/*.h src/AppLauncher/*.cpp src/AppLauncher/*.h src/FileSystem/*.cpp src/FileSystem/*.h)
 
+find_package(Boost COMPONENTS system filesystem REQUIRED)
+include_directories(${Boost_INCLUDE_DIR})
+
 IF (WIN32)
 	find_library(SHLWAPI Shlwapi.lib) 
     add_executable(${executableName} ${source_files_common})
@@ -20,6 +23,8 @@ ELSE()
     add_executable(${executableName} ${source_files_common})
 	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
 ENDIF()
+
+target_link_libraries( ${executableName} ${Boost_LIBRARIES} )
 
 # Group creation
 

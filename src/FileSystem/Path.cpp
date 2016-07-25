@@ -1,5 +1,5 @@
 #include "Path.h"
-#include "FileSystem\Operations\ReadInformationOperation.h"
+#include "FileSystem/Operations/ReadInformationOperation.h"
 
 using file_system::Path;
 
