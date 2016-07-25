@@ -17,7 +17,6 @@ addons:
     - g++-4.9
     - libboost1.55-all-dev
 before_script:
-- sudo apt-get update -qq
 - sudo apt-get install libboost-all-dev
 - $CXX --version
 - mkdir build
