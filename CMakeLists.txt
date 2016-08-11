@@ -12,6 +12,7 @@ include_directories(src)
 
 file(GLOB_RECURSE source_files_common src/main.cpp src/Core/*.cpp src/Core/*.h src/Settings/*.cpp src/Settings/*.h src/AppLauncher/*.cpp src/AppLauncher/*.h src/FileSystem/*.cpp src/FileSystem/*.h)
 
+set(Boost_USE_STATIC_LIBS   ON)
 find_package(Boost 1.55 COMPONENTS system filesystem REQUIRED)
 include_directories(${Boost_INCLUDE_DIR})
 
