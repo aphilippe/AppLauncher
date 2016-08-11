@@ -44,11 +44,10 @@ bool Path::isFolder() const
 
 bool Path::canRead() const
 {
-	return  _readInformationOperation->canRead(*this);;
+	return  _readInformationOperation->canRead(*this);
 }
 
 bool Path::canWrite() const
 {
-	// TODO
-	return true;
+	return _readInformationOperation->canWrite(*this);;
 }

@@ -15,6 +15,7 @@ namespace file_system {
 			bool isExecutable(const Path & path) const;
 
 			bool canRead(const Path& path) const;
+			bool canWrite(const Path& path) const;
 		};
 
 	}
