@@ -7,7 +7,7 @@ compiler:
 - gcc
 before_install:
 - brew update
-- brew outdated boost || brew upgrade boost
+- brew outdated boost || brew upgrade boost --c++11
 install:
 - if [ "$CXX" = "g++" ]; then export CXX="g++-4.9" CC="gcc-4.9"; fi
 addons:
