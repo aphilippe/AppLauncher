@@ -2,10 +2,12 @@
 
 #include "AppLauncher/Domain/BackupFolder.h"
 #include "AppLauncher/Exceptions/FileToBackupExceptions.h"
+#include "FileSystem/Operations/CopyOperation.h"
 
 using launcher::domain::FileToBackup;
 
 using file_system::Path;
+using file_system::operations::CopyOperation;
 
 using launcher::domain::BackupFolder;
 
@@ -40,5 +42,6 @@ file_system::Path launcher::domain::FileToBackup::getPath() const
 
 void FileToBackup::copyTo(const BackupFolder & folder) const
 {
-	// TODO
+	CopyOperation operation;
+	operation.copy(this->getPath(), folder.getPath());
 }

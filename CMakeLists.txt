@@ -160,8 +160,11 @@ SOURCE_GROUP("FileSystem" FILES
 
 SOURCE_GROUP("FileSystem\\Operations" FILES
 				src/FileSystem/Operations/ReadInformationOperation.h
+				src/FileSystem/Operations/ReadInformationOperation.cpp
 				src/FileSystem/Operations/ReadInformationOperationWindows.cpp
-				src/FileSystem/Operations/ReadInformationOperationUnix.cpp)
+				src/FileSystem/Operations/ReadInformationOperationUnix.cpp
+				src/FileSystem/Operations/CopyOperation.cpp
+				src/FileSystem/Operations/CopyOperation.h)
 
 SOURCE_GROUP("FileSystem\\Factories" FILES
 				src/FileSystem/Factories/PathFactory.h
