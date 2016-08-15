@@ -19,7 +19,7 @@ void CopyOperation::copy(const Path& sourceFile, const Path& destinationFolder)
 	boost::filesystem::path sourceFilePath(sourceFile.stringValue());
 	boost::filesystem::path destinationFilePath(destinationFolder.stringValue());
 
-	destinationFilePath.append(sourceFilePath.filename().c_str());
+	destinationFilePath /= sourceFilePath.filename();
 
 	boost::filesystem::copy_file(sourceFilePath, destinationFilePath);
 }
