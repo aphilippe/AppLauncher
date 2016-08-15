@@ -29,6 +29,11 @@ ENDIF()
 
 target_link_libraries( ${executableName} ${Boost_LIBRARIES} )
 
+add_custom_command(TARGET ${executableName} POST_BUILD        # Adds a post-build event to MyTest
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different  # which executes "cmake - E copy_if_different..."
+        "${Boost_LIBRARY_DIRS}/boost_atomic-vc140-mt-1_61.dll"      # <--this is in-file
+		${EXECUTABLE_OUTPUT_PATH}) 
+
 # Group creation
 
 ###################
