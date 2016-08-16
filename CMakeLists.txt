@@ -12,7 +12,7 @@ include_directories(src)
 
 file(GLOB_RECURSE source_files_common src/main.cpp src/Core/*.cpp src/Core/*.h src/Settings/*.cpp src/Settings/*.h src/AppLauncher/*.cpp src/AppLauncher/*.h src/FileSystem/*.cpp src/FileSystem/*.h)
 
-
+set(Boost_USE_STATIC_LIBS   ON) 
 find_package(Boost 1.55 COMPONENTS system filesystem REQUIRED)
 include_directories(${Boost_INCLUDE_DIR})
 
@@ -29,10 +29,10 @@ ENDIF()
 
 target_link_libraries( ${executableName} ${Boost_LIBRARIES} )
 
-add_custom_command(TARGET ${executableName} POST_BUILD        # Adds a post-build event to MyTest
-    COMMAND ${CMAKE_COMMAND} -E copy_if_different  # which executes "cmake - E copy_if_different..."
-        "${Boost_LIBRARY_DIRS}/boost_atomic-vc140-mt-1_61.dll"      # <--this is in-file
-		${EXECUTABLE_OUTPUT_PATH}) 
+# add_custom_command(TARGET ${executableName} POST_BUILD        # Adds a post-build event to MyTest
+#     COMMAND ${CMAKE_COMMAND} -E copy_if_different  # which executes "cmake - E copy_if_different..."
+#         "${Boost_LIBRARY_DIRS}/boost_atomic-vc140-mt-1_61.dll"      # <--this is in-file
+# 		${EXECUTABLE_OUTPUT_PATH}) 
 
 # Group creation
 
