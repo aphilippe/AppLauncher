@@ -29,7 +29,7 @@ before_install:
 - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update; fi
 - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew outdated boost || brew upgrade boost --c++11; fi
 install:
-- if [ "$CXX" = "g++" ]; then export CXX="g++-4.9" CC="gcc-4.9"; fi
+- if [ "$CXX" == "g++" ]; then export CXX="g++-4.9" CC="gcc-4.9"; fi
 # addons:
 #   apt:
 #     sources:
