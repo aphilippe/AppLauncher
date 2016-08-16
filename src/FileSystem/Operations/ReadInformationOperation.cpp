@@ -1,6 +1,8 @@
 
 #include "ReadInformationOperation.h"
+#define BOOST_NO_CXX11_SCOPED_ENUMS
 #include <boost/filesystem.hpp>
+#undef BOOST_NO_CXX11_SCOPED_ENUMS
 
 using file_system::operations::ReadInformationOperation;
 

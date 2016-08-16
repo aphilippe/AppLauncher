@@ -177,6 +177,10 @@ SOURCE_GROUP("FileSystem\\Operations" FILES
 SOURCE_GROUP("FileSystem\\Factories" FILES
 				src/FileSystem/Factories/PathFactory.h
 				src/FileSystem/Factories/PathFactory.cpp)
+
+SOURCE_GROUP("FileSystem\\Exceptions" FILES
+				src/FileSystem/Exceptions/CopyOperationExceptions.h
+				src/FileSystem/Exceptions/CopyOperationExceptions.cpp)
 				
 ####################
 #      Utils      #
