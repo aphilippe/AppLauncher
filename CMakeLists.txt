@@ -29,10 +29,6 @@ ENDIF()
 
 target_link_libraries( ${executableName} ${Boost_LIBRARIES} )
 
-# add_custom_command(TARGET ${executableName} POST_BUILD        # Adds a post-build event to MyTest
-#     COMMAND ${CMAKE_COMMAND} -E copy_if_different  # which executes "cmake - E copy_if_different..."
-#         "${Boost_LIBRARY_DIRS}/boost_atomic-vc140-mt-1_61.dll"      # <--this is in-file
-# 		${EXECUTABLE_OUTPUT_PATH}) 
 
 # Group creation
 
@@ -138,13 +134,17 @@ SOURCE_GROUP("AppLauncher\\Domain" FILES
 				src/AppLauncher/Domain/FileToBackup.h
 				src/AppLauncher/Domain/FileToBackup.cpp
 				src/AppLauncher/Domain/BackupFolder.h
-				src/AppLauncher/Domain/BackupFolder.cpp)
+				src/AppLauncher/Domain/BackupFolder.cpp
+				src/AppLauncher/Domain/Executable.h
+				src/AppLauncher/Domain/Executable.cpp)
 
 SOURCE_GROUP("AppLauncher\\Repositories" FILES
 				src/AppLauncher/Repositories/FileToBackupRepository.h
 				src/AppLauncher/Repositories/FileToBackupRepository.cpp
 				src/AppLauncher/Repositories/BackupFolderRepository.h
-				src/AppLauncher/Repositories/BackupFolderRepository.cpp)
+				src/AppLauncher/Repositories/BackupFolderRepository.cpp
+				src/AppLauncher/Repositories/ExecutableRepository.h
+				src/AppLauncher/Repositories/ExecutableRepository.cpp)
 
 SOURCE_GROUP("AppLauncher\\Factories" FILES
 				src/AppLauncher/Factories/FileToBackupRepositoryFactory.h
