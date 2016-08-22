@@ -176,6 +176,7 @@ SOURCE_GROUP("FileSystem\\Operations" FILES
 				src/FileSystem/Operations/CopyOperation.cpp
 				src/FileSystem/Operations/CopyOperation.h
 				src/FileSystem/Operations/ExecuteOperationWindows.cpp
+				src/FileSystem/Operations/ExecuteOperationUnix.cpp
 				src/FileSystem/Operations/ExecuteOperation.h)
 
 SOURCE_GROUP("FileSystem\\Factories" FILES

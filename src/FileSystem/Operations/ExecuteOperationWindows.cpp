@@ -1,5 +1,7 @@
-#include "ExecuteOperation.h"
+
 #ifdef WIN32
+
+#include "ExecuteOperation.h"
 
 #include "FileSystem/Path.h"
 
