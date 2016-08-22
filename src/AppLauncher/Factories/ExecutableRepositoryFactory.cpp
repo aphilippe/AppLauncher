@@ -1,5 +1,7 @@
 #include "ExecutableRepositoryFactory.h"
 
+#include "Repositories.h"
+
 using launcher::factories::ExecutableRepositoryFactory;
 using launcher::repositories::ExecutableRepository;
 
@@ -14,6 +16,6 @@ ExecutableRepositoryFactory::~ExecutableRepositoryFactory()
 
 std::unique_ptr<ExecutableRepository> ExecutableRepositoryFactory::create() const
 {
-	return std::make_unique<ExecutableRepository>();
+	return std::make_unique<ExecutableRepository>(*settingsRepository);
 }
 

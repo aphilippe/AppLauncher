@@ -150,7 +150,9 @@ SOURCE_GROUP("AppLauncher\\Factories" FILES
 				src/AppLauncher/Factories/FileToBackupRepositoryFactory.h
 				src/AppLauncher/Factories/FileToBackupRepositoryFactory.cpp
 				src/AppLauncher/Factories/BackupFolderRepositoryFactory.h
-				src/AppLauncher/Factories/BackupFolderRepositoryFactory.cpp)
+				src/AppLauncher/Factories/BackupFolderRepositoryFactory.cpp
+				src/AppLauncher/Factories/ExecutableRepositoryFactory.cpp
+				src/AppLauncher/Factories/ExecutableRepositoryFactory.h)
 
 SOURCE_GROUP("AppLauncher\\Exceptions" FILES
 				src/AppLauncher/Exceptions/FileToBackupExceptions.h
@@ -172,7 +174,9 @@ SOURCE_GROUP("FileSystem\\Operations" FILES
 				src/FileSystem/Operations/ReadInformationOperationWindows.cpp
 				src/FileSystem/Operations/ReadInformationOperationUnix.cpp
 				src/FileSystem/Operations/CopyOperation.cpp
-				src/FileSystem/Operations/CopyOperation.h)
+				src/FileSystem/Operations/CopyOperation.h
+				src/FileSystem/Operations/ExecuteOperationWindows.cpp
+				src/FileSystem/Operations/ExecuteOperation.h)
 
 SOURCE_GROUP("FileSystem\\Factories" FILES
 				src/FileSystem/Factories/PathFactory.h
