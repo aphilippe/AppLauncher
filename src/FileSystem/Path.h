@@ -27,6 +27,8 @@ namespace file_system {
 		bool canRead() const;
 		bool canWrite() const;
 
+		Path getParent() const;
+
 	private:
 		std::string _value;
 		std::shared_ptr<file_system::operations::ReadInformationOperation> _readInformationOperation;

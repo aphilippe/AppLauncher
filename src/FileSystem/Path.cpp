@@ -1,6 +1,10 @@
 #include "Path.h"
 #include "FileSystem/Operations/ReadInformationOperation.h"
 
+#define BOOST_NO_CXX11_SCOPED_ENUMS
+#include <boost/filesystem.hpp>
+#undef BOOST_NO_CXX11_SCOPED_ENUMS
+
 using file_system::Path;
 
 using file_system::operations::ReadInformationOperation;
@@ -49,5 +53,10 @@ bool Path::canRead() const
 
 bool Path::canWrite() const
 {
-	return _readInformationOperation->canWrite(*this);;
+	return _readInformationOperation->canWrite(*this);
+}
+
+Path Path::getParent() const
+{
+	return Path(boost::filesystem::path(_value).parent_path().string(), _readInformationOperation);
 }

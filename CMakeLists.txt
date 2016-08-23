@@ -29,10 +29,6 @@ ENDIF()
 
 target_link_libraries( ${executableName} ${Boost_LIBRARIES} )
 
-# add_custom_command(TARGET ${executableName} POST_BUILD        # Adds a post-build event to MyTest
-#     COMMAND ${CMAKE_COMMAND} -E copy_if_different  # which executes "cmake - E copy_if_different..."
-#         "${Boost_LIBRARY_DIRS}/boost_atomic-vc140-mt-1_61.dll"      # <--this is in-file
-# 		${EXECUTABLE_OUTPUT_PATH}) 
 
 # Group creation
 
@@ -138,19 +134,25 @@ SOURCE_GROUP("AppLauncher\\Domain" FILES
 				src/AppLauncher/Domain/FileToBackup.h
 				src/AppLauncher/Domain/FileToBackup.cpp
 				src/AppLauncher/Domain/BackupFolder.h
-				src/AppLauncher/Domain/BackupFolder.cpp)
+				src/AppLauncher/Domain/BackupFolder.cpp
+				src/AppLauncher/Domain/Executable.h
+				src/AppLauncher/Domain/Executable.cpp)
 
 SOURCE_GROUP("AppLauncher\\Repositories" FILES
 				src/AppLauncher/Repositories/FileToBackupRepository.h
 				src/AppLauncher/Repositories/FileToBackupRepository.cpp
 				src/AppLauncher/Repositories/BackupFolderRepository.h
-				src/AppLauncher/Repositories/BackupFolderRepository.cpp)
+				src/AppLauncher/Repositories/BackupFolderRepository.cpp
+				src/AppLauncher/Repositories/ExecutableRepository.h
+				src/AppLauncher/Repositories/ExecutableRepository.cpp)
 
 SOURCE_GROUP("AppLauncher\\Factories" FILES
 				src/AppLauncher/Factories/FileToBackupRepositoryFactory.h
 				src/AppLauncher/Factories/FileToBackupRepositoryFactory.cpp
 				src/AppLauncher/Factories/BackupFolderRepositoryFactory.h
-				src/AppLauncher/Factories/BackupFolderRepositoryFactory.cpp)
+				src/AppLauncher/Factories/BackupFolderRepositoryFactory.cpp
+				src/AppLauncher/Factories/ExecutableRepositoryFactory.cpp
+				src/AppLauncher/Factories/ExecutableRepositoryFactory.h)
 
 SOURCE_GROUP("AppLauncher\\Exceptions" FILES
 				src/AppLauncher/Exceptions/FileToBackupExceptions.h
@@ -172,7 +174,10 @@ SOURCE_GROUP("FileSystem\\Operations" FILES
 				src/FileSystem/Operations/ReadInformationOperationWindows.cpp
 				src/FileSystem/Operations/ReadInformationOperationUnix.cpp
 				src/FileSystem/Operations/CopyOperation.cpp
-				src/FileSystem/Operations/CopyOperation.h)
+				src/FileSystem/Operations/CopyOperation.h
+				src/FileSystem/Operations/ExecuteOperationWindows.cpp
+				src/FileSystem/Operations/ExecuteOperationUnix.cpp
+				src/FileSystem/Operations/ExecuteOperation.h)
 
 SOURCE_GROUP("FileSystem\\Factories" FILES
 				src/FileSystem/Factories/PathFactory.h

@@ -4,6 +4,7 @@
 
 #include "AppLauncher/Factories/BackupFolderRepositoryFactory.h"
 #include "AppLauncher/Factories/FileToBackupRepositoryFactory.h"
+#include "AppLauncher/Factories/ExecutableRepositoryFactory.h"
 #include "AppLauncher/Operations/RestoreOperation.h"
 #include "AppLauncher/Operations/ExecuteOperation.h"
 #include "AppLauncher/Operations/BackupOperation.h"
@@ -16,11 +17,13 @@ using std::unique_ptr;
 
 using launcher::factories::BackupFolderRepositoryFactory;
 using launcher::factories::FileToBackupRepositoryFactory;
+using launcher::factories::ExecutableRepositoryFactory;
 using launcher::operations::RestoreOperation;
 using launcher::operations::ExecuteOperation;
 using launcher::operations::BackupOperation;
 using launcher::repositories::FileToBackupRepository;
 using launcher::repositories::BackupFolderRepository;
+using launcher::repositories::ExecutableRepository;
 
 using core::application::CommandLine;
 
@@ -31,6 +34,7 @@ using settings::repositories::SettingsRepository;
 unique_ptr<SettingsRepository> settingsRepository = nullptr;
 unique_ptr<FileToBackupRepository> fileToBackupRepository = nullptr;
 unique_ptr<BackupFolderRepository> backupFolderRepository = nullptr;
+unique_ptr<ExecutableRepository> executableRepository = nullptr;
 
 
 void initialize(const CommandLine& arguments);
@@ -43,7 +47,7 @@ int main(int argc, char* argv[]) {
 		RestoreOperation restoreOperation;
 		restoreOperation.run();
 
-		ExecuteOperation executeOperation;
+		ExecuteOperation executeOperation(*executableRepository);
 		executeOperation.run();
 
 		BackupOperation backupOperation(*fileToBackupRepository, *backupFolderRepository);
@@ -68,6 +72,9 @@ void initialize(const CommandLine& arguments) {
 
 	BackupFolderRepositoryFactory backupFolderRepositoryFactory;
 	backupFolderRepository = backupFolderRepositoryFactory.create();
+
+	ExecutableRepositoryFactory executableRepositoryFactory;
+	executableRepository = executableRepositoryFactory.create();
 }
 
 void terminate() {

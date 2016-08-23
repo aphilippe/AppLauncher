@@ -19,3 +19,4 @@ Path PathFactory::createPath(const std::string & pathString)
 {
 	return Path(pathString, std::make_shared<ReadInformationOperation>());
 }
+
