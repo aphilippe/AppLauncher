@@ -28,6 +28,8 @@ namespace file_system {
 		bool canWrite() const;
 
 		Path getParent() const;
+		Path addComponent(const std::string& component);
+		std::string getFileName() const;
 
 	private:
 		std::string _value;

@@ -36,5 +36,5 @@ void CopyOperation::copy(const Path& sourceFile, const Path& destinationFolder)
 
 	destinationFilePath /= sourceFilePath.filename();
 
-	boost::filesystem::copy_file(sourceFilePath, destinationFilePath);
+	boost::filesystem::copy_file(sourceFilePath, destinationFilePath, boost::filesystem::copy_option::overwrite_if_exists);
 }

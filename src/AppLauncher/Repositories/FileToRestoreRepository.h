@@ -8,6 +8,11 @@ namespace settings {
 		class SettingsRepository;
 	}
 }
+namespace launcher {
+	namespace domain {
+		class BackupFolder;
+	}
+}
 
 namespace launcher { namespace repositories {
 
@@ -17,7 +22,7 @@ public:
 	FileToRestoreRepository(settings::repositories::SettingsRepository& settingsRepository);
 	virtual ~FileToRestoreRepository();
 
-	std::vector<launcher::domain::FileToRestore> get();
+	std::vector<launcher::domain::FileToRestore> get(const launcher::domain::BackupFolder& backupFolder);
 
 private:
 	settings::repositories::SettingsRepository& _settingsRepository;

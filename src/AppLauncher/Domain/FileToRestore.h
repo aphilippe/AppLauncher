@@ -2,11 +2,7 @@
 
 #include "FileSystem/Path.h"
 
-namespace launcher {
-	namespace domain {
-		class BackupFolder;
-	}
-}
+#include "AppLauncher/Domain/BackupFolder.h"
 
 namespace launcher {
 	namespace domain {
@@ -14,13 +10,14 @@ namespace launcher {
 		class FileToRestore
 		{
 		public:
-			FileToRestore(const file_system::Path& restorePath);
+			FileToRestore(const file_system::Path& restorePath, const launcher::domain::BackupFolder& backupFolder);
 			virtual ~FileToRestore();
 
-			void restore(const launcher::domain::BackupFolder& backupFolder);
+			void restore();
 
 		private:
 			file_system::Path _restorePath;
+			launcher::domain::BackupFolder _backupFolder;
 		};
 
 	}

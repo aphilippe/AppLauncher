@@ -24,10 +24,10 @@ RestoreOperation::~RestoreOperation()
 void RestoreOperation::run()
 {
 	BackupFolder backupFolder = _backupFolderRepository.get();
-	std::vector<FileToRestore> files = _fileToRestoreRepository.get();
+	std::vector<FileToRestore> files = _fileToRestoreRepository.get(backupFolder);
 
 	for (FileToRestore& file : files)
 	{
-		file.restore(backupFolder);
+		file.restore();
 	}
 }

@@ -1,15 +1,15 @@
 #include "FileToRestore.h"
-
-#include "AppLauncher/Domain/BackupFolder.h"
+#include "FileSystem/Operations/CopyOperation.h"
 
 using launcher::domain::FileToRestore;
 
 using file_system::Path;
+using file_system::operations::CopyOperation;
 
 using launcher::domain::BackupFolder;
 
-FileToRestore::FileToRestore(const Path& restorePath)
-	: _restorePath(restorePath)
+FileToRestore::FileToRestore(const Path& restorePath, const BackupFolder& backupFolder)
+	: _restorePath(restorePath), _backupFolder(backupFolder)
 {
 }
 
@@ -18,6 +18,9 @@ FileToRestore::~FileToRestore()
 {
 }
 
-void FileToRestore::restore(const BackupFolder & backupFolder)
+void FileToRestore::restore()
 {
+	Path backupPath = _backupFolder.getPath().addComponent(_restorePath.getFileName());
+	CopyOperation operation;
+	operation.copy(backupPath, _restorePath.getParent());
 }
