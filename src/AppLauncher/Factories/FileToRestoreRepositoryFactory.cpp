@@ -16,5 +16,5 @@ FileToRestoreRepositoryFactory::~FileToRestoreRepositoryFactory()
 
 std::unique_ptr<FileToRestoreRepository> FileToRestoreRepositoryFactory::create() const
 {
-	return std::make_unique<FileToRestoreRepository>();
+	return std::make_unique<FileToRestoreRepository>(*settingsRepository);
 }

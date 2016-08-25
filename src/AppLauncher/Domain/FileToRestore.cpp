@@ -4,9 +4,12 @@
 
 using launcher::domain::FileToRestore;
 
+using file_system::Path;
+
 using launcher::domain::BackupFolder;
 
-FileToRestore::FileToRestore()
+FileToRestore::FileToRestore(const Path& restorePath)
+	: _restorePath(restorePath)
 {
 }
 
