@@ -136,7 +136,9 @@ SOURCE_GROUP("AppLauncher\\Domain" FILES
 				src/AppLauncher/Domain/BackupFolder.h
 				src/AppLauncher/Domain/BackupFolder.cpp
 				src/AppLauncher/Domain/Executable.h
-				src/AppLauncher/Domain/Executable.cpp)
+				src/AppLauncher/Domain/Executable.cpp
+				src/AppLauncher/Domain/FileToRestore.h
+				src/AppLauncher/Domain/FileToRestore.cpp)
 
 SOURCE_GROUP("AppLauncher\\Repositories" FILES
 				src/AppLauncher/Repositories/FileToBackupRepository.h
@@ -144,7 +146,9 @@ SOURCE_GROUP("AppLauncher\\Repositories" FILES
 				src/AppLauncher/Repositories/BackupFolderRepository.h
 				src/AppLauncher/Repositories/BackupFolderRepository.cpp
 				src/AppLauncher/Repositories/ExecutableRepository.h
-				src/AppLauncher/Repositories/ExecutableRepository.cpp)
+				src/AppLauncher/Repositories/ExecutableRepository.cpp
+				src/AppLauncher/Repositories/FileToRestoreRepository.cpp
+				src/AppLauncher/Repositories/FileToRestoreRepository.h)
 
 SOURCE_GROUP("AppLauncher\\Factories" FILES
 				src/AppLauncher/Factories/FileToBackupRepositoryFactory.h
@@ -152,7 +156,9 @@ SOURCE_GROUP("AppLauncher\\Factories" FILES
 				src/AppLauncher/Factories/BackupFolderRepositoryFactory.h
 				src/AppLauncher/Factories/BackupFolderRepositoryFactory.cpp
 				src/AppLauncher/Factories/ExecutableRepositoryFactory.cpp
-				src/AppLauncher/Factories/ExecutableRepositoryFactory.h)
+				src/AppLauncher/Factories/ExecutableRepositoryFactory.h
+				src/AppLauncher/Factories/FileToRestoreRepositoryFactory.cpp
+				src/AppLauncher/Factories/FileToRestoreRepositoryFactory.h)
 
 SOURCE_GROUP("AppLauncher\\Exceptions" FILES
 				src/AppLauncher/Exceptions/FileToBackupExceptions.h
