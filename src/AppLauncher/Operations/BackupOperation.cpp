@@ -17,7 +17,7 @@ using launcher::repositories::BackupFolderRepository;
 using launcher::repositories::FileToBackupRepository;
 
 
-BackupOperation::BackupOperation(FileToBackupRepository& fileToBackupRepository, launcher::repositories::BackupFolderRepository& backupFolderRepository)
+BackupOperation::BackupOperation(FileToBackupRepository& fileToBackupRepository, BackupFolderRepository& backupFolderRepository)
 	: _fileToBackupRepository(fileToBackupRepository), _backupFolderRepository(backupFolderRepository)
 {
 }

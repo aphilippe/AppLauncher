@@ -60,3 +60,19 @@ Path Path::getParent() const
 {
 	return Path(boost::filesystem::path(_value).parent_path().string(), _readInformationOperation);
 }
+
+Path Path::addComponent(const std::string& component)
+{
+	boost::filesystem::path pathValue(_value);
+	boost::filesystem::path componentPath(component);
+
+	boost::filesystem::path newPath = pathValue / componentPath;
+
+	return Path(newPath.string(), _readInformationOperation);
+}
+
+std::string file_system::Path::getFileName() const
+{
+	boost::filesystem::path path(_value);
+	return path.filename().string();
+}
