@@ -20,7 +20,7 @@ ConcreteCommandLineArgumentSettingsDAO::~ConcreteCommandLineArgumentSettingsDAO(
 
 CommandLineSettings ConcreteCommandLineArgumentSettingsDAO::get()
 {
-	TCLAP::CmdLine parser("Command description", ' ', "0.2");
+	TCLAP::CmdLine parser("Command description", ' ', "0.2.1");
 
 	TCLAP::ValueArg<string> executablePathArg("e", "executable", "The path of the executable to launch", true, "", "string");
 	parser.add(executablePathArg);
