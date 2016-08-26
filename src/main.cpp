@@ -42,7 +42,7 @@ std::unique_ptr<FileToRestoreRepository> fileToRestoreRepository = nullptr;
 
 
 void initialize(const CommandLine& arguments);
-void terminate();
+void terminateApp();
 
 int main(int argc, char* argv[]) {
 	initialize(CommandLine(argc, argv));
@@ -61,8 +61,8 @@ int main(int argc, char* argv[]) {
 	{
 		std::cout << e.what() << std::endl;
 	}
-
-	terminate();
+	
+	terminateApp();
 	
 	return EXIT_SUCCESS;
 }
@@ -84,7 +84,8 @@ void initialize(const CommandLine& arguments) {
 	fileToRestoreRepository = fileToRestoreRepositoryFactory.create();
 }
 
-void terminate() {
+void terminateApp() {
+	fileToRestoreRepository = nullptr;
 	backupFolderRepository = nullptr;
 	fileToBackupRepository = nullptr;
 	settingsRepository = nullptr;
