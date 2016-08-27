@@ -10,7 +10,7 @@ set(EXECUTABLE_OUTPUT_PATH bin/)
 include_directories(src/Libraries)
 include_directories(src)
 
-file(GLOB_RECURSE source_files_common src/main.cpp src/Core/*.cpp src/Core/*.h src/Settings/*.cpp src/Settings/*.h src/AppLauncher/*.cpp src/AppLauncher/*.h src/FileSystem/*.cpp src/FileSystem/*.h)
+file(GLOB_RECURSE source_files_common src/main.cpp src/Repositories.h src/Core/*.cpp src/Core/*.h src/Settings/*.cpp src/Settings/*.h src/AppLauncher/*.cpp src/AppLauncher/*.h src/FileSystem/*.cpp src/FileSystem/*.h)
 
 set(Boost_USE_STATIC_LIBS   ON) 
 find_package(Boost 1.55 COMPONENTS system filesystem REQUIRED)
@@ -35,29 +35,6 @@ target_link_libraries( ${executableName} ${Boost_LIBRARIES} )
 ###################
 #     Core        #
 ###################
-
-SOURCE_GROUP("Core" FILES
-				src/Core/DataObject.cpp
-				src/Core/DataObject.h)
-
-SOURCE_GROUP("Core\\JSON\\DataObjectBuilder" FILES
-				src/Core/JSON/DataObjectBuilder/IDataObjectJSONBuilder.h
-				src/Core/JSON/DataObjectBuilder/RootDataObjectJSONBuilder.h
-				src/Core/JSON/DataObjectBuilder/RootDataObjectJSONBuilder.cpp
-				src/Core/JSON/DataObjectBuilder/MapDataObjectJSONBuilder.cpp
-				src/Core/JSON/DataObjectBuilder/MapDataObjectJSONBuilder.h
-				src/Core/JSON/DataObjectBuilder/StringDataObjectJSONBuilder.cpp
-				src/Core/JSON/DataObjectBuilder/StringDataObjectJSONBuilder.h
-				src/Core/JSON/DataObjectBuilder/ArrayDataObjectJSONBuilder.h
-				src/Core/JSON/DataObjectBuilder/ArrayDataObjectJSONBuilder.cpp)
-
-SOURCE_GROUP("Core\\JSON\\Parsers" FILES
-				src/Core/JSON/Parser/JSONParser.cpp
-				src/Core/JSON/Parser/JSONParser.h)
-
-SOURCE_GROUP("Core\\JSON\\Parsers\\Handler" FILES
-				src/Core/JSON/Parser/Handler/JSONHandler.h
-				src/Core/JSON/Parser/Handler/JSONHandler.cpp)
 
 SOURCE_GROUP("Core\\Application" FILES
 				src/Core/Application/CommandLine.h
