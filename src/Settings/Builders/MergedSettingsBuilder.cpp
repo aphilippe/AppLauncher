@@ -42,7 +42,12 @@ std::string settings::builders::MergedSettingsBuilder::mergeExecutablePath() con
 	std::string executablePath = _commandLineSettings->getExecutablePath();
 	if (executablePath.empty())
 	{
-		throw MissingSettingsException("the path to executable");
+        executablePath = _customFileSettings->getExecutablePath();
+
+        if (executablePath.empty())
+        {
+            throw MissingSettingsException("the path to executable");
+        }
 	}
 	return executablePath;
 }

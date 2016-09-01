@@ -74,6 +74,16 @@ CustomFileSettings ConcreteCustomFileSettingsDAO::get()
 		_builder->setFilePaths(pathArray);
 	}
 
+    if (document.HasMember("executable"))
+    {
+        if (!document["executable"].IsString())
+        {
+            throw BadTypeCustomFileSettingsException(_filePath, "executable", "string");
+        }
+
+        _builder->setExecutablePath(document["executable"].GetString());
+    }
+
 	fclose(fp);
 
 	return _builder->build();
