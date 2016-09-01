@@ -14,10 +14,12 @@ public:
 
 	void setBackupFolderPath(const std::string& path);
 	void setFilePaths(const std::vector<std::string>& paths);
+    void setExecutablePath(const std::string& path);
 
 private:
 	std::string _backupFolderPath;
 	std::vector<std::string> _filePaths;
+    std::string _executablePath;
 };
 
 } }

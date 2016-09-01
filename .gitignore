@@ -29,3 +29,6 @@
 
 # Project specific
 projects/
+
+#QT Creator files
+CMakeLists.txt.user

@@ -4,8 +4,8 @@ using std::string;
 
 using settings::domain::CustomFileSettings;
 
-CustomFileSettings::CustomFileSettings(const string& backupFolderPath, const std::vector<std::string>& filePaths)
-	: _backupFolderPath(backupFolderPath), _filePaths(filePaths)
+CustomFileSettings::CustomFileSettings(const string& backupFolderPath, const std::vector<std::string>& filePaths, const std::string& executablePath)
+    : _backupFolderPath(backupFolderPath), _filePaths(filePaths), _executablePath(executablePath)
 {
 }
 
@@ -22,4 +22,9 @@ string CustomFileSettings::getBackupFolderPath()
 const std::vector<std::string>& CustomFileSettings::getFilePaths() const
 {
 	return _filePaths;
+}
+
+string CustomFileSettings::getExecutablePath() const
+{
+    return _executablePath;
 }
