@@ -10,7 +10,7 @@ namespace file_system {
 			CopyOperation();
 			virtual ~CopyOperation();
 
-			void copy(const file_system::Path& sourceFile, const file_system::Path& destinationFolder);
+            void copy(const file_system::Path& sourceFile, const file_system::Path& destinationPath);
 		};
 
 	}

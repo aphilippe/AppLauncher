@@ -19,22 +19,20 @@ CopyOperation::~CopyOperation()
 {
 }
 
-void CopyOperation::copy(const Path& sourceFile, const Path& destinationFolder)
+void CopyOperation::copy(const Path& sourceFile, const Path& destinationPath)
 {
 	if (!sourceFile.isFile())
 	{
 		throw CopyOperationSourceNotAFileException(sourceFile);
 	}
 
-	if (!destinationFolder.isFolder())
+    boost::filesystem::path sourceFilePath(sourceFile.stringValue());
+    boost::filesystem::path destinationFilePath(destinationPath.stringValue());
+
+    if (destinationPath.isFolder())
 	{
-		throw CopyOperationDestinationNotAFolderException(destinationFolder);
+        destinationFilePath /= sourceFilePath.filename();
 	}
-
-	boost::filesystem::path sourceFilePath(sourceFile.stringValue());
-	boost::filesystem::path destinationFilePath(destinationFolder.stringValue());
-
-	destinationFilePath /= sourceFilePath.filename();
 
 	boost::filesystem::copy_file(sourceFilePath, destinationFilePath, boost::filesystem::copy_option::overwrite_if_exists);
 }
