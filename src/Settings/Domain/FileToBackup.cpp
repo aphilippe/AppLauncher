@@ -2,8 +2,8 @@
 
 using settings::domain::FileToBackup;
 
-FileToBackup::FileToBackup(const std::string& path)
-    : _path(path)
+FileToBackup::FileToBackup(const std::string& path, const std::string& label)
+    : _path(path), _label(label)
 {
 
 }

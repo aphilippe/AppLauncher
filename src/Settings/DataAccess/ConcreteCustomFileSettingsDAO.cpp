@@ -71,6 +71,9 @@ CustomFileSettings ConcreteCustomFileSettingsDAO::get()
 
             auto fileObject = it->GetObject();
 
+			std::string path;
+			std::string label;
+
             if (fileObject.HasMember("path"))
             {
                 if (!fileObject["path"].IsString())
@@ -78,10 +81,22 @@ CustomFileSettings ConcreteCustomFileSettingsDAO::get()
                     throw BadTypeCustomFileSettingsException(_filePath, "backupFiles.object.path", "string");
                 }
 
-                FileToBackup file(fileObject["path"].GetString());
-
-                pathArray.push_back(file);
+				path = fileObject["path"].GetString();
             }
+
+			if (fileObject.HasMember("label"))
+			{
+				if (!fileObject["label"].IsString())
+				{
+					throw BadTypeCustomFileSettingsException(_filePath, "backupFiles.object.label", "string");
+				}
+
+				label = fileObject["label"].GetString();
+			}
+
+			FileToBackup file(path, label);
+
+			pathArray.push_back(file);
 		}
 
 		_builder->setFilePaths(pathArray);
