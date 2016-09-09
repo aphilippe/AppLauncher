@@ -7,6 +7,7 @@ namespace settings {
 	namespace domain {
 		class CommandLineSettings;
 		class CustomFileSettings;
+		class FileToBackup;
 	}
 }
 
@@ -29,7 +30,7 @@ private:
 
 	std::string mergeExecutablePath() const;
 	std::string mergeBackupPath() const;
-	std::vector<std::string> mergeFilePaths() const;
+	std::vector<settings::domain::FileToBackup> mergeFilePaths() const;
 };
 
 } }

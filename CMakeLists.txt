@@ -66,7 +66,9 @@ SOURCE_GROUP("Settings\\Domain" FILES
 				src/Settings/Domain/CommandLineSettings.h
 				src/Settings/Domain/CommandLineSettings.cpp
 				src/Settings/Domain/CustomFileSettings.h
-				src/Settings/Domain/CustomFileSettings.cpp)
+				src/Settings/Domain/CustomFileSettings.cpp
+				src/Settings/Domain/FileToBackup.h
+				src/Settings/Domain/FileToBackup.cpp)
 
 SOURCE_GROUP("Settings\\DataAccess\\CommandLine" FILES
 				src/Settings/DataAccess/CommandLineArgumentSettingsDAO.h

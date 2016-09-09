@@ -13,7 +13,7 @@ public:
 	virtual ~CustomFileSettings();
 
 	std::string getBackupFolderPath();
-	const std::vector<std::string>& getFilePaths() const;
+	const std::vector<settings::domain::FileToBackup>& getFilePaths() const;
     std::string getExecutablePath() const;
 private:
 	std::string _backupFolderPath;
