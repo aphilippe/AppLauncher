@@ -10,6 +10,7 @@
 
 using settings::dataaccess::ConcreteCustomFileSettingsDAO;
 using settings::domain::CustomFileSettings;
+using settings::domain::FileToBackup;
 using settings::exceptions::BadFormatCustomFileSettingsException;
 using settings::exceptions::BadTypeCustomFileSettingsException;
 
@@ -58,7 +59,7 @@ CustomFileSettings ConcreteCustomFileSettingsDAO::get()
 			throw BadTypeCustomFileSettingsException(_filePath, "backupFiles", "array");
 		}
 
-		std::vector<string> pathArray;
+        std::vector<FileToBackup> pathArray;
 
 		auto jsonArray = document["backupFiles"].GetArray();
 
@@ -77,7 +78,9 @@ CustomFileSettings ConcreteCustomFileSettingsDAO::get()
                     throw BadTypeCustomFileSettingsException(_filePath, "backupFiles.object.path", "string");
                 }
 
-                pathArray.push_back(fileObject["path"].GetString());
+                FileToBackup file(fileObject["path"].GetString());
+
+                pathArray.push_back(file);
             }
 		}
 

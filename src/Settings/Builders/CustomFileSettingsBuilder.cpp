@@ -2,6 +2,7 @@
 
 using settings::builders::CustomFileSettingsBuilder;
 using settings::domain::CustomFileSettings;
+using settings::domain::FileToBackup;
 
 using std::string;
 
@@ -15,7 +16,7 @@ void CustomFileSettingsBuilder::setBackupFolderPath(const string & path)
 	_backupFolderPath = path;
 }
 
-void CustomFileSettingsBuilder::setFilePaths(const std::vector<std::string>& paths)
+void CustomFileSettingsBuilder::setFilePaths(const std::vector<FileToBackup>& paths)
 {
 	_filePaths = paths;
 }
