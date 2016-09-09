@@ -13,12 +13,12 @@ public:
 	settings::domain::CustomFileSettings build();
 
 	void setBackupFolderPath(const std::string& path);
-	void setFilePaths(const std::vector<std::string>& paths);
+    void setFilePaths(const std::vector<settings::domain::FileToBackup>& paths);
     void setExecutablePath(const std::string& path);
 
 private:
 	std::string _backupFolderPath;
-	std::vector<std::string> _filePaths;
+    std::vector<settings::domain::FileToBackup> _filePaths;
     std::string _executablePath;
 };
 

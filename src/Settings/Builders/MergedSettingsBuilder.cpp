@@ -7,6 +7,7 @@ using settings::builders::MergedSettingsBuilder;
 using settings::domain::CommandLineSettings;
 using settings::domain::CustomFileSettings;
 using settings::domain::Settings;
+using settings::domain::FileToBackup;
 using settings::exceptions::MissingSettingsException;
 
 MergedSettingsBuilder::MergedSettingsBuilder()
@@ -62,7 +63,7 @@ std::string settings::builders::MergedSettingsBuilder::mergeBackupPath() const
 	return backupPath;
 }
 
-std::vector<std::string> settings::builders::MergedSettingsBuilder::mergeFilePaths() const
+std::vector<FileToBackup> MergedSettingsBuilder::mergeFilePaths() const
 {
 	auto paths = _customFileSettings->getFilePaths();
 	if (paths.size() == 0)

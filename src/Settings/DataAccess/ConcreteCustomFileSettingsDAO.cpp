@@ -10,6 +10,7 @@
 
 using settings::dataaccess::ConcreteCustomFileSettingsDAO;
 using settings::domain::CustomFileSettings;
+using settings::domain::FileToBackup;
 using settings::exceptions::BadFormatCustomFileSettingsException;
 using settings::exceptions::BadTypeCustomFileSettingsException;
 
@@ -58,17 +59,44 @@ CustomFileSettings ConcreteCustomFileSettingsDAO::get()
 			throw BadTypeCustomFileSettingsException(_filePath, "backupFiles", "array");
 		}
 
-		std::vector<string> pathArray;
+        std::vector<FileToBackup> pathArray;
 
 		auto jsonArray = document["backupFiles"].GetArray();
 
 		for (auto it = jsonArray.Begin(); it != jsonArray.End(); it++) {
-			if (!it->IsString())
+            if (!it->IsObject())
 			{
-				throw BadTypeCustomFileSettingsException(_filePath, "backupFiles.object", "string");
+                throw BadTypeCustomFileSettingsException(_filePath, "backupFiles.object", "object");
 			}
 
-			pathArray.push_back(it->GetString());
+            auto fileObject = it->GetObject();
+
+			std::string path;
+			std::string label;
+
+            if (fileObject.HasMember("path"))
+            {
+                if (!fileObject["path"].IsString())
+                {
+                    throw BadTypeCustomFileSettingsException(_filePath, "backupFiles.object.path", "string");
+                }
+
+				path = fileObject["path"].GetString();
+            }
+
+			if (fileObject.HasMember("label"))
+			{
+				if (!fileObject["label"].IsString())
+				{
+					throw BadTypeCustomFileSettingsException(_filePath, "backupFiles.object.label", "string");
+				}
+
+				label = fileObject["label"].GetString();
+			}
+
+			FileToBackup file(path, label);
+
+			pathArray.push_back(file);
 		}
 
 		_builder->setFilePaths(pathArray);
