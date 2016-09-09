@@ -17,3 +17,8 @@ std::string FileToBackup::getPath() const
 {
     return _path;
 }
+
+std::string FileToBackup::getLabel() const
+{
+	return _label;
+}

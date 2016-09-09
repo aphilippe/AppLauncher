@@ -35,4 +35,11 @@ namespace launcher { namespace exceptions {
 		FileToBackupNotNotfoundException(const file_system::Path& path);
 		virtual ~FileToBackupNotNotfoundException() {}
 	};
+
+	class FileToBackupEmptyLabelExcetion : public core::Exception
+	{
+	public:
+		FileToBackupEmptyLabelExcetion(const file_system::Path& path);
+		virtual ~FileToBackupEmptyLabelExcetion() {}
+	};
 } }

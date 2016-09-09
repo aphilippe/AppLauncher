@@ -5,6 +5,7 @@ using launcher::exceptions::FileToBackupInvalidPathException;
 using launcher::exceptions::FileToBackupInvalidPermissionException;
 using launcher::exceptions::FileToBackupNotAFileException;
 using launcher::exceptions::FileToBackupNotNotfoundException;
+using launcher::exceptions::FileToBackupEmptyLabelExcetion;
 
 using file_system::Path;
 
@@ -43,6 +44,15 @@ FileToBackupNotNotfoundException::FileToBackupNotNotfoundException(const Path& p
 	std::ostringstream stringStream;
 
 	stringStream << path.stringValue() << " : file not found." << std::endl;
+
+	this->setMessage(stringStream.str());
+}
+
+FileToBackupEmptyLabelExcetion::FileToBackupEmptyLabelExcetion(const Path& path)
+{
+	std::ostringstream stringStream;
+
+	stringStream << path.stringValue() << " : no label found." << std::endl;
 
 	this->setMessage(stringStream.str());
 }
