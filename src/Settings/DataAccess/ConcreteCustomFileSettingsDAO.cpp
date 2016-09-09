@@ -63,12 +63,22 @@ CustomFileSettings ConcreteCustomFileSettingsDAO::get()
 		auto jsonArray = document["backupFiles"].GetArray();
 
 		for (auto it = jsonArray.Begin(); it != jsonArray.End(); it++) {
-			if (!it->IsString())
+            if (!it->IsObject())
 			{
-				throw BadTypeCustomFileSettingsException(_filePath, "backupFiles.object", "string");
+                throw BadTypeCustomFileSettingsException(_filePath, "backupFiles.object", "object");
 			}
 
-			pathArray.push_back(it->GetString());
+            auto fileObject = it->GetObject();
+
+            if (fileObject.HasMember("path"))
+            {
+                if (!fileObject["path"].IsString())
+                {
+                    throw BadTypeCustomFileSettingsException(_filePath, "backupFiles.object.path", "string");
+                }
+
+                pathArray.push_back(fileObject["path"].GetString());
+            }
 		}
 
 		_builder->setFilePaths(pathArray);
