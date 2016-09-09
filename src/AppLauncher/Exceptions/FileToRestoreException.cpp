@@ -6,6 +6,7 @@ using launcher::exceptions::FileToRestoreInvalidPathException;
 using launcher::exceptions::FileToRestoreInvalidPermissionException;
 using launcher::exceptions::FileToRestoreNotAFileException;
 using launcher::exceptions::FileToRestoreNotNotfoundException;
+using launcher::exceptions::FileToRestoreLabelNotfoundException;
 
 using file_system::Path;
 
@@ -44,6 +45,15 @@ FileToRestoreNotNotfoundException::FileToRestoreNotNotfoundException(const Path&
 	std::ostringstream stringStream;
 
 	stringStream << path.stringValue() << " : file not found." << std::endl;
+
+	this->setMessage(stringStream.str());
+}
+
+FileToRestoreLabelNotfoundException::FileToRestoreLabelNotfoundException(const Path& path)
+{
+	std::ostringstream stringStream;
+
+	stringStream << path.stringValue() << " : label not found." << std::endl;
 
 	this->setMessage(stringStream.str());
 }

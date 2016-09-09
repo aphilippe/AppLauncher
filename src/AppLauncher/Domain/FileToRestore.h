@@ -10,7 +10,7 @@ namespace launcher {
 		class FileToRestore
 		{
 		public:
-			FileToRestore(const file_system::Path& restorePath, const launcher::domain::BackupFolder& backupFolder);
+			FileToRestore(const file_system::Path& restorePath, const launcher::domain::BackupFolder& backupFolder, const std::string& label);
 			virtual ~FileToRestore();
 
 			void restore();
@@ -18,6 +18,7 @@ namespace launcher {
 		private:
 			file_system::Path _restorePath;
 			launcher::domain::BackupFolder _backupFolder;
+			std::string _label;
 		};
 
 	}

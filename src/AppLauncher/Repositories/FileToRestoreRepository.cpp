@@ -39,7 +39,7 @@ std::vector<FileToRestore> FileToRestoreRepository::get(const BackupFolder& back
 		try
 		{
 			Path path = pathFactory.createPath(pathString.getPath());
-			FileToRestore newFile(path, backupFolder);
+			FileToRestore newFile(path, backupFolder, pathString.getLabel());
 			files.push_back(newFile);
 		}
 		catch (core::Exception exception)

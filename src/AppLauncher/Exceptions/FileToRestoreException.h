@@ -36,5 +36,12 @@ namespace launcher {
 			virtual ~FileToRestoreNotNotfoundException() {}
 		};
 
+		class FileToRestoreLabelNotfoundException : public core::Exception
+		{
+		public:
+			FileToRestoreLabelNotfoundException(const file_system::Path& path);
+			virtual ~FileToRestoreLabelNotfoundException() {}
+		};
+
 	}
 }

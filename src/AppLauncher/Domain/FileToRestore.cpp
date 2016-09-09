@@ -9,10 +9,15 @@ using file_system::operations::CopyOperation;
 
 using launcher::domain::BackupFolder;
 
-FileToRestore::FileToRestore(const Path& restorePath, const BackupFolder& backupFolder)
-	: _restorePath(restorePath), _backupFolder(backupFolder)
+FileToRestore::FileToRestore(const Path& restorePath, const BackupFolder& backupFolder, const std::string& label)
+	: _restorePath(restorePath), _backupFolder(backupFolder), _label(label)
 {
-	Path backupPath = _backupFolder.getPath().addComponent(_restorePath.getFileName());
+	if (label.empty())
+	{
+		throw launcher::exceptions::FileToRestoreLabelNotfoundException(restorePath);
+	}
+
+	Path backupPath = _backupFolder.getPath().addComponent(_label);
 	if (!backupPath.exists())
 	{
 		throw launcher::exceptions::FileToRestoreNotNotfoundException(backupPath);
@@ -36,7 +41,7 @@ FileToRestore::~FileToRestore()
 
 void FileToRestore::restore()
 {
-	Path backupPath = _backupFolder.getPath().addComponent(_restorePath.getFileName());
+	Path backupPath = _backupFolder.getPath().addComponent(_label);
 	CopyOperation operation;
-	operation.copy(backupPath, _restorePath.getParent());
+	operation.copy(backupPath, _restorePath);
 }
