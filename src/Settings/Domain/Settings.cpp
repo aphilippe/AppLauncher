@@ -24,14 +24,7 @@ string Settings::getBackupPath() const
 	return _backupPath;
 }
 
-const std::vector<std::string>& Settings::getFilePaths() const
+const std::vector<FileToBackup>& Settings::getFilePaths() const
 {
-	// TODO: return FIleToBackup directly
-	std::vector<string>* vec = new std::vector<string>();
-
-	for (auto it = _filePaths.begin(); it != _filePaths.end(); it++)
-	{
-		vec->push_back(it->getPath());
-	}
-	return *vec;
+	return _filePaths;
 }

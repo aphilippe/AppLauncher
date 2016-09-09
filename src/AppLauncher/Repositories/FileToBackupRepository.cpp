@@ -33,12 +33,12 @@ std::vector<FileToBackup>FileToBackupRepository::get()
 
 	std::vector<FileToBackup> files;
 	PathFactory pathFactory;
-	for (std::string pathString : settings.getFilePaths())
+	for (settings::domain::FileToBackup pathString : settings.getFilePaths())
 	{
 		try
 		{
 
-			Path path = pathFactory.createPath(pathString);
+			Path path = pathFactory.createPath(pathString.getPath());
 			FileToBackup newFile(path);
 			files.push_back(newFile);
 		}

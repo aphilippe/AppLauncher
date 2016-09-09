@@ -13,7 +13,7 @@ public:
 
 	std::string getExecutablePath() const;
 	std::string getBackupPath() const;
-	const std::vector<std::string>& getFilePaths() const;
+	const std::vector<settings::domain::FileToBackup>& getFilePaths() const;
 
 private:
 	std::string _executablePath;

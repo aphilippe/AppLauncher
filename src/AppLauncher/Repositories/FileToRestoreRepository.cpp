@@ -34,11 +34,11 @@ std::vector<FileToRestore> FileToRestoreRepository::get(const BackupFolder& back
 
 	std::vector<FileToRestore> files;
 	PathFactory pathFactory;
-	for (std::string pathString : settings.getFilePaths())
+	for (settings::domain::FileToBackup pathString : settings.getFilePaths())
 	{
 		try
 		{
-			Path path = pathFactory.createPath(pathString);
+			Path path = pathFactory.createPath(pathString.getPath());
 			FileToRestore newFile(path, backupFolder);
 			files.push_back(newFile);
 		}
