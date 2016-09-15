@@ -1,10 +1,10 @@
 cmake_minimum_required(VERSION 2.8)
 
-set(executableName applauncher)
+set(executableName clapplauncher)
 
 # Project creation
 
-project(AppLauncher)
+project(ClappLauncher)
 set(EXECUTABLE_OUTPUT_PATH bin/)
 
 include_directories(src/Libraries)
