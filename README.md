@@ -1,5 +1,6 @@
 # ClappLauncher
-ClappLauncher is a cross-platform (Windows, OSX, Linux) command line tool that launch programs with a backup action.
+ClappLauncher is a desktop cross-platform (Windows, OSX, Linux) command line tool that launch programs with a backup action.
+It restores before program's launch and backup after some selected files automaticaly.
 
 A simple use example : 
 clappLauncher -e [path_to_executable] -s [path_to_settings]
