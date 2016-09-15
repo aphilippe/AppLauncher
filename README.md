@@ -8,4 +8,4 @@ where
  * path_to_executable means the path to the program you want to launch
  * path_to_settings means the path to the specific settings file (also named ClappSetting file)
  
-Please visite the wiki pages to get more information.
+To get more information please visit [the Wiki page](https://github.com/aphilippe/ClappLauncher/wiki)
