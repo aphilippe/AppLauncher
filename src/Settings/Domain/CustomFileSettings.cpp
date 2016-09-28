@@ -39,7 +39,7 @@ void CustomFileSettings::validateFilePaths()
     {
         FileToBackup& file = *fileIt;
 
-        auto duplicateIt = find_if(fileIt + 1, _filePaths.end(), [&file] (FileToBackup& f) {
+        auto duplicateIt = std::find_if(fileIt + 1, _filePaths.end(), [&file] (FileToBackup& f) {
                 return file.getLabel() == f.getLabel();
         });
 
