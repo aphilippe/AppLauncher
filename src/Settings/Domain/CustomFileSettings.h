@@ -19,6 +19,8 @@ private:
 	std::string _backupFolderPath;
     std::vector<settings::domain::FileToBackup> _filePaths;
     std::string _executablePath;
+
+    void validateFilePaths();
 };
 
 } }

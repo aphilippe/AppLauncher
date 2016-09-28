@@ -45,9 +45,10 @@ void initialize(const CommandLine& arguments);
 void terminateApp();
 
 int main(int argc, char* argv[]) {
+    try {
 	initialize(CommandLine(argc, argv));
 
-	try {
+
 		RestoreOperation restoreOperation(*fileToRestoreRepository, *backupFolderRepository);
 		restoreOperation.run();
 
