@@ -1,5 +1,6 @@
 #include "CustomFileSettings.h"
 #include "Settings/Exceptions/CustomFileSettingsExceptions.h"
+#include <algorithm>
 
 using std::string;
 
